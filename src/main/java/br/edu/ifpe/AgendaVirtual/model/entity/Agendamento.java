@@ -6,22 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-/**
- * @author mayara
- */
 
 @Entity
 @Table
 public class Agendamento {
-	
-	
-	
-	
+
 	@Id
 	@GeneratedValue
-	@Column
 	public int id;
 	@Column
 	public String atividade;
@@ -29,7 +23,7 @@ public class Agendamento {
 	public Date dataHora;
 	@Column
 	public String Descricao;
-	@Column
+	@OneToMany
 	public Disciplina disciplina;
 	
 	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina disciplina) {

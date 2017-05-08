@@ -4,11 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-/**
- * @author mayara
- */
 
 @Entity
 @Table
@@ -16,11 +13,10 @@ public class HorarioDeEstudo {
 	
 	@Id
 	@GeneratedValue
-	@Column
 	public int id;
 	@Column
 	public String horario;
-	@Column
+	@OneToMany
 	public Disciplina disciplina;
 	
 	public HorarioDeEstudo(int id, String horario, Disciplina disciplina) {

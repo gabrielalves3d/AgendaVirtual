@@ -6,17 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author mayara
- */
-
 @Entity
 @Table
 public class Disciplina {
 	
 	@Id
 	@GeneratedValue
-	@Column
 	public int id;
 	@Column
 	public String nome;

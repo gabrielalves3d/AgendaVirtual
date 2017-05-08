@@ -4,11 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * @author mayara
- */
 
 @Entity
 @Table
@@ -16,7 +15,6 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue
-	@Column
 	public int id;
 	@Column
 	public String nome;
@@ -24,13 +22,13 @@ public class Usuario {
 	public String email;
 	@Column
 	public String senha;
-	@Column
+	@OneToOne
 	private HorarioDeEstudo horarioDeEstudo;
-	@Column
+	@OneToOne
 	private Boletim boletim;
-	@Column
+	@OneToMany
 	private Anotacoes anotacoes;
-	@Column
+	@OneToMany
 	private Agendamento agendamento;
 	
 	

@@ -6,11 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-/**
- * @author mayara
- */
 
 @Entity
 @Table
@@ -18,9 +15,8 @@ public class Boletim {
 	
 	@Id
 	@GeneratedValue
-	@Column
 	public int id;
-	@Column
+	@OneToMany
 	public ArrayList<Disciplina> disciplina;
 
 	public Boletim(int id,ArrayList<Disciplina> disciplina) {
