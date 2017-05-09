@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,11 +16,15 @@ public class Anotacoes {
 	
 	@Id
 	@GeneratedValue
-	public int id;
+	private int id;
 	@Column
-	public String texto;
+	private String texto;
 	@Column
-	public Date data;
+	private Date data;
+	
+	@ManyToOne
+	@JoinColumn(name="usuario_id", updatable=false)
+	private Usuario usuario;
 	
 	
 	public Anotacoes(int id, String texto, Date data) {

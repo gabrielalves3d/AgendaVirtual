@@ -1,9 +1,14 @@
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -22,14 +27,15 @@ public class Usuario {
 	public String email;
 	@Column
 	public String senha;
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
+	@JoinColumn(name="horario_estudo_id")
 	private HorarioDeEstudo horarioDeEstudo;
 	@OneToOne
 	private Boletim boletim;
+	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
+	private List<Anotacoes> anotacoes;
 	@OneToMany
-	private Anotacoes anotacoes;
-	@OneToMany
-	private Agendamento agendamento;
+	private List<Agendamento> agendamento;
 	
 	
 	public Usuario(int id,String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo, Boletim boletim,

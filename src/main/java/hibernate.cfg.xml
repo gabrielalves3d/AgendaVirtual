@@ -7,6 +7,8 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/agendaVirtual</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">root</property>
+		
+		<!--  <property name="dbm2ddl.auto">create</property>-->
 
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Usuario" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo" />
