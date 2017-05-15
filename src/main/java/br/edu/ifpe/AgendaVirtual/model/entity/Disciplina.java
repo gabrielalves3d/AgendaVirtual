@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,9 @@ public class Disciplina {
 	public double mediaFinal;
 	@Column
 	public boolean situacao;
+	@ManyToOne
+	@JoinColumn(name="usuario_id", updatable=false)
+	private Usuario usuario;
 	
 	
 	public Disciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
