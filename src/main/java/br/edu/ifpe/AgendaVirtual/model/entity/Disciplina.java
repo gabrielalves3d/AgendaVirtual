@@ -7,15 +7,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
 public class Disciplina {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue 
 	private int id;
 	@Column
+	@NotNull
 	private String nome;
 	@Column
 	private double nota;
