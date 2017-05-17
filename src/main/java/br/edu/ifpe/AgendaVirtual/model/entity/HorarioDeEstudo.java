@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,15 +17,12 @@ public class HorarioDeEstudo {
 	
 	@Id
 	@GeneratedValue
-	public int id;
+	private int id;
 	@Column
-	public String horario;
-	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	@JoinColumn(name="disciplina_id")
+	private String horario;
+	@OneToMany(mappedBy="horarioDeEstudo", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	public ArrayList<Disciplina> disciplina;
-	@ManyToOne
-	@JoinColumn(name="usuario_id", updatable=false)
-	private Usuario usuario;
+	
 	
 	public HorarioDeEstudo(int id, String horario, ArrayList<Disciplina> disciplina) {
 		super();

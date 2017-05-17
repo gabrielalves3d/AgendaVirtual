@@ -14,27 +14,29 @@ public class Disciplina {
 	
 	@Id
 	@GeneratedValue
-	public int id;
+	private int id;
 	@Column
-	public String nome;
+	private String nome;
 	@Column
-	public double nota;
+	private double nota;
 	@Column
-	public double mediaFinal;
+	private double mediaFinal;
 	@Column
-	public boolean situacao;
+	private boolean situacao;
 	@ManyToOne
-	@JoinColumn(name="usuario_id", updatable=false)
-	private Usuario usuario;
+	@JoinColumn(name="disciplina_id", updatable=false)
+	private HorarioDeEstudo horarioEstudo;
 	
 	
-	public Disciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
+	
+	public Disciplina(int id, String nome, double nota, double mediaFinal, boolean situacao,HorarioDeEstudo horarioEstudo) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.nota = nota;
 		this.mediaFinal = mediaFinal;
 		this.situacao = situacao;
+		this.horarioEstudo = horarioEstudo;
 	}
 
 	
@@ -84,6 +86,18 @@ public class Disciplina {
 
 	public void setSituacao(boolean situacao) {
 		this.situacao = situacao;
+	}
+
+
+
+	public HorarioDeEstudo getHorarioEstudo() {
+		return horarioEstudo;
+	}
+
+
+
+	public void setHorarioEstudo(HorarioDeEstudo horarioEstudo) {
+		this.horarioEstudo = horarioEstudo;
 	}
 	
 	

@@ -28,9 +28,11 @@ public class Usuario {
 	private String email;
 	@Column
 	private String senha;
+	
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="horario_estudo_id")
 	private HorarioDeEstudo horarioDeEstudo;
+	
 	@OneToOne
 	@JoinColumn(name="boletim_id")
 	private Boletim boletim;
