@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Anotacoes {
+public class Anotacao {
 	
 	@Id
 	@GeneratedValue
@@ -21,17 +21,17 @@ public class Anotacoes {
 	private String texto;
 	@Column
 	private Date data;
-	
 	@ManyToOne
-	@JoinColumn(name="usuario_id", updatable=false)
+	@JoinColumn(name="anotacao_id", updatable=false)
 	private Usuario usuario;
 	
 	
-	public Anotacoes(int id, String texto, Date data) {
+	public Anotacao(int id, String texto, Date data, Usuario usuario) {
 		super();
 		this.id = id;
 		this.texto = texto;
 		this.data = data;
+		this.usuario = usuario;
 	}
 
 	
@@ -39,29 +39,33 @@ public class Anotacoes {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getTexto() {
 		return texto;
 	}
 
-
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-
 
 	public Date getData() {
 		return data;
 	}
 
-
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	
