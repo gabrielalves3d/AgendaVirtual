@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,12 +27,14 @@ public class Usuario {
 	@Column
 	private String senha;
 	@OneToOne (cascade=CascadeType.ALL)
+	@JoinColumn(name="horario_estudo_id", updatable=false)
 	private HorarioDeEstudo horarioDeEstudo;
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
+	@JoinColumn(name="boletim_id", updatable=false)
 	private Boletim boletim;
-	@OneToMany(mappedBy="usuario_id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private List<Anotacao> anotacao;
-	@OneToMany(mappedBy="usuario_id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private List<Agendamento> agendamento;
 	
 	
