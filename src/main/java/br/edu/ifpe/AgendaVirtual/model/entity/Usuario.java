@@ -1,7 +1,7 @@
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
-import java.util.List;
 
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 
 @Entity
 @Table
@@ -29,24 +27,19 @@ public class Usuario {
 	@Column
 	private String senha;
 	@OneToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name="horario_estudo_id")
+	@JoinColumn(name="horario_estudo_id", updatable=false)
 	private HorarioDeEstudo horarioDeEstudo;
-	@OneToOne
-	@JoinColumn(name="boletim_id")
+	@OneToOne (cascade=CascadeType.ALL)
+	@JoinColumn(name="boletim_id", updatable=false)
 	private Boletim boletim;
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	@JoinColumn(name="anotacoes_id")
-	private List<Anotacoes> anotacoes;
+	private List<Anotacao> anotacao;
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	@JoinColumn(name="agendamento_id")
 	private List<Agendamento> agendamento;
-	@ManyToOne
-	@JoinColumn(name="usuario_id", updatable=false)
-	private Usuario usuario;
 	
 	
-	public Usuario(int id,String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
-			Anotacoes anotacoes, Agendamento agendamento) {
+	public Usuario(int id, String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
+			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -54,10 +47,9 @@ public class Usuario {
 		this.senha = senha;
 		this.horarioDeEstudo = horarioDeEstudo;
 		this.boletim = boletim;
-		this.anotacoes = (List<Anotacoes>) anotacoes;
-		this.agendamento = (List<Agendamento>) agendamento;
+		this.anotacao = anotacao;
+		this.agendamento = agendamento;
 	}
-	
 	
 	public int getId() {
 		return id;
@@ -97,18 +89,19 @@ public class Usuario {
 	public void setBoletim(Boletim boletim) {
 		this.boletim = boletim;
 	}
-	public Anotacoes getAnotacoes() {
-		return (Anotacoes) anotacoes;
+	public Anotacao getAnotacao() {
+		return (Anotacao) anotacao;
 	}
-	public void setAnotacoes(Anotacoes anotacoes) {
-		this.anotacoes = (List<Anotacoes>) anotacoes;
+	
+	public void setAnotacao(List<Anotacao> anotacao) {
+		this.anotacao = anotacao;
 	}
+	
 	public Agendamento getAgendamento() {
 		return (Agendamento) agendamento;
 	}
-	public void setAgendamento(Agendamento agendamento) {
-		this.agendamento = (List<Agendamento>) agendamento;
+
+	public void setAgendamento(List<Agendamento> agendamento) {
+		this.agendamento = agendamento;
 	}
-	
-	
 }

@@ -3,13 +3,10 @@ package br.edu.ifpe.AgendaVirtual.model.entity;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,18 +17,16 @@ public class Boletim {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	@JoinColumn(name="disciplina_id")
+	@OneToMany(mappedBy="boletim_id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private ArrayList<Disciplina> disciplina;
-	@ManyToOne
-	@JoinColumn(name="usuario_id", updatable=false)
-	private Usuario usuario;
-
-	public Boletim(int id,ArrayList<Disciplina> disciplina) {
+	
+	
+	public Boletim(int id, ArrayList<Disciplina> disciplina) {
 		super();
 		this.id = id;
 		this.disciplina = disciplina;
 	}
+
 	
 	public int getId() {
 		return id;
@@ -47,11 +42,5 @@ public class Boletim {
 
 	public void setDisciplina(ArrayList<Disciplina> disciplina) {
 		this.disciplina = disciplina;
-	}
-	
-	
-	
-	
-	
-
+	}	
 }
