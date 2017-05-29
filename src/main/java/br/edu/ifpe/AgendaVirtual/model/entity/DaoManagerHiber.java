@@ -143,6 +143,7 @@ public class DaoManagerHiber {
 
     public static void main(String args[]) {
         DaoManagerHiber.getInstance();
+        
     }
 
 }
