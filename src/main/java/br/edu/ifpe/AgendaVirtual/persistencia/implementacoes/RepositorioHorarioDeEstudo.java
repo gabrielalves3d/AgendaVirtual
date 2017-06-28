@@ -1,5 +1,44 @@
 package br.edu.ifpe.AgendaVirtual.persistencia.implementacoes;
 
-public class RepositorioHorarioDeEstudo {
+import java.util.List;
+
+import br.edu.ifpe.AgendaVirtual.model.entity.DaoManagerHiber;
+import br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo;
+import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
+
+public class RepositorioHorarioDeEstudo implements RepositorioGenerico<HorarioDeEstudo, Integer>{
+    DaoManagerHiber dao = DaoManagerHiber.getInstance();
+
+    public void inserir(HorarioDeEstudo u){
+        dao.persist(u);
+    }
+    
+    public void alterar(HorarioDeEstudo u){
+        dao.update(u);
+    }
+    
+    
+    public void excluir(HorarioDeEstudo u){
+        DaoManagerHiber.getInstance().delete(u);
+    }
+    
+    public List<HorarioDeEstudo> recuperarTodos(){
+        return DaoManagerHiber.getInstance().recover("from HorarioDeEstudo");
+    }
+
+    
+    public HorarioDeEstudo recuperar(Integer g) {
+        try{
+            return (HorarioDeEstudo) dao.recover("from HorarioDeEstudo where id=" +g);
+        }catch
+                (IndexOutOfBoundsException e){
+            return null;
+            
+        }
+    }
+
 
 }
+
+
+

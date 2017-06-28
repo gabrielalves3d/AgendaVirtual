@@ -1,5 +1,43 @@
 package br.edu.ifpe.AgendaVirtual.persistencia.implementacoes;
 
-public class RepositorioBoletim {
+import java.util.List;
+
+import br.edu.ifpe.AgendaVirtual.model.entity.Boletim;
+import br.edu.ifpe.AgendaVirtual.model.entity.DaoManagerHiber;
+import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
+
+public class RepositorioBoletim  implements RepositorioGenerico<Boletim, Integer>{
+    DaoManagerHiber dao = DaoManagerHiber.getInstance();
+
+    public void inserir(Boletim u){
+        dao.persist(u);
+    }
+    
+    public void alterar(Boletim u){
+        dao.update(u);
+    }
+    
+    
+    public void excluir(Boletim u){
+        DaoManagerHiber.getInstance().delete(u);
+    }
+    
+    public List<Boletim> recuperarTodos(){
+        return DaoManagerHiber.getInstance().recover("from Boletim");
+    }
+
+    
+    public Boletim recuperar(Integer g) {
+        try{
+            return (Boletim) dao.recover("from Boletim where id=" +g);
+        }catch
+                (IndexOutOfBoundsException e){
+            return null;
+            
+        }
+    }
+
+
+
 
 }

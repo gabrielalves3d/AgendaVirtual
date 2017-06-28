@@ -9,25 +9,25 @@ import br.edu.ifpe.AgendaVirtual.model.entity.*;
 public class RepositorioUsuario implements RepositorioGenerico<Usuario, Integer>{
 	    DaoManagerHiber dao = DaoManagerHiber.getInstance();
 
-	    @Override
+	    
 	    public void inserir(Usuario u){
 	        dao.persist(u);
 	    }
-	    @Override
+	    
 	    public void alterar(Usuario u){
 	        dao.update(u);
 	    }
 	    
-	    @Override
+	    
 	    public void excluir(Usuario u){
 	        DaoManagerHiber.getInstance().delete(u);
 	    }
-	    @Override
+	    
 	    public List<Usuario> recuperarTodos(){
 	        return DaoManagerHiber.getInstance().recover("from Usuario");
 	    }
 
-	    @Override
+	    
 	    public Usuario recuperar(Integer g) {
 	        try{
 	            return (Usuario) dao.recover("from Usuario where id=" +g);

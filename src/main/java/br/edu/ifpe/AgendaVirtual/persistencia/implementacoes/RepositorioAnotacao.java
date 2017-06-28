@@ -1,5 +1,43 @@
 package br.edu.ifpe.AgendaVirtual.persistencia.implementacoes;
 
-public class RepositorioAnotacao {
+import java.util.List;
+
+import br.edu.ifpe.AgendaVirtual.model.entity.Anotacao;
+import br.edu.ifpe.AgendaVirtual.model.entity.DaoManagerHiber;
+import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
+
+public class RepositorioAnotacao implements RepositorioGenerico<Anotacao, Integer>{
+    DaoManagerHiber dao = DaoManagerHiber.getInstance();
+
+    public void inserir(Anotacao u){
+        dao.persist(u);
+    }
+    
+    public void alterar(Anotacao u){
+        dao.update(u);
+    }
+    
+    
+    public void excluir(Anotacao u){
+        DaoManagerHiber.getInstance().delete(u);
+    }
+    
+    public List<Anotacao> recuperarTodos(){
+        return DaoManagerHiber.getInstance().recover("from Anotacao");
+    }
+
+    
+    public Anotacao recuperar(Integer g) {
+        try{
+            return (Anotacao) dao.recover("from Anotacao where id=" +g);
+        }catch
+                (IndexOutOfBoundsException e){
+            return null;
+            
+        }
+    }
+
 
 }
+
+
