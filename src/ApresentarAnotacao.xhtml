@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta
+	http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <h:head>
+	<title>Agenda Virtual</title>
+</h:head>
+ </head> 
+
+<body>
+	 <ui:include src='menu.xhtml' /> <h:form
+	id="formApresentaAnotacao">
+	<p:dataTable id="tabela" var="item"
+		value="#{anotacaoController.recuperarTodosAnotacao()}"
+		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
+		 <f:facet name="header">Anotações Cadastradas</f:facet>
+		    <p:column headerText="Usuario">
+                    <h:outputText value="#{item.usuario}"/>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                <p:column headerText="Texto:">
+                    <h:outputText value="#{item.texto}"/>
+                </p:column>
+                <p:column headerText="Data:">
+                    <h:outputText value="#{item.data}"/>
+                </p:column>
+             
+                    
+                     <p:column headerText="Operações">
+                    <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmExcluirAnotacao').show()" title="Excluir">
+                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-pencil" oncomplete="PF('confirmEditarAnotacao').show()" title="Editar">                     
+                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                    </p:commandButton> 
+                    <p:commandButton icon="ui-icon-search" oncomplete="PF('confirmViewAnotacao').show()" title="View"
+                                     update=":formApresentaAnotacao:confirmVisualizaAnotacao">
+                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                    </p:commandButton>
+                </p:column>
+                </p:dataTable>
+                
+               
+		</body>
+</html>
