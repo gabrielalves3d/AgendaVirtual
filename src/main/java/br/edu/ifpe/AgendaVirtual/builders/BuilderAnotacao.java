@@ -1,13 +1,14 @@
 package br.edu.ifpe.AgendaVirtual.builders;
-
+ 
 import java.util.Date;
-//import javax.faces.bean.ManagedBean;
-//import javax.faces.bean.RequestScoped;
+
+import javax.annotation.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import br.edu.ifpe.AgendaVirtual.model.entity.Anotacao;
 import br.edu.ifpe.AgendaVirtual.model.entity.Usuario;
 
-//@ManagedBean(name = "bAnotacao")
-//@RequestScoped
+@ManagedBean
+@RequestScoped
 
 public class BuilderAnotacao {
 
