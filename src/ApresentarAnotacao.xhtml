@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> <head> <meta
-	http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <h:head>
+	http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
+	<h:head>
 	<title>Agenda Virtual</title>
 </h:head>
  </head> 
@@ -18,23 +19,26 @@
                 <p:column headerText="Id">
                     <h:outputText value="#{item.id}"/>
                 </p:column>
-                <p:column headerText="Texto:">
-                    <h:outputText value="#{item.texto}"/>
-                </p:column>
-                <p:column headerText="Data:">
+                 <p:column headerText="Data">
                     <h:outputText value="#{item.data}"/>
                 </p:column>
-             
                     
                      <p:column headerText="Operações">
+                      <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmCadastrarAnotacao').show()" title="Cadastrar">
+                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                        <ui:include src="CadastararAnotacao.xhtml"/>
+                    </p:commandButton>
                     <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmExcluirAnotacao').show()" title="Excluir">
                         <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                        <ui:include src="ExcluirAnotacao.xhtml"/>
                     </p:commandButton>
                     <p:commandButton icon="ui-icon-pencil" oncomplete="PF('confirmEditarAnotacao').show()" title="Editar">                     
                         <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
+                        <ui:include src="EditarAnotacao.xhtml"/>
                     </p:commandButton> 
                     <p:commandButton icon="ui-icon-search" oncomplete="PF('confirmViewAnotacao').show()" title="View"
-                                     update=":formApresentaAnotacao:confirmVisualizaAnotacao">
+                                     update=":formVisualizaAnotacao:confirmVisualizaAnotacao">
+                                     <ui:include src="VisualizarAnotacao.xhtml"/>
                         <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
                     </p:commandButton>
                 </p:column>

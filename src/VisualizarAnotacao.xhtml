@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<h:head>
+	<title>Agenda Virtual</title>
+</h:head>
+</head>
+<body>
+<p:dialog header="Anotacao Cadastrada" id="confirmVisualizaAnotacao" resizable="false" visible="false" modal="true" 
+                      widgetVar="confirmViewAnotacao">
+
+                <p:panelGrid columns="2">
+                
+                    <h:outputText value="Usuario:"/>
+                    <h:outputText value="#{anotacaoController.selecionar.usuario}"/> 
+                    
+                    <h:outputText value="Id:"/>
+                    <h:outputText value="#{anotacaoController.selecionar.id}"/>
+                    
+                    <h:outputText value="Texto:"/>
+                    <h:outputText value="#{anotacaoController.selecionar.texto}"/>
+
+                    <h:outputText value="Data:"/>
+                    <h:outputText value="#{anotacaoController.selecionar.data}"/> 
+
+                    
+
+                </p:panelGrid>
+            </p:dialog>
+</body>
+</html>
