@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:head>
+        <title>Agenda Virtual</title>
+    </h:head>
+</head>
+<body>
+ <ui:include src='menu.xhtml' /> <h:form
+	id="formApresentaDisciplina">
+	<p:dataTable id="tabela" var="item"
+		value="#{disciplinaController.recuperarTodosDisciplina()}"
+		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
+		 <f:facet name="header">Disciplinas Cadastradas</f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+                 <p:column headerText="Nome">
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+                <p:column headerText="Nota">
+                    <h:outputText value="#{item.nota}"/>
+                </p:column>
+                <p:column headerText="MediaFinal">
+                    <h:outputText value="#{item.mediaFinal}"/>
+                </p:column>
+                <p:column headerText="Situacao">
+                    <h:outputText value="#{item.situacao}"/>
+                </p:column>
+                    
+                     <p:column headerText="Operações">
+                      <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmCadastrarDisciplina').show()" title="Cadastrar">
+                        <f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}"/>
+                        <ui:include src="CadastrarDisciplina.xhtml"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmExcluirDisciplina').show()" title="Excluir">
+                        <f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}"/>
+                        <ui:include src="ExcluirDisciplina.xhtml"/>
+                    </p:commandButton>
+                    <p:commandButton icon="ui-icon-pencil" oncomplete="PF('confirmEditarDisciplina').show()" title="Editar">                     
+                        <f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}"/>
+                        <ui:include src="EditarDisciplina.xhtml"/>
+                    </p:commandButton> 
+                
+                  
+       
+                </p:column>
+                </p:dataTable>
+                
+               
+		</body>
+</html>

@@ -1,6 +1,7 @@
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,11 +18,11 @@ public class Boletim {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToMany(mappedBy="boletim_id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	private ArrayList<Disciplina> disciplina;
+	@OneToMany(mappedBy="id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
+	private List<Disciplina> disciplina;
 	
 	
-	public Boletim(int id, ArrayList<Disciplina> disciplina) {
+	public Boletim(int id, List<Disciplina> disciplina) {
 		super();
 		this.id = id;
 		this.disciplina = disciplina;
@@ -36,11 +37,11 @@ public class Boletim {
 		this.id = id;
 	}
 
-	public ArrayList<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplina() {
+		return (List<Disciplina>) disciplina;
 	}
 
-	public void setDisciplina(ArrayList<Disciplina> disciplina) {
+	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}	
 }

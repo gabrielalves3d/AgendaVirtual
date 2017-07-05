@@ -2,16 +2,15 @@ package br.edu.ifpe.AgendaVirtual.model.entity;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,19 +26,19 @@ public class Agendamento {
 	private Date dataHora;
 	@Column
 	private String Descricao;
-	@OneToMany(mappedBy="agendamento", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	private ArrayList <Disciplina> disciplina;
+	@OneToOne
+	private Disciplina disciplina;
 	@ManyToOne
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 	
-	public Agendamento(int id, String atividade, Date dataHora, String descricao, ArrayList<Disciplina> disciplina) {
+	public Agendamento(int id, String atividade, Date dataHora, String descricao, List<Disciplina> disciplina) {
 		super();
 		this.id = id;
 		this.atividade = atividade;
 		this.dataHora = dataHora;
 		this.Descricao = descricao;
-		this.disciplina = disciplina;
+		this.disciplina = (Disciplina) disciplina;
 	}
 
 	
@@ -77,12 +76,12 @@ public class Agendamento {
 		Descricao = descricao;
 	}
 
-	public ArrayList<Disciplina> getDisciplina() {
-		return disciplina;
+	public List<Disciplina> getDisciplina() {
+		return (List<Disciplina>) disciplina;
 	}
 
-	public void setDisciplina(ArrayList<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = (Disciplina) disciplina;
 	}
 	
 	

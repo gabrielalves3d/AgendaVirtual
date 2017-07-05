@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:head>
+	<title>Agenda Virtual</title>
+</h:head>
+</head>
+<body>
+
+            <p:confirmDialog header="Atenção!" message="Deseja realmente excluir esta disciplina?" id="confirmDisciplina" visible="false"
+                             widgetVar="confirmExcluirDisciplina">
+                <p:commandButton icon="ui-icon-check" value="Sim" action="#{disciplinaController.excluir(disciplinaController.selecionar)}"
+                                 oncomplete="PF('confirmExcluirDisciplina').hide()" update=":formApresentaDisciplina:tabela"/>
+                <p:commandButton icon="ui-icon-close" value="Não" onclick="confirmExcluirDisciplina.hide();"/>
+            </p:confirmDialog>
+
+</body>
+</html>

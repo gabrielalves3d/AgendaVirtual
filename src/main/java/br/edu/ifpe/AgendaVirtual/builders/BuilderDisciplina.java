@@ -1,34 +1,28 @@
-package br.edu.ifpe.AgendaVirtual.model.entity;
+package br.edu.ifpe.AgendaVirtual.builders;
 
-import java.util.List;
+import javax.annotation.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 
-
-@Entity
-@Table
-public class Disciplina {
-	
-	@Id
-	@GeneratedValue 
+@ManagedBean
+@RequestScoped
+public class BuilderDisciplina {
+ 
 	private int id;
-	@Column
+	
 	private String nome;
-	@Column
+	
 	private double nota;
-	@Column
+	
 	private double mediaFinal;
-	@Column
+	
 	private boolean situacao;
 
 
-	public Disciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
+	public BuilderDisciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -78,5 +72,13 @@ public class Disciplina {
 	public void setSituacao(boolean situacao) {
 		this.situacao = situacao;
 	}
+	public BuilderDisciplina(){
+    }
+
+	
+	public Disciplina construirDisciplina(){
+        return new Disciplina(id, nome, nota, mediaFinal, situacao);
+    }
 
 }
+

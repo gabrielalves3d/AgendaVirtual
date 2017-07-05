@@ -4,19 +4,19 @@
 	<session-factory> 
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/agendaVirtual</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/agendavirtual</property>
 		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.password">123</property>
 		
-		<!--  <property name="dbm2ddl.auto">create</property>-->
+		<property name="dbm2ddl.auto">create</property>
 
-		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Usuario" />
+		<!-- <mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Usuario" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Disciplina" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Boletim" />
-		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Anotacoes" />
+		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Anotacao" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Agendamento" />
-
-
+		 -->
+<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Disciplina" />
 	</session-factory>
 </hibernate-configuration>

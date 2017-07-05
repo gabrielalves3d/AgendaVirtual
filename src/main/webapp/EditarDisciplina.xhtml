@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:head>
+        <title>Agenda Virtual</title>
+    </h:head>
+</head>
+<h:body>
+<p:dialog header="Editar" id="confirmEditar" resizable="false"
+	visible="false" modal="true" widgetVar="confirmEditarDisciplina">
+	<h:form id="confirmEditarDisciplina">
+		<p:panelGrid columns="2">
+			<h:outputText />
+			<p:inputtext value="#{DisciplinaController.selecionar.nome}" />
+			<p:inputtext value="#{DisciplinaController.selecionar.nota}" />
+			
+		</p:panelGrid>
+		<p:commandButton icon="ui-icon-pencil" value="Editar"
+			action="#{DisciplinaController.alterar(DisciplinaController.selecionar)}"
+			oncomplete="PF('confirmEditarDisciplina').hide()"
+			update=":formApresentarDisciplina:tabela" />
+	</h:form>
+</p:dialog>
+</h:body>
+
+</html>

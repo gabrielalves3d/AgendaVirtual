@@ -31,6 +31,8 @@ public class DaoManagerHiber {
             sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
             s = sessionFactory.openSession();
 
+        } catch(Exception ex) {
+        	ex.printStackTrace();
         } catch (Throwable th) {
 
             System.err.println("Enitial SessionFactory creation failed" + th);

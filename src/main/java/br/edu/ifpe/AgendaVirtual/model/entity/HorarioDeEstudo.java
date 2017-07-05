@@ -1,6 +1,6 @@
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,11 +21,11 @@ public class HorarioDeEstudo {
 	private int id;
 	@Column
 	private String horario;
-	@OneToMany(mappedBy="horarioDeEstudo", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
-	private ArrayList<Disciplina> disciplinas;
+	@ManyToMany
+	private List<Disciplina> disciplinas;
 	
 	
-	public HorarioDeEstudo(int id, String horario, ArrayList<Disciplina> disciplina, Usuario usuario) {
+	public HorarioDeEstudo(int id, String horario, List<Disciplina> disciplina, Usuario usuario) {
 		super();
 		this.id = id;
 		this.horario = horario;
@@ -48,11 +49,11 @@ public class HorarioDeEstudo {
 		this.horario = horario;
 	}
 
-	public ArrayList<Disciplina> getDisciplina() {
+	public List<Disciplina> getDisciplina() {
 		return disciplinas;
 	}
 
-	public void setDisciplina(ArrayList<Disciplina> disciplina) {
+	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplinas = disciplina;
 	}
 }
