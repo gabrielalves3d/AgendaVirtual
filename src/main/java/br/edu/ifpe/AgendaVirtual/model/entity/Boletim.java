@@ -44,4 +44,7 @@ public class Boletim {
 	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplina = disciplina;
 	}	
+	public Boletim(){
+		
+	}
 }

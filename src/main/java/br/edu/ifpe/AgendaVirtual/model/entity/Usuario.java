@@ -51,6 +51,9 @@ public class Usuario {
 		this.agendamento = agendamento;
 	}
 	
+	public Usuario() {
+	}
+
 	public int getId() {
 		return id;
 	}

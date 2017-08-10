@@ -42,6 +42,11 @@ public class Agendamento {
 	}
 
 	
+	public Agendamento() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId() {
 		return id;
 	}

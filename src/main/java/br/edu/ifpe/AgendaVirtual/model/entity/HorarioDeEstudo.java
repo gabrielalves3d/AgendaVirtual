@@ -56,4 +56,7 @@ public class HorarioDeEstudo {
 	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplinas = disciplina;
 	}
+	public HorarioDeEstudo(){
+		
+	}
 }

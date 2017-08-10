@@ -4,6 +4,8 @@
  */
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -144,7 +146,59 @@ public class DaoManagerHiber {
     }
 
     public static void main(String args[]) {
-        DaoManagerHiber.getInstance();
+    	
+    	Usuario usr = new Usuario();
+    	
+    	usr.setEmail("tst@mail.com");
+    	usr.setNome("Larissa");
+    	usr.setSenha("larissa");
+    	
+    	List<Disciplina> dis = new ArrayList<Disciplina>();
+    	Disciplina d = new Disciplina();
+    	d.setNome("Mat");
+    	d.setNota(9.5);
+    	d.setSituacao(true);
+    	d.setMediaFinal(6.0);
+    	dis.add(d);
+    	
+    	
+    	
+    	List<Agendamento> ags = new ArrayList<Agendamento>();
+    	Agendamento a = new Agendamento();
+    	a.setAtividade("Tst");
+    	a.setDescricao("dsc");
+		Date dataHora = new Date("18/02/1999");
+		a.setDataHora(dataHora);
+    	//a.setDisciplina();
+    	ags.add(a);
+    	usr.setAgendamento(ags);
+    	
+    	List<Anotacao> nt = new ArrayList<Anotacao>();
+    	Anotacao ant = new Anotacao();
+    	ant.setTexto("I love you");
+    	Date data = new Date("18/02/1999");
+    	ant.setData(data);
+    	nt.add(ant);
+    	usr.setAnotacao(nt);
+    	
+    	HorarioDeEstudo academico  = new HorarioDeEstudo();
+    	academico.setHorario("12:00");
+    	//academico.setDisciplina();
+    	usr.setHorarioDeEstudo(academico);
+        
+    	Boletim blm = new Boletim();
+    	//blm.setDisciplina();
+    	usr.setBoletim(blm);
+  
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+        DaoManagerHiber.getInstance().persist(usr);
         
     }
 

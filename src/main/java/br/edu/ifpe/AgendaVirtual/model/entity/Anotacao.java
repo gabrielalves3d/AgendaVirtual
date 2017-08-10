@@ -25,6 +25,9 @@ public class Anotacao {
 	@JoinColumn(name="anotacao_id", updatable=false)
 	private Usuario usuario;
 	
+	public Anotacao(){
+		
+	}
 	
 	public Anotacao(int id, String texto, Date data, Usuario usuario) {
 		super();

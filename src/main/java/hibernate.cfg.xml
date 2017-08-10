@@ -8,15 +8,14 @@
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">123</property>
 		
-		<property name="dbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 
-		<!-- <mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Usuario" />
+		 <mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Usuario" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Disciplina" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Boletim" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Anotacao" />
 		<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Agendamento" />
-		 -->
-<mapping class="br.edu.ifpe.AgendaVirtual.model.entity.Disciplina" />
+
 	</session-factory>
 </hibernate-configuration>

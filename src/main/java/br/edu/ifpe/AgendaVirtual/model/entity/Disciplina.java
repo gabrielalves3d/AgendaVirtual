@@ -78,5 +78,9 @@ public class Disciplina {
 	public void setSituacao(boolean situacao) {
 		this.situacao = situacao;
 	}
+	
+    public Disciplina () {
+    	
+    }
 
 }
