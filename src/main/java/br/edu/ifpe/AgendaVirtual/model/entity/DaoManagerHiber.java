@@ -162,14 +162,13 @@ public class DaoManagerHiber {
     	dis.add(d);
     	
     	
-    	
     	List<Agendamento> ags = new ArrayList<Agendamento>();
     	Agendamento a = new Agendamento();
     	a.setAtividade("Tst");
     	a.setDescricao("dsc");
 		Date dataHora = new Date("18/02/1999");
 		a.setDataHora(dataHora);
-    	//a.setDisciplina();
+    	a.setDisciplina(dis);
     	ags.add(a);
     	usr.setAgendamento(ags);
     	
@@ -183,11 +182,11 @@ public class DaoManagerHiber {
     	
     	HorarioDeEstudo academico  = new HorarioDeEstudo();
     	academico.setHorario("12:00");
-    	//academico.setDisciplina();
+    	academico.setDisciplina(dis);
     	usr.setHorarioDeEstudo(academico);
         
     	Boletim blm = new Boletim();
-    	//blm.setDisciplina();
+    	blm.setDisciplina(dis);
     	usr.setBoletim(blm);
   
     	
