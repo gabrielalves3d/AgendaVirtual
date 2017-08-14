@@ -1,13 +1,9 @@
 package br.edu.ifpe.AgendaVirtual.model.entity;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -37,6 +33,10 @@ public class Disciplina {
 		this.situacao = situacao;
 		
 		
+	}
+
+	public Disciplina() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -78,9 +78,5 @@ public class Disciplina {
 	public void setSituacao(boolean situacao) {
 		this.situacao = situacao;
 	}
-	
-    public Disciplina () {
-    	
-    }
 
 }

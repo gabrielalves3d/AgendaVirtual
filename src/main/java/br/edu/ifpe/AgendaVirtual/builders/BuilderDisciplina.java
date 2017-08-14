@@ -1,15 +1,15 @@
 package br.edu.ifpe.AgendaVirtual.builders;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 
-@ManagedBean
+@ManagedBean (name="bDisciplina")
 @RequestScoped
-public class BuilderDisciplina {
+public class BuilderDisciplina  {
  
 	private int id;
 	
@@ -65,7 +65,7 @@ public class BuilderDisciplina {
 		this.mediaFinal = mediaFinal;
 	}
 
-	public boolean isSituacao() {
+	public boolean getSituacao() {
 		return situacao;
 	}
 

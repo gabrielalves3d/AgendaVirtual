@@ -2,14 +2,19 @@ package br.edu.ifpe.AgendaVirtual.controller;
 
 import java.util.List;
 
+import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.AgendaVirtual.persistencia.implementacoes.FabricaRepositorio;
 
-public class DisciplinaController {
-RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
+@ManagedBean
+@SessionScoped
+public class DisciplinaController{
+RepositorioGenerico <Disciplina, Integer> repositorioDisciplina = null;
 	
 	private Disciplina selecionar;
 	
@@ -44,8 +49,11 @@ RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
 	        return this.repositorioDisciplina.recuperar(id);
 	    }
 
-	    public void excluir(Disciplina disciplina) {
+	    public String excluir(Disciplina disciplina) {
 	        this.repositorioDisciplina.excluir(disciplina);
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi excluída!"));
+
+	        return "ApresentarDisciplina.xhtml";
 	    }
 
 	    public List<Disciplina> recuperarTodosDisciplina() {

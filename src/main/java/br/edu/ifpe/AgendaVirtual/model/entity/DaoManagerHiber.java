@@ -146,7 +146,7 @@ public class DaoManagerHiber {
     }
 
     public static void main(String args[]) {
-    	
+    	  	
     	Usuario usr = new Usuario();
     	
     	usr.setEmail("tst@mail.com");
@@ -189,15 +189,7 @@ public class DaoManagerHiber {
     	blm.setDisciplina(dis);
     	usr.setBoletim(blm);
   
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-        DaoManagerHiber.getInstance().persist(usr);
+    	DaoManagerHiber.getInstance().persist(usr);
         
     }
 
