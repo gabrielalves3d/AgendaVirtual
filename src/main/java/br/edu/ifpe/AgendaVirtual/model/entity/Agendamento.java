@@ -27,23 +27,22 @@ public class Agendamento {
 	@Column
 	private String Descricao;
 	@OneToOne
-	private Disciplina disciplina;
+	private Disciplina nome;
 	@ManyToOne
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 	
-	public Agendamento(int id, String atividade, Date dataHora, String descricao, List<Disciplina> disciplina) {
+	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina nome) {
 		super();
 		this.id = id;
 		this.atividade = atividade;
 		this.dataHora = dataHora;
 		this.Descricao = descricao;
-		this.disciplina = (Disciplina) disciplina;
+		this.nome = nome;
 	}
 
 	
 	public Agendamento() {
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -81,12 +80,12 @@ public class Agendamento {
 		Descricao = descricao;
 	}
 
-	public List<Disciplina> getDisciplina() {
-		return (List<Disciplina>) disciplina;
+	public Disciplina getNome() {
+		return nome;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplina) {
-		this.disciplina = (Disciplina) disciplina;
+	public void setNome(Disciplina nome) {
+		this.nome = nome;
 	}
 	
 	
