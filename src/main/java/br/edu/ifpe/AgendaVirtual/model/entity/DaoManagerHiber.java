@@ -168,7 +168,7 @@ public class DaoManagerHiber {
     	a.setDescricao("dsc");
 		Date dataHora = new Date("18/02/1999");
 		a.setDataHora(dataHora);
-    	a.setDisciplina(dis);
+    	a.setNome(d);
     	ags.add(a);
     	usr.setAgendamento(ags);
     	
@@ -182,7 +182,7 @@ public class DaoManagerHiber {
     	
     	HorarioDeEstudo academico  = new HorarioDeEstudo();
     	academico.setHorario("12:00");
-    	academico.setDisciplina(dis);
+    	academico.setNome(dis);
     	usr.setHorarioDeEstudo(academico);
         
     	Boletim blm = new Boletim();
