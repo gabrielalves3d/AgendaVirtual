@@ -182,7 +182,7 @@ public class DaoManagerHiber {
     	
     	HorarioDeEstudo academico  = new HorarioDeEstudo();
     	academico.setHorario("12:00");
-    	academico.setNome(dis);
+    	academico.setDisciplina(dis);
     	usr.setHorarioDeEstudo(academico);
         
     	Boletim blm = new Boletim();
