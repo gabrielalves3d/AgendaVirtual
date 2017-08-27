@@ -2,6 +2,7 @@ package br.edu.ifpe.AgendaVirtual.controller;
 import java.util.List;
 import br.edu.ifpe.AgendaVirtual.model.entity.Anotacao;
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
+import br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.AgendaVirtual.persistencia.implementacoes.FabricaRepositorio;
 import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
 
@@ -9,11 +10,13 @@ public class Fachada {
 	private static Fachada myself = null;
 	private RepositorioGenerico<Anotacao, Integer> repositorioAnotacao=null;
 	private RepositorioGenerico<Disciplina, Integer> repositorioDisciplina=null;
+	private RepositorioGenerico<HorarioDeEstudo, Integer> repositorioHorarioDeEstudo=null;
 
 
 	public Fachada(){
 		this.repositorioAnotacao = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Anotacao, FabricaRepositorio.BD);
 		this.repositorioDisciplina = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Disciplina, FabricaRepositorio.BD);
+		this.repositorioHorarioDeEstudo = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.HorarioDeEstudo, FabricaRepositorio.BD);
 
 	}
 
@@ -64,6 +67,24 @@ public class Fachada {
 	public List<Disciplina> recuperarTodosDisciplina(){
 		return this.repositorioDisciplina.recuperarTodos();
 	}
+	//HorarioDeEstudo
+	public void inserirHorarioDeEstudo(HorarioDeEstudo horarioDeEstudo){
+		this.repositorioHorarioDeEstudo.inserir(horarioDeEstudo);
+	}
+	public void alterarHorarioDeEstudo(HorarioDeEstudo horarioDeEstudo){
+		this.repositorioHorarioDeEstudo.alterar(horarioDeEstudo);
+	}
 
+	public HorarioDeEstudo recuperarHorarioDeEstudo(int id){
+		return this.repositorioHorarioDeEstudo.recuperar(id);
+	}
+
+	public void excluirHorarioDeEstudo(HorarioDeEstudo horarioDeEstudo){
+		this.repositorioHorarioDeEstudo.excluir(horarioDeEstudo);
+	}
+
+	public List<HorarioDeEstudo> recuperarTodosHorarioDeEstudo(){
+		return this.repositorioHorarioDeEstudo.recuperarTodos();
+	}
 
 }
