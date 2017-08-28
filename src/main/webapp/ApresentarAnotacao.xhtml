@@ -1,51 +1,25 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html  xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
 <h:head>
 	<title>Agenda Virtual</title>
 </h:head>
- </head> 
 
-<body>
-	id="formApresentaAnotacao">
-	<p:dataTable id="tabela" var="item"
-		value="#{anotacaoController.recuperarTodosAnotacao()}"
-		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
-		 <f:facet name="header">Anotações Cadastradas</f:facet>
-		    <p:column headerText="Usuario">
-                    <h:outputText value="#{item.usuario}"/>
-                <p:column headerText="Id">
-                    <h:outputText value="#{item.id}"/>
-                </p:column>
-                 <p:column headerText="Data">
-                    <h:outputText value="#{item.data}"/>
-                </p:column>
-                    
-                     <p:column headerText="Operações">
-                      <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmCadastrarAnotacao').show()" title="Cadastrar">
-                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
-                        <ui:include src="CadastararAnotacao.xhtml"/>
-                    </p:commandButton>
-                    <p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmExcluirAnotacao').show()" title="Excluir">
-                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
-                        <ui:include src="ExcluirAnotacao.xhtml"/>
-                    </p:commandButton>
-                    <p:commandButton icon="ui-icon-pencil" oncomplete="PF('confirmEditarAnotacao').show()" title="Editar">                     
-                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
-                        <ui:include src="EditarAnotacao.xhtml"/>
-                    </p:commandButton> 
-                    <p:commandButton icon="ui-icon-search" oncomplete="PF('confirmViewAnotacao').show()" title="View"
-                                     update=":formVisualizaAnotacao:confirmVisualizaAnotacao">
-                                     <ui:include src="VisualizarAnotacao.xhtml"/>
-                        <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}"/>
-                    </p:commandButton>
-                </p:column>
-                </p:dataTable>
-                
-               
-		</body>
+<body id="formApresentaAnotacao">
+
+     <p:carousel value="#{carouselView.cars}" headerText="Anotação" var="car" itemStyle="text-align:center" responsive="true">
+     <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+		<h:outputText value="Data"/>
+		<h:outputText value="#{bAnotacao.data}"/>
+		<h:outputText value="Texto"/>
+		<h:outputText value="#{bAnotacao.texto}"/>
+
+</p:panelGrid>
+</p:carousel>
+</body>
 </html>

@@ -7,7 +7,7 @@ import javax.faces.bean.RequestScoped;
 import br.edu.ifpe.AgendaVirtual.model.entity.Anotacao;
 import br.edu.ifpe.AgendaVirtual.model.entity.Usuario;
 
-@ManagedBean
+@ManagedBean (name="bAnotacao")
 @RequestScoped
 
 public class BuilderAnotacao {
