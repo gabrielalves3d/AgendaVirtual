@@ -17,10 +17,8 @@
 		value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}"
 		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
 		 <f:facet name="header">Horario de Estudo</f:facet>
-                <p:column headerText="Id">
-                    <h:outputText value="#{item.id}"/>
-                </p:column>
-                 <p:column headerText="Nome">
+                
+                 <p:column headerText="Disciplina">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
                 <p:column headerText="Horario">
