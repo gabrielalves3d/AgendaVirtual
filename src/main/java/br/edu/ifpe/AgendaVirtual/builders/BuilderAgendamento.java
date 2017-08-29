@@ -2,11 +2,16 @@ package br.edu.ifpe.AgendaVirtual.builders;
 
 import java.util.Date;
 
+import javax.faces.bean.ManagedBean;
+
 import org.hibernate.dialect.DB2390Dialect;
 
 import br.edu.ifpe.AgendaVirtual.model.entity.Agendamento;
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 
+
+@ManagedBean(name = "bAgendamento")
+@RequestScoped
 public class BuilderAgendamento {
 	
 	private int id;

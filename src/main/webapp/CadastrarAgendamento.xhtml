@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+<head>
+<title>Agenda Virtual</title>
+</head>
+
+<body>
+	<ui:include src="menu.xhtml" />
+	<h:form id="formAgendamento">
+		<p:fieldset legend="Cadastrar Agendamento">
+			<p:panelGrid columns="2">
+				<p:outputLabel for="car" value="Disciplina: " />
+				<p:selectOneMenu id="car" value="#{bAgendamento.disciplina}">
+					<f:selectItems value="#{bAgendamento.disciplina}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Atividade: " />
+				<p:inputText value="#{bAgendamento.atividade}" />
+				<p:outputLabel for="DataAg" value="Data:" />
+				<p:calendar id="DataAg" value="#{bAgendamento.data}"
+					pattern="dd-MM-yyyy" mask="true" />
+				<p:outputLabel for="HoraAg" value="Hora:" />
+				<p:calendar id="HoraAg" value="#{bAgendamento.hora}" pattern="HH:mm"
+					timeOnly="true" />
+				<p:outputLabel value="Texto:" />
+				<p:inputTextarea rows="6" cols="33" />
+			</p:panelGrid>
+			
+			<p:commandButton value="Cadastrar" id="Cadastrar" actionListener="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}" 
+			update="formAgendamento" icon="ui-icon-disk" />
+		</p:fieldset>
+
+	</h:form>
+
+</body>
+</html>
