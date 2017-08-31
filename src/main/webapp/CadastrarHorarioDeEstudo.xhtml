@@ -10,18 +10,21 @@
 <title>Agenda Virtual</title>
     </head>
  <h:body>
- 
-        <h:form id="formCadastrarHorarioDeEstudo">
+ <ui:include src="menu.xhtml" />
+        <h:form id="formHorarioDeEstudo">
             <p:fieldset legend="Cadastrar Horário de Estudo">
                 <p:panelGrid columns="2">
-                     <h:outputText value="Disciplina:"/>
-                <p:inputText id="HorarioDeEstudoNome" value="#{bHorarioDeEstudo.nome}" required="true" />
-                   <h:outputText value="Horário:"/>
-                <p:inputText id="HorarioDeEstudoHorario" value="#{bHorarioDeEstudo.horario}" required="true" />        
+                    <p:outputLabel for="car" value="Disciplina: " />
+				<p:selectOneMenu id="car" value="#{bHorarioDeEstudo.nome}">
+					<f:selectItems value="#{bHorarioDeEstudo.nome}" />
+				</p:selectOneMenu>
+                   <p:outputLabel for="HoraDeEstudo" value="Horario:" />
+				<p:calendar id="HoraDeEstudo" value="#{bHorarioDeEstudo.horario}" pattern="HH:mm"
+					timeOnly="true" />        
                 
                </p:panelGrid>
-                <p:commandButton value="Cadastrar" 
-                action="#{horarioDeEstudoController.inserir(bHorarioDeEstudo.construirHorarioDeEstudo())}" update="formCadastrarHorarioDeEstudo" />
+                <p:commandButton value="Cadastrar" id="CadastrarHorarioDeEstudo" actionListener="#{horarioDeEstudoController.inserir(bHorarioDeEstudo.construirHorarioDeEstudo())}" 
+			update="formHorarioDeEstudo" icon="ui-icon-disk" />
             </p:fieldset>
         </h:form>
        </h:body>
