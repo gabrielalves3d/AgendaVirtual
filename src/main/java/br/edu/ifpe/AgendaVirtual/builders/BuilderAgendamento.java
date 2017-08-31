@@ -3,6 +3,7 @@ package br.edu.ifpe.AgendaVirtual.builders;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import org.hibernate.dialect.DB2390Dialect;
 
