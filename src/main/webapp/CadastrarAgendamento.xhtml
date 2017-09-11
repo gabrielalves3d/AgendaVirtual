@@ -19,7 +19,7 @@
 			<p:panelGrid columns="2">
 				<p:outputLabel for="car" value="Disciplina: " />
 				<p:selectOneMenu id="car" value="#{bAgendamento.disciplina}">
-					<f:selectItems value="#{bAgendamento.disciplina}" />
+					<f:selectItems value="#{agendamentoController.recuperarTodasDisciplina()}" />
 				</p:selectOneMenu>
 
 				<h:outputText value="Atividade: " />
@@ -35,7 +35,7 @@
 			</p:panelGrid>
 			
 			<p:commandButton value="Cadastrar" id="Cadastrar" actionListener="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}" 
-			update="formAgendamento" icon="ui-icon-disk" />
+			update="formAgendamento" />
 		</p:fieldset>
 
 	</h:form>

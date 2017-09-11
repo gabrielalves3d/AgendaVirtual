@@ -9,15 +9,15 @@
 <h:head>
 	<title>Agenda Virtual</title>
 </h:head>
-
+<ui:include src="menu.xhtml" />
 <body id="formApresentaAnotacao">
 
-     <p:carousel value="#{carouselView.cars}" headerText="Anotação" var="car" itemStyle="text-align:center" responsive="true">
+     <p:carousel value="#{anotacaoController.recuperarTodosAnotacao()}" headerText="Anotação" var="anotacao" itemStyle="text-align:center" responsive="true">
      <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
 		<h:outputText value="Data"/>
-		<h:outputText value="#{bAnotacao.data}"/>
+		<h:outputText value="#{anotacao.data}"/>
 		<h:outputText value="Texto"/>
-		<h:outputText value="#{bAnotacao.texto}"/>
+		<h:outputText value="#{anotacao.texto}"/>
 
 </p:panelGrid>
 </p:carousel>
