@@ -12,6 +12,24 @@
 <body>
 <ui:include src="menu.xhtml" />
   <h:form id=formAgendamento>
+  <p:carousel value="#{carouselView.cars}" headerText="Agendamento" var="agendamento" itemStyle="text-align:center" responsive="true">
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+ 
+            <h:outputText value="Disciplina:" />
+            <h:outputText value="#{agendamento.nome}" />
+ 
+            <h:outputText value="Atividade:" />
+            <h:outputText value="#{agendamento.atividade}" />
+ 
+            <h:outputText value="Data:" />
+            <h:outputText value="#{agendamento.data}" />
+            
+            <h:outputText value="Hora:" />
+            <h:outputText value="#{agendamento.hora}" />
+            
+            <h:outputText value="Texto:" />
+            <h:outputText value="#{agendamento.texto}" />
+        </p:panelGrid>
   
   
   
