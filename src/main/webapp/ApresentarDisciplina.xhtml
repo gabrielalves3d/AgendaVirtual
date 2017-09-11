@@ -36,11 +36,11 @@
                 </p:column>
                     
                      <p:column headerText="Operações">
-                     <p:commandButton value="Excluir" 
-                         action="#{disciplinaController.excluir(disciplinaController.selecionar)}" update="formApresentaDisciplina" />
+                      <p:commandButton  icon="ui-icon-trash"
+                          action="#{disciplinaController.excluir}" update="formApresentaDisciplina:tabela" />
 
-                   <p:commandButton value="Editar" 
-                          action="#{disciplinaController.editar}" update="formApresentaDisciplina" />
+                   <p:commandButton  icon="ui-icon-pencil"
+                          action="#{disciplinaController.editar}" update="formApresentaDisciplina:tabela" />
                  
                 </p:column>
                 </p:dataTable>
