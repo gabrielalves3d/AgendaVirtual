@@ -18,18 +18,16 @@
 		<p:fieldset legend="Cadastrar Agendamento">
 			<p:panelGrid columns="2">
 				<p:outputLabel for="car" value="Disciplina: " />
-				<p:selectOneMenu id="car" value="#{bAgendamento.disciplina}">
+				<p:selectOneMenu id="car" value="#{bAgendamento.nome}" >
 					<f:selectItems value="#{agendamentoController.recuperarTodasDisciplina()}" />
 				</p:selectOneMenu>
 
 				<h:outputText value="Atividade: " />
 				<p:inputText value="#{bAgendamento.atividade}" />
-				<p:outputLabel for="DataAg" value="Data:" />
-				<p:calendar id="DataAg" value="#{bAgendamento.data}"
-					pattern="dd-MM-yyyy" mask="true" />
-				<p:outputLabel for="HoraAg" value="Hora:" />
-				<p:calendar id="HoraAg" value="#{bAgendamento.hora}" pattern="HH:mm"
-					timeOnly="true" />
+				<p:outputLabel value="Data:" />
+				<p:calendar value="#{calendarView.date2}" />
+				<p:outputLabel value="Hora:" />
+				<p:calendar value="#{bAgendamento.hora}" pattern="HH:mm" timeOnly="true" />
 				<p:outputLabel value="Texto:" />
 				<p:inputTextarea rows="6" cols="33" />
 			</p:panelGrid>
