@@ -17,6 +17,7 @@ import br.edu.ifpe.AgendaVirtual.persistencia.implementacoes.FabricaRepositorio;
 public class AgendamentoController {
 
 	RepositorioGenerico<Agendamento, Integer> repositorioAgendamento = null;
+	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
 
 	private Agendamento selecionar;
 
@@ -61,10 +62,6 @@ public class AgendamentoController {
 	public List<Agendamento> recuperarTodosAgendamento() {
 		return this.repositorioAgendamento.recuperarTodos();
 	}
-
-	/*public List<Disciplina> recuperarTodasDisciplina(Disciplina nome) {
-		this.repositorioAgendamento.recuperar(nome);
-
-	}*/
+ 
 
 }

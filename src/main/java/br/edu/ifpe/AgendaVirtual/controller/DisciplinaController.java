@@ -56,7 +56,7 @@ RepositorioGenerico <Disciplina, Integer> repositorioDisciplina = null;
 	        return "ApresentarDisciplina.xhtml";
 	    }
 
-	    public List<Disciplina> recuperarTodosDisciplina() {
+	    public List<Disciplina> recuperarTodasDisciplina() {
 	        return this.repositorioDisciplina.recuperarTodos();
 	    }
 	    

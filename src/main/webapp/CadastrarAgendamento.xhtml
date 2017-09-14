@@ -24,12 +24,12 @@
 
 				<h:outputText value="Atividade: " />
 				<p:inputText value="#{bAgendamento.atividade}" />
-				<p:outputLabel value="Data:" />
-				<p:calendar value="#{calendarView.date2}" />
+				 <p:outputLabel for="agendamentoData" value="Data:" />
+                 <p:calendar id="agendamentoData" value="#{bAgendamento.dataHora}" />
 				<p:outputLabel value="Hora:" />
-				<p:calendar value="#{bAgendamento.hora}" pattern="HH:mm" timeOnly="true" />
+				<p:calendar value="#{bAgendamento.dataHora}" pattern="HH:mm" timeOnly="true" />
 				<p:outputLabel value="Texto:" />
-				<p:inputTextarea rows="6" cols="33" />
+				<p:inputTextarea value="#{bAgendamento.descricao}"  rows="6" cols="33" />
 			</p:panelGrid>
 			
 			<p:commandButton value="Cadastrar" id="Cadastrar" actionListener="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}" 
