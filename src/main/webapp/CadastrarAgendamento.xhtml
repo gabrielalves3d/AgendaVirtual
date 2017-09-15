@@ -17,10 +17,11 @@
 	<h:form id="formAgendamento">
 		<p:fieldset legend="Cadastrar Agendamento">
 			<p:panelGrid columns="2">
-				<p:outputLabel for="car" value="Disciplina: " />
-				<p:selectOneMenu id="car" value="#{bAgendamento.nome}" >
-					<f:selectItems value="#{agendamentoController.recuperarTodasDisciplina()}" />
-				</p:selectOneMenu>
+				<p:outputLabel for="agendamentoDisciplina" value="Disciplina: " />
+				<p:selectOneMenu id="agendamentoDisciplina" value="#{agendamentoController.selecionar}" style="width:125px">
+                <f:selectItem itemLabel="Selecione" itemValue="Selecione" />
+      
+                </p:selectOneMenu>
 
 				<h:outputText value="Atividade: " />
 				<p:inputText value="#{bAgendamento.atividade}" />
