@@ -1,22 +1,25 @@
 package br.edu.ifpe.AgendaVirtual.controller;
 
-import java.util.List;
 
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
 
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 import br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.AgendaVirtual.persistencia.implementacoes.FabricaRepositorio;
 
-@ManagedBean 
+@ManagedBean (name="horarioDeEstudoController")
 @SessionScoped
 public class HorarioDeEstudoController {
 	
 	RepositorioGenerico <HorarioDeEstudo, Integer> repositorioHorarioDeEstudo = null;
+	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
+	
     private HorarioDeEstudo selecionar;
 	
 	public HorarioDeEstudo getSelecionar(){
@@ -57,8 +60,11 @@ public class HorarioDeEstudoController {
         return "ApresentarHorarioDeEstudo.xhtml";
     }
 
-    public List<HorarioDeEstudo> recuperarTodosHorarioDeEstudo() {
+    public List <HorarioDeEstudo> recuperarTodosHorarioDeEstudo() {
         return this.repositorioHorarioDeEstudo.recuperarTodos();
+    }
+    public List <Disciplina> recuperarTodosDisciplina() {
+        return this.repositorioDisciplina.recuperarTodos();
     }
     
 }
