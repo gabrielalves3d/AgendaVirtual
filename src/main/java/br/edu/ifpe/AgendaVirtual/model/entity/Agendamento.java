@@ -27,18 +27,18 @@ public class Agendamento {
 	@Column
 	private String Descricao;
 	@OneToOne
-	private Disciplina nome;
+	private Disciplina disciplina;
 	@ManyToOne
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 	
-	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina nome) {
+	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina disciplina) {
 		super();
 		this.id = id;
 		this.atividade = atividade;
 		this.dataHora = dataHora;
 		this.Descricao = descricao;
-		this.nome = nome;
+		this.disciplina = disciplina;
 	}
 
 	
@@ -80,12 +80,12 @@ public class Agendamento {
 		Descricao = descricao;
 	}
 
-	public Disciplina getNome() {
-		return nome;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setNome(Disciplina nome) {
-		this.nome = nome;
+	public void setNome(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 	
 	
