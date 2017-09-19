@@ -172,7 +172,7 @@ public class DaoManagerHiber {
 		a.setDescricao("dsc");
 		Date dataHora = new Date("18/02/1999");
 		a.setDataHora(dataHora);
-		a.setNome(d);
+		a.setDisciplina(d);
 		ags.add(a);
 		usr.setAgendamento(ags);
 		
