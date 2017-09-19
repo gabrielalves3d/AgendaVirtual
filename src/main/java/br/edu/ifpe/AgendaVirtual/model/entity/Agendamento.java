@@ -84,7 +84,7 @@ public class Agendamento {
 		return disciplina;
 	}
 
-	public void setNome(Disciplina disciplina) {
+	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
 	
