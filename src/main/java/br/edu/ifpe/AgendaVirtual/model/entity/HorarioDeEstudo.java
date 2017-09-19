@@ -22,14 +22,14 @@ public class HorarioDeEstudo {
 	@Column
 	private String horario;
 	@ManyToMany
-	private List<Disciplina> nome;
+	private List<Disciplina> disciplinas;
 	
 	
-	public HorarioDeEstudo(int id, String horario, List<Disciplina> nome) {
+	public HorarioDeEstudo(int id, String horario, List<Disciplina> disciplinas) {
 		super();
 		this.id = id;
 		this.horario = horario;
-		this.nome = nome;
+		this.disciplinas = disciplinas;
 	}
 
 
@@ -49,12 +49,12 @@ public class HorarioDeEstudo {
 		this.horario = horario;
 	}
 
-	public List<Disciplina> getNome() {
-		return nome;
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
 	}
 
-	public void setNome(List<Disciplina> nome) {
-		this.nome = nome;
+	public void setNome(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}
 	public HorarioDeEstudo(){
 		
