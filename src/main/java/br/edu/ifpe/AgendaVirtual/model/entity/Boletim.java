@@ -18,7 +18,7 @@ public class Boletim {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToMany(mappedBy="id", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
+	@OneToMany
 	private List<Disciplina> disciplina;
 	
 	
