@@ -3,6 +3,7 @@ package br.edu.ifpe.AgendaVirtual.persistencia.implementacoes;
 import java.util.List;
 
 import br.edu.ifpe.AgendaVirtual.model.entity.DaoManagerHiber;
+import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 import br.edu.ifpe.AgendaVirtual.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
 
@@ -24,9 +25,9 @@ public class RepositorioHorarioDeEstudo implements RepositorioGenerico<HorarioDe
     
     public List<HorarioDeEstudo> recuperarTodos(){
         return DaoManagerHiber.getInstance().recover("from HorarioDeEstudo");
+        
     }
-
-    
+   
     public HorarioDeEstudo recuperar(Integer g) {
         try{
             return (HorarioDeEstudo) dao.recover("from HorarioDeEstudo where id=" +g);
