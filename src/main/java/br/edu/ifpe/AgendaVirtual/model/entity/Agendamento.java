@@ -87,6 +87,14 @@ public class Agendamento {
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 	
 	
