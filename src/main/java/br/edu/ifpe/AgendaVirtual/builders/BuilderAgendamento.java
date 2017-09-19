@@ -9,6 +9,7 @@ import org.hibernate.dialect.DB2390Dialect;
 
 import br.edu.ifpe.AgendaVirtual.model.entity.Agendamento;
 import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
+import br.edu.ifpe.AgendaVirtual.model.entity.Usuario;
 
 
 @ManagedBean(name = "bAgendamento")
@@ -20,8 +21,15 @@ public class BuilderAgendamento {
 	private Date dataHora;
 	private String descricao;
 	private Disciplina nome;
+	private Usuario usuario;
 	
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	public int getId() {
 		return id;
 	}
@@ -57,16 +65,17 @@ public class BuilderAgendamento {
 	public BuilderAgendamento(){
 	}
 	
-	public BuilderAgendamento(int id, String atividade, Date dataHora, String descricao, Disciplina nome){
+	public BuilderAgendamento(int id, String atividade, Date dataHora, String descricao, Disciplina nome, Usuario usuario){
 		this.id = id;
 		this.atividade = atividade;
 		this.dataHora = dataHora;
 		this.descricao = descricao;
 		this.nome = nome;
+		this.usuario = usuario;
 	}
 	
 	public Agendamento construirAgendamento(){
-		return new Agendamento(id, atividade, dataHora, descricao, nome); 
+		return new Agendamento(id, atividade, dataHora, descricao, nome, usuario); 
 	}
 	
 
