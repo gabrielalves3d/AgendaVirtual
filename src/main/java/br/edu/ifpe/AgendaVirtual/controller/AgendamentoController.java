@@ -2,7 +2,7 @@ package br.edu.ifpe.AgendaVirtual.controller;
 
 import java.util.List;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -12,7 +12,7 @@ import br.edu.ifpe.AgendaVirtual.model.entity.Disciplina;
 import br.edu.ifpe.AgendaVirtual.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.AgendaVirtual.persistencia.implementacoes.FabricaRepositorio;
 
-@ManagedBean
+@ManagedBean (name = "agendamentoController")
 @SessionScoped
 public class AgendamentoController {
 
@@ -62,6 +62,12 @@ public class AgendamentoController {
 	public List<Agendamento> recuperarTodosAgendamento() {
 		return this.repositorioAgendamento.recuperarTodos();
 	}
+	
+	public Disciplina recuperarDisciplina(int id) {
+        return this.repositorioDisciplina.recuperar(id);
+    }
+	
+	
  
 
 }
