@@ -53,7 +53,7 @@ public class HorarioDeEstudo {
 		return disciplinas;
 	}
 
-	public void setNome(List<Disciplina> disciplinas) {
+	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
 	public HorarioDeEstudo(){
