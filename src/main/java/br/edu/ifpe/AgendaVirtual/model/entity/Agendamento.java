@@ -32,13 +32,14 @@ public class Agendamento {
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 	
-	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina disciplina) {
+	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina disciplina, Usuario usuario) {
 		super();
 		this.id = id;
 		this.atividade = atividade;
 		this.dataHora = dataHora;
 		this.Descricao = descricao;
 		this.disciplina = disciplina;
+		this.usuario = usuario;
 	}
 
 	

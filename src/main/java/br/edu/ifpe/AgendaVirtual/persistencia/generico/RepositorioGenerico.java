@@ -11,4 +11,5 @@ public interface RepositorioGenerico <T, G> {
     public List<T> recuperarTodos();
     
     
+    
 }

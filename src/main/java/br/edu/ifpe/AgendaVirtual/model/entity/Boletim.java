@@ -19,13 +19,13 @@ public class Boletim {
 	@GeneratedValue
 	private int id;
 	@OneToMany
-	private List<Disciplina> disciplina;
+	private List<Disciplina> disciplinas;
 	
 	
-	public Boletim(int id, List<Disciplina> disciplina) {
+	public Boletim(int id, List<Disciplina> disciplinas) {
 		super();
 		this.id = id;
-		this.disciplina = disciplina;
+		this.disciplinas = disciplinas;
 	}
 
 	
@@ -37,12 +37,12 @@ public class Boletim {
 		this.id = id;
 	}
 
-	public List<Disciplina> getDisciplina() {
-		return (List<Disciplina>) disciplina;
+	public List<Disciplina> getDisciplinas() {
+		return (List<Disciplina>) disciplinas;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
 	}	
 	public Boletim(){
 		
