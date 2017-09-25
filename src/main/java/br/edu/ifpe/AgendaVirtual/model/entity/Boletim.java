@@ -41,7 +41,7 @@ public class Boletim {
 		return (List<Disciplina>) disciplinas;
 	}
 
-	public void setDisciplina(List<Disciplina> disciplinas) {
+	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}	
 	public Boletim(){

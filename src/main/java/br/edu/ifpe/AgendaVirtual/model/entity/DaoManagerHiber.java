@@ -190,7 +190,7 @@ public class DaoManagerHiber {
 		usr.setHorarioDeEstudo(academico);
 
 		Boletim blm = new Boletim();
-		blm.setDisciplina(dis);
+		blm.setDisciplinas(dis);
 		usr.setBoletim(blm);
 
 		DaoManagerHiber.getInstance().persist(usr);
