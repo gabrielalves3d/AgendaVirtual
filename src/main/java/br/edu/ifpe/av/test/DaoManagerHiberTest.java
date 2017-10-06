@@ -39,7 +39,7 @@ public class DaoManagerHiberTest {
 	Agendamento a = new Agendamento();
 	
 	@Test
-	public void inserirAgendamento() {
+	public void inserirAgendamentoTest() {
 	a.setAtividade("Tst");
 	a.setDescricao("dsc");
 	Date dataHora = new Date("18/02/1999");
@@ -53,7 +53,7 @@ public class DaoManagerHiberTest {
 	List<Anotacao> nt = new ArrayList<Anotacao>();
 	Anotacao ant = new Anotacao();
 	@Test
-	public void inserirAnotacao() {
+	public void inserirAnotacaoTest() {
 	ant.setTexto("I love you");
 	Date data = new Date("18/02/1999");
 	ant.setData(data);
@@ -63,14 +63,14 @@ public class DaoManagerHiberTest {
 	
 	HorarioDeEstudo academico = new HorarioDeEstudo();
 	@Test
-	public void inserirHorarioDeEstudo(){
+	public void inserirHorarioDeEstudoTest(){
 	academico.setHorario("12:00");
 	usr.setHorarioDeEstudo(academico);
 	}
 	
 	Boletim blm = new Boletim();
 	@Test
-	public void inserirBoletim() {
+	public void inserirBoletimTest() {
 	blm.setDisciplinas(dis);
 	usr.setBoletim(blm);
 	}
