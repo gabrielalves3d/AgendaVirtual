@@ -9,10 +9,10 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.reporting.outputEncoding>UTF-8
+		</project.reporting.outputEncoding>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -61,10 +61,10 @@
 			<version>0.9.1.2</version>
 		</dependency>
 		<dependency>
-    <groupId>postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>9.1-901-1.jdbc4</version>
-	</dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901-1.jdbc4</version>
+		</dependency>
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
@@ -114,7 +114,18 @@
 			<artifactId>selenium-firefox-driver</artifactId>
 			<version>3.4.0</version>
 		</dependency>
-    
-	
 	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
