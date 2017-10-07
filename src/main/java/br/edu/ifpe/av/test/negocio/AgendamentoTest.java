@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
+import br.edu.ifpe.av.model.entity.Anotacao;
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.Usuario;
 
@@ -41,6 +42,29 @@ public class AgendamentoTest {
 	    String resultado = ag.getDescricao();
 	    Assert.assertEquals("Atividade avaliativa", resultado);
 	}
-	
+	@Test
+	public void setIdTest() {
+		Agendamento ag = new Agendamento();
+		ag.setId(1);
+		Assert.assertEquals(1, ag.getId());
+	}
+	@Test
+	public void setAtividadeTest() {
+		Agendamento ag = new Agendamento();
+		ag.setAtividade("Trabalho");
+		Assert.assertEquals("Trabalho", ag.getAtividade());
+	}
+	@Test
+	public void setDataTest() {
+		Agendamento ag = new Agendamento();
+		ag.setDataHora(dataHora);
+		Assert.assertEquals(dataHora, ag.getDataHora());
+	}
+	@Test
+	public void setDescricaoTest() {
+		Agendamento ag = new Agendamento();
+		ag.setDescricao("Atividade avaliativa");
+		Assert.assertEquals("Atividade avaliativa", ag.getDescricao());
+	}
 }
 	
