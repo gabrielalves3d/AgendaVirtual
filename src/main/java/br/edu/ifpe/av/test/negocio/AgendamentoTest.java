@@ -66,5 +66,19 @@ public class AgendamentoTest {
 		ag.setDescricao("Atividade avaliativa");
 		Assert.assertEquals("Atividade avaliativa", ag.getDescricao());
 	}
+	@Test
+	public void setUsuarioTest() {
+		Agendamento ag = new Agendamento();
+		Usuario usuario = new Usuario();
+		ag.setUsuario(usuario);
+		Assert.assertEquals(usuario, ag.getUsuario());
+	}
+	@Test
+	public void setDisciplinaTest() {
+		Agendamento ag = new Agendamento();
+		Disciplina disciplina = new Disciplina();
+		ag.setDisciplina(disciplina);
+		Assert.assertEquals(disciplina, ag.getDisciplina());
+	}
 }
 	
