@@ -17,7 +17,12 @@ public class AgendamentoTest {
         Usuario usr = new Usuario();
         Date dataHora = new Date("18/02/1999");
         
-	
+        @Test
+    	public void getIdTest() {
+    		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"csdcder", d , usr);
+    	    int resultado = ag.getId();
+    	    Assert.assertEquals(1, resultado);
+    	}
 	@Test
 	public void getAtividadeTest() {
 		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"csdcder", d , usr);
