@@ -68,5 +68,20 @@ public class UsuarioTest {
 		usuario.setSenha("1234");
 		Assert.assertEquals("1234", usuario.getSenha());
 	}
+	@Test
+	public void setHorarioDeEstudoTest() {
+		Usuario usuario = new Usuario();
+		HorarioDeEstudo horarioDeEstudo = new HorarioDeEstudo();
+		usuario.setHorarioDeEstudo(horarioDeEstudo);
+		Assert.assertEquals(horarioDeEstudo, usuario.getHorarioDeEstudo());
+	}
+	@Test
+	public void setBoletimTest() {
+		Usuario usuario = new Usuario();
+		Boletim boletim = new Boletim();
+		usuario.setBoletim(boletim);
+		Assert.assertEquals(boletim, usuario.getBoletim());
+	}
+	
 
 }
