@@ -44,5 +44,29 @@ public class UsuarioTest {
 		String resultado = usuario.getSenha();
 	    Assert.assertEquals("1234", resultado);
 	}
+	@Test
+	public void setIdTest() {
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		Assert.assertEquals(1, usuario.getId());
+	}
+	@Test
+	public void setNomeTest() {
+		Usuario usuario = new Usuario();
+		usuario.setNome("vanessa");
+		Assert.assertEquals("vanessa", usuario.getNome());
+	}
+	@Test
+	public void setEmailTest() {
+		Usuario usuario = new Usuario();
+		usuario.setEmail("vanessa@hotmail.com");
+		Assert.assertEquals("vanessa@hotmail.com", usuario.getEmail());
+	}
+	@Test
+	public void setSenhaTest() {
+		Usuario usuario = new Usuario();
+		usuario.setSenha("1234");
+		Assert.assertEquals("1234", usuario.getSenha());
+	}
 
 }
