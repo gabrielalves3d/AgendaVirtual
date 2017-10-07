@@ -1,10 +1,10 @@
-package br.edu.ifpe.av.test;
+package br.edu.ifpe.av.test.negocio;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class HorarioDeEstudoTest {
+public class DisciplinaTest {
 
 	@Test
 	public void test() {

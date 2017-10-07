@@ -1,4 +1,4 @@
-package br.edu.ifpe.av.test;
+package br.edu.ifpe.av.test.repositorio;
 
 import static org.junit.Assert.*;
 
