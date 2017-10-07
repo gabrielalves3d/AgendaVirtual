@@ -50,5 +50,11 @@ public class AnotacaoTest {
 		anotacao.setData(data);
 		Assert.assertEquals(data, anotacao.getData());
 	}
-	
+	@Test
+	public void setUsuarioTest() {
+		Anotacao anotacao = new Anotacao();
+		Usuario usuario = new Usuario();
+		anotacao.setUsuario(usuario);
+		Assert.assertEquals(usuario, anotacao.getUsuario());
+	}
 }
