@@ -18,8 +18,7 @@ public class AnotacaoTest {
 	@Test
 	public void getIdTest() {
 		Anotacao anotacao = new Anotacao(1,"Fazer atividade",data, usr);
-		int resultado = anotacao.getId();
-		Assert.assertEquals(1, resultado);
+		Assert.assertEquals(1, anotacao.getId());
 	}
 	@Test
 	public void getTextoTest() {
@@ -32,6 +31,24 @@ public class AnotacaoTest {
 		Anotacao anotacao = new Anotacao(1,"Fazer atividade",data, usr);
 		Date resultado = anotacao.getData();
 		Assert.assertEquals(data, resultado);
+	}
+	@Test
+	public void setIdTest() {
+		Anotacao anotacao = new Anotacao();
+		anotacao.setId(1);
+		Assert.assertEquals(1, anotacao.getId());
+	}
+	@Test
+	public void setTextoTest() {
+		Anotacao anotacao = new Anotacao();
+		anotacao.setTexto("Fazer atividade");
+		Assert.assertEquals("Fazer atividade", anotacao.getTexto());
+	}
+	@Test
+	public void setDataTest() {
+		Anotacao anotacao = new Anotacao();
+		anotacao.setData(data);
+		Assert.assertEquals(data, anotacao.getData());
 	}
 	
 }
