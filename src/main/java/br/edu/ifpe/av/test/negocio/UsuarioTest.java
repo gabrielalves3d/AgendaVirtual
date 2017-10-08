@@ -82,6 +82,20 @@ public class UsuarioTest {
 		usuario.setBoletim(boletim);
 		Assert.assertEquals(boletim, usuario.getBoletim());
 	}
+	@Test
+	public void setAnotacaoTest(){
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com","1234",horarioDeEstudo,boletim,anotacao,agendamento);
+		usuario.setAnotacao(anotacao);
+		Assert.assertEquals(anotacao, usuario.getAnotacao());
+
+	}
+	@Test
+	public void setAgendamentoTest(){
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com","1234",horarioDeEstudo,boletim,anotacao,agendamento);
+		usuario.setAgendamento(agendamento);
+		Assert.assertEquals(agendamento, usuario.getAgendamento());
+
+	}
 	
 
 }
