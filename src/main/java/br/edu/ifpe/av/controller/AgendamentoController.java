@@ -1,5 +1,6 @@
 package br.edu.ifpe.av.controller;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -14,12 +15,23 @@ import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 
 @ManagedBean (name = "agendamentoController")
 @SessionScoped
-public class AgendamentoController {
+public class AgendamentoController implements Serializable{
 
 	RepositorioGenerico<Agendamento, Integer> repositorioAgendamento = null;
 	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
 
 	private Agendamento selecionar;
+	private Disciplina disciplinaSelecionado = new Disciplina();
+	
+	private DisciplinaController disciplinaController = new DisciplinaController();
+
+	public Disciplina getDisciplinaSelecionado() {
+		return disciplinaSelecionado;
+	}
+
+	public void setDisciplinaSelecionado(Disciplina disciplinaSelecionado) {
+		this.disciplinaSelecionado = disciplinaSelecionado;
+	}
 
 	public Agendamento getSelecionar() {
 		return selecionar;
@@ -35,8 +47,11 @@ public class AgendamentoController {
 	}
 
 	public String inserir(Agendamento agendamento) {
+		agendamento.setDisciplina(disciplinaSelecionado);
+		
 		this.repositorioAgendamento.inserir(agendamento);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agendamento foi inserido!"));
+		
 
 		return "ApresentarAgendamento.xhtml";
 
@@ -63,8 +78,8 @@ public class AgendamentoController {
 		return this.repositorioAgendamento.recuperarTodos();
 	}
 	
-	public Disciplina recuperarDisciplina(int id) {
-        return this.repositorioDisciplina.recuperar(id);
+	public List<Disciplina> recuperarTodosDisciplina() {
+        return disciplinaController.repositorioDisciplina.recuperarTodos();
     }
 	
 	

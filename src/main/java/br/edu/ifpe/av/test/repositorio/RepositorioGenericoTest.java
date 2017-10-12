@@ -27,7 +27,7 @@ public class RepositorioGenericoTest<T,G> {
 	}
 	@Test
 	public void testRecuperarTodos() {
-		assertNotNull(tipo); // ver se o tipo é nulo ou não
+		assertNotNull(tipo); 
 		List<T> recuperar = repositorio.recuperarTodos();
 		for (T t2 : recuperar) {
 			if (tipo.equals(t2)) {
@@ -49,7 +49,7 @@ public class RepositorioGenericoTest<T,G> {
 				assertEquals(t2, tipo);
 				tipo = null;
 				fail("Not found");
-				// nao pode encontrar
+				
 			}
 
 		}
