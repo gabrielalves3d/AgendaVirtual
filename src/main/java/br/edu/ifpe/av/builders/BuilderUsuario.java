@@ -71,6 +71,10 @@ public class BuilderUsuario {
 		this.agendamento = agendamento;
 	}
 	
+	public BuilderUsuario(){
+		
+	}
+	
 	public BuilderUsuario(int id, String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
 			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();

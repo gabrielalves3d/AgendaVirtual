@@ -27,6 +27,10 @@ public class BuilderBoletim {
 		this.disciplinas = disciplinas;
 	}
 	
+	public BuilderBoletim(){
+		
+	}
+	
 	public BuilderBoletim(int id, List<Disciplina> disciplinas) {
 		super();
 		this.id = id;
