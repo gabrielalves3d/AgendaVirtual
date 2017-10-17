@@ -12,7 +12,7 @@
 <title>Agenda Virtual</title>
 </head>
 
-<body>
+<h:body>
 	<ui:include src="menu.xhtml" />
 	<h:form id="formAgendamento">
 		<p:fieldset legend="Cadastrar Agendamento">
@@ -33,7 +33,7 @@
 				<p:outputLabel value="Hora:" />
 				<p:calendar value="#{bAgendamento.dataHora}" pattern="HH:mm"
 					timeOnly="true" />
-				<p:outputLabel value="Texto:" />
+				<p:outputLabel value="Descrição:" />
 				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6"
 					cols="33" />
 			</p:panelGrid>
@@ -45,5 +45,5 @@
 
 	</h:form>
 
-</body>
+</h:body>
 </html>

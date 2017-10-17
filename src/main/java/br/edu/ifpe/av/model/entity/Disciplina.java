@@ -1,15 +1,19 @@
 package br.edu.ifpe.av.model.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.edu.ifpe.av.conversores.entidade.SampleEntity;
+
 
 @Entity
 @Table
-public class Disciplina {
+public class Disciplina implements Serializable, SampleEntity {
 	
 	@Id
 	@GeneratedValue 
@@ -39,9 +43,9 @@ public class Disciplina {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
-		return id;
-	}
+	public Integer getId() {
+        return this.id;
+    }
 
 	public void setId(int id) {
 		this.id = id;
@@ -78,5 +82,22 @@ public class Disciplina {
 	public void setSituacao(boolean situacao) {
 		this.situacao = situacao;
 	}
+	
+	public String toString(){
+        return this.nome;
+    }
+	
+	public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        return this.getId().equals(((Disciplina)obj).getId()); 
+    }
+	
+	public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + this.id;
+        return hash;
+    }
 
 }
