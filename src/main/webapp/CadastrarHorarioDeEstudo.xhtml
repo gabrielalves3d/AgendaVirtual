@@ -14,14 +14,23 @@
         <h:form id="formHorarioDeEstudo">
             <p:fieldset legend="Cadastrar Horário de Estudo">
                 <p:panelGrid columns="2">
-                    <p:outputLabel for="horarioDeEstudoDisciplina" value="Disciplina: " />
-				<p:selectOneMenu id="horarioDeEstudoDisciplina" value="#{horarioDeEstudoController.recuperarTodosDisciplina()}" style="width:125px">
-                <f:selectItem itemLabel="Selecione" itemValue="#{item.nome}" />
-      
+ -				<p:outputLabel for="HorarioDeEstudoDisciplina" value="Disciplina: " />
+ -				<p:selectOneMenu id="HorarioDeEstudoDisciplina" value="#{horarioDeEstudoController.selecionar}" style="width:125px">
+ -                <f:selectItem itemLabel="Selecione" itemValue="Selecione" />
+ -      
+ -                </p:selectOneMenu>
+ +				<h:outputText value="Disciplina:"/>
+ +				<p:selectOneMenu id="HorarioDeEstudoDisciplina"
+ +					value="#{horarioDeEstudoController.disciplinaSelecionado}"
+ +					style="width: 100%" converter="generic">
+ +					<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
+ +					<f:selectItems
+ +						value="#{horarioDeEstudoController.recuperarTodosDisciplina()}" />
+ +				</p:selectOneMenu>
                 </p:selectOneMenu>
-                   <p:outputLabel for="HoraDeEstudo" value="Horario:" />
-				<p:calendar id="HoraDeEstudo" value="#{bHorarioDeEstudo.horario}" pattern="HH:mm"
-					timeOnly="true" />        
+                   <p:outputLabel value="Hora:" />
+				<p:calendar value="#{bHorarioDeEstudo.horario}" pattern="HH:mm"
+					timeOnly="true" />       
                 
                </p:panelGrid>
                 <p:commandButton value="Cadastrar" id="CadastrarHorarioDeEstudo" actionListener="#{horarioDeEstudoController.inserir(bHorarioDeEstudo.construirHorarioDeEstudo())}" 
