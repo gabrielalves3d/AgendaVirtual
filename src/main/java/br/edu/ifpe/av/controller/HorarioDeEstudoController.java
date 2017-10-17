@@ -1,6 +1,7 @@
 package br.edu.ifpe.av.controller;
 
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -14,12 +15,22 @@ import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 
 @ManagedBean (name="horarioDeEstudoController")
 @SessionScoped
-public class HorarioDeEstudoController {
+public class HorarioDeEstudoController implements Serializable{
 	
 	RepositorioGenerico <HorarioDeEstudo, Integer> repositorioHorarioDeEstudo = null;
 	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
 	
     private HorarioDeEstudo selecionar;
+    private Disciplina disciplinaSelecionado = new Disciplina();
+    private DisciplinaController disciplinaController = new DisciplinaController();
+    
+    public Disciplina getDisciplinaSelecionado() {
+		return disciplinaSelecionado;
+	}
+
+	public void setDisciplinaSelecionado(Disciplina disciplinaSelecionado) {
+		this.disciplinaSelecionado = disciplinaSelecionado;
+	}
 	
 	public HorarioDeEstudo getSelecionar(){
 		return selecionar;
@@ -62,8 +73,8 @@ public class HorarioDeEstudoController {
     public List <HorarioDeEstudo> recuperarTodosHorarioDeEstudo() {
         return this.repositorioHorarioDeEstudo.recuperarTodos();
     }
-    public List <Disciplina> recuperarTodosDisciplina() {
-        return this.repositorioDisciplina.recuperarTodos();
+    public List<Disciplina> recuperarTodosDisciplina() {
+        return disciplinaController.repositorioDisciplina.recuperarTodos();
     }
     
 }
