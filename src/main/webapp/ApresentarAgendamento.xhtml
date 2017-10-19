@@ -10,34 +10,34 @@
 <title>Agenda Virtual</title>
 </head>
 <body>
-<ui:include src="menu.xhtml" />
-  <h:form id="formAgendamento">
- <p:accordionPanel value="#{agendamentoController.recuperarTodosAgendamento()}" var="item">
-        <p:tab title="Agendamento #{item.id}">
-            <h:panelGrid columns="2" cellpadding="5">                  
-                <h:outputText value="Disciplina:" style="font-weight: bold" />
-                <h:outputText value="#{item.disciplina}" />
- 
-                <h:outputText value="Atividade:" style="font-weight: bold" />
-                <h:outputText value="#{item.atividade}" />
- 
-                <h:outputText value="Data:" style="font-weight: bold" />
-                <h:outputText value="#{item.dataHora}" />
-                
-                <h:outputText value="Hora:" style="font-weight: bold" />
-                <h:outputText value="#{item.dataHora}" />
-                
-                <h:outputText value="Descrição:" style="font-weight: bold" />
-                <h:outputText value="#{item.descricao}" />
-                
-                
-            </h:panelGrid>
-        </p:tab>
-    </p:accordionPanel>
-  
-  
-  
-  </h:form>
+	<ui:include src="menu.xhtml" />
+	<h:form id="formAgendamento">
+		<p:accordionPanel value="#{agendamentoController.recuperarTodosAgendamento()}" var="item">
+			<p:tab title="Agendamento #{item.id}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Disciplina:" style="font-weight: bold" />
+					<h:outputText value="#{item.disciplina}" />
+
+					<h:outputText value="Atividade:" style="font-weight: bold" />
+					<h:outputText value="#{item.atividade}" />
+
+					<h:outputText value="Data:" style="font-weight: bold" />
+					<h:outputText value="#{item.dataHora}" />
+
+					<h:outputText value="Hora:" style="font-weight: bold" />
+					<h:outputText value="#{item.dataHora}" />
+
+					<h:outputText value="Descrição:" style="font-weight: bold" />
+					<h:outputText value="#{item.descricao}" />
+
+
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+
+
+
+	</h:form>
 
 </body>
 </html>

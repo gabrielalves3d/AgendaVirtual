@@ -11,15 +11,18 @@
 </h:head>
 <ui:include src="menu.xhtml" />
 <body id="formApresentaAnotacao">
-     <p:messages/>
-     <p:carousel value="#{anotacaoController.recuperarTodosAnotacao()}" headerText="Anotação" var="anotacao" itemStyle="text-align:center" responsive="true">
-     <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
-		<h:outputText value="Data"/>
-		<h:outputText value="#{anotacao.data}"/>
-		<h:outputText value="Texto"/>
-		<h:outputText value="#{anotacao.texto}"/>
+     <p:accordionPanel value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
+			<p:tab title="Anotação #{item.id}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Data:" style="font-weight: bold" />
+					<h:outputText value="#{item.data}" />
 
-</p:panelGrid>
-</p:carousel>
+					<h:outputText value="Texto:" style="font-weight: bold" />
+					<h:outputText value="#{item.texto}" />
+
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+
 </body>
 </html>
