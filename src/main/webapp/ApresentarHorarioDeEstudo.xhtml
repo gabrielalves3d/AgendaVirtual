@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<h:head>
-        <title>Agenda Virtual</title>
-    
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"> <meta
+	http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <h:head>
+	<title>Agenda Virtual</title>
 </h:head>
 <body>
-<h:form id="formHorarioDeEstudo" >
- <p:growl id="message" life="7000"/>
-	<p:dataTable id="tabela" var="item"
-		value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}"
-		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
-		 <f:facet name="header">Horario de Estudo</f:facet>
-                
-                 <p:column headerText="Disciplina">
-                    <h:outputText value="#{item.nome}"/>
-                </p:column>
-                <p:column headerText="Horario">
-                    <h:outputText value="#{item.horario}"/>
-                </p:column>
-                    
-                     <p:column headerText="Operações">
-                     <p:commandButton value="Excluir" 
-                         action="#{horarioDeEstudoController.excluir(horarioDeEstudoController.selecionar)}" update="formApresentaHorarioDeEstudo" />
-
-                   <p:commandButton value="Editar" 
-                          action="#{HorarioDeEstudoController.editar}" update="formApresentaHorarioDeEstudo" />
-                 
-                </p:column>
-                </p:dataTable>
-                
-               </h:form>
-               
-
+<ui:include src="menu.xhtml" />
+	<p:growl id="mensagem" life="4000" />
+	<h:form id="formHorarioDeEstudo">
+		<p:carousel
+			value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}"
+			var="item">
+			<p:tab title="HorarioDeEstudo #{item.id}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Disciplina:" style="font-weight: bold" />
+					<h:outputText value="#{item.disciplinas}" />
+					
+				<p:column headerText="Horario">
+					<h:outputText value="#{item.horario}" />
+				</p:column>
+				<p:column headerText="Operações" style="width: 12%">
+					<p:commandButton icon="ui-icon-trash"
+						oncomplete="PF('painelExcluirHorarioDeEstudo').show()"
+						title="Excluir">
+						<f:setPropertyActionListener value="#{horarioDeEstudo}"
+							target="#{horarioDeEstudoController.selecionar}" />
+					</p:commandButton>
+				</p:column>
+			</h:panelGrid>
+			<p:confirmDialog
+				message="Realmente deseja excluir este Horario de Estudo?"
+				showEffect="bounce" id="excluirHorarioDeEstudol" visible="false"
+				widgetVar="painelExcluirHorarioDeEstudo">
+				<p:commandButton value="Sim" icon="ui-icon-check"
+					action="#{horarioDeEstudo.excluir(horarioDeEstudoController.selecionar)}"
+					oncomplete="PF('painelExcluirHorarioDeEstudo').hide()"
+					update=":formHorarioDeEstudo" />
+				<p:commandButton value="Não" icon="ui-icon-closethick"
+					onclick="painelExcluirHorarioDeEstudo.hide();" />
+			</p:confirmDialog>
+		</p:tab>
+	</p:carousel>
+	
+</h:form>
 </body>
-</html>
+</html> 
+
