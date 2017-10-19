@@ -11,8 +11,11 @@
 </head>
 <body>
 	<ui:include src="menu.xhtml" />
+	<p:growl id="mensagem" life="4000" />
 	<h:form id="formAgendamento">
-		<p:accordionPanel value="#{agendamentoController.recuperarTodosAgendamento()}" var="item">
+		<p:accordionPanel
+			value="#{agendamentoController.recuperarTodosAgendamento()}"
+			var="item">
 			<p:tab title="Agendamento #{item.id}">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputText value="Disciplina:" style="font-weight: bold" />
@@ -30,11 +33,38 @@
 					<h:outputText value="Descrição:" style="font-weight: bold" />
 					<h:outputText value="#{item.descricao}" />
 
-
+					<p:column headerText="Operações" style="width: 12%">
+						<p:commandButton icon="ui-icon-trash"
+							oncomplete="PF('painelExcluirAgendamento').show()"
+							title="Excluir">
+							<f:setPropertyActionListener value="#{agendamento}"
+								target="#{agendamentoController.selecionar}" />
+						</p:commandButton>
+					</p:column>
 				</h:panelGrid>
+				<p:confirmDialog message="Realmente deseja excluir este agendamento?"
+			showEffect="bounce" id="excluirAluguel" visible="false"
+			widgetVar="painelExcluirAgendamento">
+			<p:commandButton value="Sim" icon="ui-icon-check"
+				action="#{agendamento.excluir(agendamentoController.selecionar)}"
+				oncomplete="PF('painelExcluirAgendamento').hide()"
+				update=":formAgendamento" />
+			<p:commandButton value="Não" icon="ui-icon-closethick"
+				onclick="painelExcluirAgendamento.hide();" />
+		</p:confirmDialog>
 			</p:tab>
 		</p:accordionPanel>
 
+		<p:confirmDialog message="Realmente deseja excluir este agendamento?"
+			showEffect="bounce" id="excluirAluguel" visible="false"
+			widgetVar="painelExcluirAgendamento">
+			<p:commandButton value="Sim" icon="ui-icon-check"
+				action="#{agendamento.excluir(agendamentoController.selecionar)}"
+				oncomplete="PF('painelExcluirAgendamento').hide()"
+				update=":formAgendamento" />
+			<p:commandButton value="Não" icon="ui-icon-closethick"
+				onclick="painelExcluirAgendamento.hide();" />
+		</p:confirmDialog>
 
 
 	</h:form>
