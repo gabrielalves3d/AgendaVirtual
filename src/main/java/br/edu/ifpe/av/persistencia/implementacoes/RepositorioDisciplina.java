@@ -19,11 +19,11 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 		    
 		    
 		    public void excluir(Disciplina u){
-		        DaoManagerHiber.getInstance().delete(u);
+		        dao.delete(u);
 		    }
 		    
 		    public List<Disciplina> recuperarTodos(){
-		        return DaoManagerHiber.getInstance().recover("from Disciplina");
+		        return dao.recover("from Disciplina");
 		    }
 
 		    
