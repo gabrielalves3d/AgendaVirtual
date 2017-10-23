@@ -18,10 +18,7 @@
 	<p:dataTable id="tabela" var="item"
 		value="#{disciplinaController.recuperarTodosDisciplina()}"
 		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
-		 <f:facet name="header">Disciplinas Cadastradas</f:facet>
-                <p:column headerText="Id">
-                    <h:outputText value="#{item.id}"/>
-                </p:column>
+		 <f:facet name="header">Disciplinas</f:facet>
                  <p:column headerText="Nome">
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
@@ -31,7 +28,7 @@
                 <p:column headerText="MediaFinal">
                     <h:outputText value="#{item.mediaFinal}"/>
                 </p:column>
-                <p:column headerText="Situacao">
+                <p:column headerText="Situação">
                     <h:outputText value="#{item.situacao}"/>
                 </p:column>
                     
