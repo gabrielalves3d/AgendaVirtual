@@ -42,29 +42,20 @@
 						</p:commandButton>
 					</p:column>
 				</h:panelGrid>
-				<p:confirmDialog message="Realmente deseja excluir este agendamento?"
-			showEffect="bounce" id="excluirAluguel" visible="false"
-			widgetVar="painelExcluirAgendamento">
-			<p:commandButton value="Sim" icon="ui-icon-check"
-				action="#{agendamento.excluir(agendamentoController.selecionar)}"
-				oncomplete="PF('painelExcluirAgendamento').hide()"
-				update=":formAgendamento" />
-			<p:commandButton value="Não" icon="ui-icon-closethick"
-				onclick="painelExcluirAgendamento.hide();" />
-		</p:confirmDialog>
+
+				<p:confirmDialog
+					message="Realmente deseja excluir este agendamento?"
+					showEffect="bounce" id="excluirAgendamento" visible="false"
+					widgetVar="painelExcluirAgendamento">
+					<p:commandButton value="Sim" icon="ui-icon-check"
+						action="#{agendamento.excluir(agendamentoController.selecionar)}"
+						oncomplete="PF('painelExcluirAgendamento').hide()"
+						update=":formAgendamento" />
+					<p:commandButton value="Não" icon="ui-icon-closethick"
+						onclick="painelExcluirAgendamento.hide();" />
+				</p:confirmDialog>
 			</p:tab>
 		</p:accordionPanel>
-
-		<p:confirmDialog message="Realmente deseja excluir este agendamento?"
-			showEffect="bounce" id="excluirAluguel" visible="false"
-			widgetVar="painelExcluirAgendamento">
-			<p:commandButton value="Sim" icon="ui-icon-check"
-				action="#{agendamento.excluir(agendamentoController.selecionar)}"
-				oncomplete="PF('painelExcluirAgendamento').hide()"
-				update=":formAgendamento" />
-			<p:commandButton value="Não" icon="ui-icon-closethick"
-				onclick="painelExcluirAgendamento.hide();" />
-		</p:confirmDialog>
 
 
 	</h:form>
