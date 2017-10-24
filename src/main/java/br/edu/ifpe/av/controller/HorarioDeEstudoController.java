@@ -2,7 +2,9 @@ package br.edu.ifpe.av.controller;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -46,7 +48,7 @@ public class HorarioDeEstudoController implements Serializable{
     }
     
      public String inserir(HorarioDeEstudo horarioDeEstudo) {
-    	 horarioDeEstudo.setDisciplinas((List<Disciplina>) disciplinaSelecionado);
+    	horarioDeEstudo.getDisciplinas().add(disciplinaSelecionado);
         this.repositorioHorarioDeEstudo.inserir(horarioDeEstudo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Horario de Estudo foi inserido!"));
 

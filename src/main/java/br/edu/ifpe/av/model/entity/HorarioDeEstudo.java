@@ -1,5 +1,6 @@
 package br.edu.ifpe.av.model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -57,6 +58,6 @@ public class HorarioDeEstudo {
 		this.disciplinas = disciplinas;
 	}
 	public HorarioDeEstudo(){
-		
+		this.disciplinas = new ArrayList<Disciplina>();
 	}
 }
