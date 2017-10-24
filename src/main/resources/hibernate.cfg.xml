@@ -14,7 +14,6 @@
 		<mapping class="br.edu.ifpe.av.model.entity.Disciplina" />
 		<mapping class="br.edu.ifpe.av.model.entity.Usuario" />
 		<mapping class="br.edu.ifpe.av.model.entity.HorarioDeEstudo" />
-		<mapping class="br.edu.ifpe.av.model.entity.Boletim" />
 		<mapping class="br.edu.ifpe.av.model.entity.Anotacao" />
 		<mapping class="br.edu.ifpe.av.model.entity.Agendamento" />
 		 

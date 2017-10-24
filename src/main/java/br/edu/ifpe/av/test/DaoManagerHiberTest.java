@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Anotacao;
-import br.edu.ifpe.av.model.entity.Boletim;
 import br.edu.ifpe.av.model.entity.DaoManagerHiber;
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
@@ -68,12 +67,6 @@ public class DaoManagerHiberTest {
 	usr.setHorarioDeEstudo(academico);
 	}
 	
-	Boletim blm = new Boletim();
-	@Test
-	public void inserirBoletimTest() {
-	blm.setDisciplinas(dis);
-	usr.setBoletim(blm);
-	}
 	
 	@Test 
 	public void inserirUsuarioTest() {

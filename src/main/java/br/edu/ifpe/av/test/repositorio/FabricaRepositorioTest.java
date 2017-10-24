@@ -7,13 +7,11 @@ import org.junit.Test;
 import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 import br.edu.ifpe.av.persistencia.implementacoes.RepositorioAgendamento;
 import br.edu.ifpe.av.persistencia.implementacoes.RepositorioAnotacao;
-import br.edu.ifpe.av.persistencia.implementacoes.RepositorioBoletim;
 import br.edu.ifpe.av.persistencia.implementacoes.RepositorioDisciplina;
 import br.edu.ifpe.av.persistencia.implementacoes.RepositorioHorarioDeEstudo;
 import br.edu.ifpe.av.persistencia.implementacoes.RepositorioUsuario;
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Anotacao;
-import br.edu.ifpe.av.model.entity.Boletim;
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.av.model.entity.Usuario;
@@ -36,11 +34,7 @@ public class FabricaRepositorioTest {
 		RepositorioGenerico <Disciplina, Integer> repositorio = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Disciplina, FabricaRepositorio.BD);
 		assertTrue(repositorio instanceof RepositorioDisciplina);
 	}
-	@Test
-	public void fabricarRepositorioBoletimTest() {
-		RepositorioGenerico <Boletim, Integer> repositorio = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Boletim, FabricaRepositorio.BD);
-		assertTrue(repositorio instanceof RepositorioBoletim);
-	}
+	
 	@Test
 	public void fabricarRepositorioAnotacaoTest() {
 		RepositorioGenerico <Anotacao, Integer> repositorio = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Anotacao, FabricaRepositorio.BD);

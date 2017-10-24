@@ -5,7 +5,6 @@ import javax.faces.bean.RequestScoped;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Anotacao;
-import br.edu.ifpe.av.model.entity.Boletim;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.av.model.entity.Usuario;
 
@@ -17,7 +16,6 @@ public class BuilderUsuario {
 	private String nome;
 	private String email;
 	private HorarioDeEstudo horarioDeEstudo;
-	private Boletim boletim;
 	private List<Anotacao> anotacao;
 	private List<Agendamento> agendamento;
 	
@@ -45,12 +43,7 @@ public class BuilderUsuario {
 	public void setHorarioDeEstudo(HorarioDeEstudo horarioDeEstudo) {
 		this.horarioDeEstudo = horarioDeEstudo;
 	}
-	public Boletim getBoletim() {
-		return boletim;
-	}
-	public void setBoletim(Boletim boletim) {
-		this.boletim = boletim;
-	}
+	
 	public List<Anotacao> getAnotacao() {
 		return anotacao;
 	}
@@ -68,20 +61,19 @@ public class BuilderUsuario {
 		
 	}
 	
-	public BuilderUsuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
+	public BuilderUsuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo,
 			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.horarioDeEstudo = horarioDeEstudo;
-		this.boletim = boletim;
 		this.anotacao = anotacao;
 		this.agendamento = agendamento;
 	}
 	
 	public Usuario construirUsuario() {
-		return new Usuario(id, nome, email, horarioDeEstudo, boletim, anotacao, agendamento);
+		return new Usuario(id, nome, email, horarioDeEstudo, anotacao, agendamento);
 	}
 
 

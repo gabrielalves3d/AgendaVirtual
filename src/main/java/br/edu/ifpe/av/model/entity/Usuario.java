@@ -28,22 +28,19 @@ public class Usuario {
 	@JoinColumn(name="horario_estudo_id", updatable=false)
 	private HorarioDeEstudo horarioDeEstudo;
 	@OneToOne (cascade=CascadeType.ALL)
-	@JoinColumn(name="boletim_id", updatable=false)
-	private Boletim boletim;
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private List<Anotacao> anotacao;
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private List<Agendamento> agendamento;
 
 
-	public Usuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
+	public Usuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo,
 			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.horarioDeEstudo = horarioDeEstudo;
-		this.boletim = boletim;
 		this.anotacao = anotacao;
 		this.agendamento = agendamento;
 	}
@@ -77,12 +74,6 @@ public class Usuario {
 	}
 	public void setHorarioDeEstudo(HorarioDeEstudo horarioDeEstudo) {
 		this.horarioDeEstudo = horarioDeEstudo;
-	}
-	public Boletim getBoletim() {
-		return boletim;
-	}
-	public void setBoletim(Boletim boletim) {
-		this.boletim = boletim;
 	}
 	public Anotacao getAnotacao() {
 		return (Anotacao) anotacao;

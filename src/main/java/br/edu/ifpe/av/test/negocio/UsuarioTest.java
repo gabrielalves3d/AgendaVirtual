@@ -9,32 +9,30 @@ import org.junit.Test;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Anotacao;
-import br.edu.ifpe.av.model.entity.Boletim;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.av.model.entity.Usuario;
 
 public class UsuarioTest {
 	
 	private HorarioDeEstudo horarioDeEstudo;
-	private Boletim boletim;
 	private List<Anotacao> anotacao;
 	private List<Agendamento> agendamento;
 
 	@Test
 	public void getIdTest() {
-		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,boletim,anotacao,agendamento);
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,anotacao,agendamento);
 		int resultado = usuario.getId();
 	    Assert.assertEquals(1, resultado);
 	}
 	@Test
 	public void getNomeTest() {
-		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,boletim,anotacao,agendamento);
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,anotacao,agendamento);
 		String resultado = usuario.getNome();
 	    Assert.assertEquals("vanessa", resultado);
 	}
 	@Test
 	public void getEmailTest() {
-		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,boletim,anotacao,agendamento);
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,anotacao,agendamento);
 		String resultado = usuario.getEmail();
 	    Assert.assertEquals("vanessa@hotmail.com", resultado);
 	}
@@ -65,23 +63,17 @@ public class UsuarioTest {
 		usuario.setHorarioDeEstudo(horarioDeEstudo);
 		Assert.assertEquals(horarioDeEstudo, usuario.getHorarioDeEstudo());
 	}
-	@Test
-	public void setBoletimTest() {
-		Usuario usuario = new Usuario();
-		Boletim boletim = new Boletim();
-		usuario.setBoletim(boletim);
-		Assert.assertEquals(boletim, usuario.getBoletim());
-	}
+	
 	@Test
 	public void setAnotacaoTest(){
-		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,boletim,anotacao,agendamento);
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,anotacao,agendamento);
 		usuario.setAnotacao(anotacao);
 		Assert.assertEquals(anotacao, usuario.getAnotacao());
 
 	}
 	@Test
 	public void setAgendamentoTest(){
-		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,boletim,anotacao,agendamento);
+		Usuario usuario = new Usuario(1,"vanessa", "vanessa@hotmail.com",horarioDeEstudo,anotacao,agendamento);
 		usuario.setAgendamento(agendamento);
 		Assert.assertEquals(agendamento, usuario.getAgendamento());
 
