@@ -13,14 +13,14 @@
 <body id="formApresentaAnotacao">
      <p:accordionPanel value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
 			<p:tab title="Anotação #{item.id}">
-				<h:panelGrid columns="2" cellpadding="5">
+				<p:panelGrid columns="2" cellpadding="5">
 					<h:outputText value="Data:" style="font-weight: bold" />
 					<h:outputText value="#{item.data}" />
 
 					<h:outputText value="Texto:" style="font-weight: bold" />
 					<h:outputText value="#{item.texto}" />
 
-				</h:panelGrid>
+				</p:panelGrid>
 			</p:tab>
 		</p:accordionPanel>
 
