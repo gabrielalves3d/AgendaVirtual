@@ -16,7 +16,6 @@ public class BuilderUsuario {
 	private int id;
 	private String nome;
 	private String email;
-	private String senha;
 	private HorarioDeEstudo horarioDeEstudo;
 	private Boletim boletim;
 	private List<Anotacao> anotacao;
@@ -39,12 +38,6 @@ public class BuilderUsuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 	public HorarioDeEstudo getHorarioDeEstudo() {
 		return horarioDeEstudo;
@@ -75,13 +68,12 @@ public class BuilderUsuario {
 		
 	}
 	
-	public BuilderUsuario(int id, String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
+	public BuilderUsuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo, Boletim boletim,
 			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.senha = senha;
 		this.horarioDeEstudo = horarioDeEstudo;
 		this.boletim = boletim;
 		this.anotacao = anotacao;
@@ -89,7 +81,7 @@ public class BuilderUsuario {
 	}
 	
 	public Usuario construirUsuario() {
-		return new Usuario(id, nome, email, senha, horarioDeEstudo, boletim, anotacao, agendamento);
+		return new Usuario(id, nome, email, horarioDeEstudo, boletim, anotacao, agendamento);
 	}
 
 

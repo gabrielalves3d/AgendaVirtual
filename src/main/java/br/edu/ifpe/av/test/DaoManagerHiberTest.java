@@ -79,7 +79,6 @@ public class DaoManagerHiberTest {
 	public void inserirUsuarioTest() {
 		usr.setEmail("tst@mail.com");
 		usr.setNome("Larissa");
-		usr.setSenha("larissa");
 	
 	DaoManagerHiber.getInstance().persist(usr);
 }
