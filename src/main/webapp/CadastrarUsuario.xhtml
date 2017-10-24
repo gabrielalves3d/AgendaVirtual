@@ -17,8 +17,6 @@
 				<p:inputText value="#{bUsuario.nome}" />
 				<p:outputLabel value="E-mail: " />
 				<p:inputText value="#{bUsuario.email}" />
-				<h:outputText value="Senha: " />
-				<p:password id="nonFeedback" value="#{passwordView.password1}" />
 			</p:panelGrid>
 			<p:commandButton value="Cadastrar" id="Cadastrar"
 				actionListener="#{usuarioController.inserir(bUsuario.construirUsuario())}"
