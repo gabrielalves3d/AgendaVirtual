@@ -20,11 +20,11 @@ public class RepositorioHorarioDeEstudo implements RepositorioGenerico<HorarioDe
     
     
     public void excluir(HorarioDeEstudo u){
-        DaoManagerHiber.getInstance().delete(u);
+        dao.delete(u);
     }
     
     public List<HorarioDeEstudo> recuperarTodos(){
-        return DaoManagerHiber.getInstance().recover("from HorarioDeEstudo");
+        return dao.recover("from HorarioDeEstudo");
         
     }
    

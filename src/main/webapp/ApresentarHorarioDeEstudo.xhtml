@@ -7,47 +7,38 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"> <meta
 	http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> <h:head>
 	<title>Agenda Virtual</title>
-</h:head>
-<body>
-<ui:include src="menu.xhtml" />
-	<p:growl id="mensagem" life="4000" />
-	<h:form id="formHorarioDeEstudo">
-		<p:carousel
-			value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}"
-			var="item">
-			<p:tab title="HorarioDeEstudo #{item.id}">
-				<h:panelGrid columns="2" cellpadding="5">
-				
-					<h:outputText value="Disciplina:" style="font-weight: bold" />
-					<h:outputText value="#{item.disciplinas}" />
-					
-				<p:column headerText="Horario">
-					<h:outputText value="#{item.horario}" />
-				</p:column>
-				<p:column headerText="Operações" style="width: 12%">
-					<p:commandButton icon="ui-icon-trash"
-						oncomplete="PF('painelExcluirHorarioDeEstudo').show()"
-						title="Excluir">
-						<f:setPropertyActionListener value="#{horarioDeEstudo}"
-							target="#{horarioDeEstudoController.selecionar}" />
-					</p:commandButton>
-				</p:column>
-			</h:panelGrid>
-			<p:confirmDialog
-				message="Realmente deseja excluir este Horario de Estudo?"
-				showEffect="bounce" id="excluirHorarioDeEstudol" visible="false"
-				widgetVar="painelExcluirHorarioDeEstudo">
-				<p:commandButton value="Sim" icon="ui-icon-check"
-					action="#{horarioDeEstudo.excluir(horarioDeEstudoController.selecionar)}"
-					oncomplete="PF('painelExcluirHorarioDeEstudo').hide()"
-					update=":formHorarioDeEstudo" />
-				<p:commandButton value="Não" icon="ui-icon-closethick"
-					onclick="painelExcluirHorarioDeEstudo.hide();" />
-			</p:confirmDialog>
-		</p:tab>
-	</p:carousel>
-	
-</h:form>
-</body>
-</html> 
 
+</h:head> <body> <ui:include src="menu.xhtml" /> <h:form
+	id="formApresentaHorarioDeEstudo">
+	<p:dataTable id="tabela" var="item"
+		value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}"
+		paginator="true" rows="3" selectionMode="single" rowKey="#{item.id}">
+		<f:facet name="header">Horário de Estudo</f:facet>
+		<p:column headerText="Disciplina">
+			<h:outputText value="#{item.disciplinas}" />
+		</p:column>
+		<p:column headerText="Horário">
+			<h:outputText value="#{item.horario}" />
+		</p:column>
+			<p:column headerText="Operações:" style="font-weight: bold">
+		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirHorarioDeEstudo').show()" title="Excluir">
+			<f:setPropertyActionListener value="#{item}" target="#{horarioDeEstudoController.selecionar}" />
+		</p:commandButton>
+		  <p:commandButton icon="ui-icon-pencil" title="Alterar" action="AlterarHorarioDeEstudo.xhtml">
+			<f:setPropertyActionListener value="#{item}" target="#{horarioDeEstudoController.selecionar}" />
+		</p:commandButton>
+				</p:column>
+				
+	</p:dataTable>
+	<p:confirmDialog header="Atenção!"
+					message="Realmente deseja excluir este Horario de Estudo?"
+					showEffect="bounce" id="excluirHorarioDeEstudo" visible="false"
+					widgetVar="painelExcluirHorarioDeEstudo">
+					<p:commandButton value="Sim" icon="ui-icon-check"
+						action="#{horarioDeEstudoController.excluir(horarioDeEstudoController.selecionar)}"
+						oncomplete="PF('painelExcluirHorarioDeEstudo').hide()"
+						update=":formApresentaHorarioDeEstudo" />
+					<p:commandButton value="Não" icon="ui-icon-closethick"
+						onclick="painelExcluirHorarioDeEstudo.hide();" />
+				</p:confirmDialog>
+</h:form> </body> </html>
