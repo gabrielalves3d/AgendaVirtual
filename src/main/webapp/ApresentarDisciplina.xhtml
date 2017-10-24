@@ -28,16 +28,15 @@
 			<h:outputText value="#{item.situacao}" />
 		</p:column>
 
-			<h:outputText value="Operações:" style="font-weight: bold" />
+			<p:column headerText="Operações:" style="font-weight: bold">
 		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirDisciplina').show()" title="Excluir">
 			<f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}" />
 		</p:commandButton>
+		</p:column>
 		<!--  <p:commandButton icon="ui-icon-pencil"
 				action="#{disciplinaController.alterar()}"
-				update="formApresentaDisciplina:tabela" /> -->
+				update="formApresentaDisciplina:tabela" /> </p:column> -->
 				
-
-		</p:column>
 	</p:dataTable>
 	<p:confirmDialog header="Atenção!"
 					message="Realmente deseja excluir esta disciplina?"
