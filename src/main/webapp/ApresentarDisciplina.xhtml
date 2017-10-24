@@ -32,10 +32,10 @@
 		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirDisciplina').show()" title="Excluir">
 			<f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}" />
 		</p:commandButton>
-		<p:commandButton icon="ui-icon-pencil" oncomplete="PF('painelAlterarDisciplina').show()" title="Alterar">
+		  <p:commandButton icon="ui-icon-pencil" title="Alterar" action="AlterarDisciplina.xhtml">
 			<f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}" />
 		</p:commandButton>
-		</p:column>
+				</p:column>
 				
 	</p:dataTable>
 	<p:confirmDialog header="Atenção!"
