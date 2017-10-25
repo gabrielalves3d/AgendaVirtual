@@ -27,7 +27,6 @@ public class Usuario {
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="horario_estudo_id", updatable=false)
 	private HorarioDeEstudo horarioDeEstudo;
-	@OneToOne (cascade=CascadeType.ALL)
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
 	private List<Anotacao> anotacao;
 	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
