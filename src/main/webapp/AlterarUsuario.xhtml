@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+	<title>Agenda Virtual</title>
+
+</h:head>
+<body>
+	<ui:include src="menu.xhtml" />
+	<h:form id="formAlterarUsuario">
+		<p:fieldset legend="Alterar Usuario">
+			<p:panelGrid columns="2">
+				<h:outputText value="Nome:" />
+				<p:inputText id="UsuarioNome" value="#{bUsuario.nome}" required="true" />
+				<h:outputText value="E-mail:" />
+				<p:inputText id="UsuarioEmail" value="#{bUsuario.email}" required="true" />	
+			</p:panelGrid>
+			<p:commandButton value="Alterar"
+				action="#{usuarioController.alterar}" update="formAlterarUsuario" />
+		</p:fieldset>
+	</h:form>
+</body>
+</html>
