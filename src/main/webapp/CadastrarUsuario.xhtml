@@ -10,18 +10,24 @@
 </h:head>
 <h:body>
 	<ui:include src="menu.xhtml" />
-	<h:form id="formUsuario">
-		<p:fieldset legend="Cadastrar Usuário">
+	<h:form>
+		<p:growl id="formUsuario" showDetail="true" sticky="true" />
+
+		<p:panel header="Cadastrar Usuário">
 			<p:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel value="Nome: " />
-				<p:inputText value="#{bUsuario.nome}" />
+				<p:inputText value="#{bUsuario.nome}" required="true" />
 				<p:outputLabel value="E-mail: " />
-				<p:inputText value="#{bUsuario.email}" />
+				<p:inputText value="#{bUsuario.email}" required="true" />
+
+
 			</p:panelGrid>
+
+
 			<p:commandButton value="Cadastrar" id="Cadastrar"
-				actionListener="#{usuarioController.inserir(bUsuario.construirUsuario())}"
+				action="#{usuarioController.inserir(bUsuario.construirUsuario())}"
 				update="formUsuario" />
-		</p:fieldset>
+		</p:panel>
 	</h:form>
 </h:body>
 </html>

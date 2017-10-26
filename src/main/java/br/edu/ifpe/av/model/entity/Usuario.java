@@ -88,4 +88,5 @@ public class Usuario {
 	public void setAgendamento(List<Agendamento> agendamento) {
 		this.agendamento = agendamento;
 	}
+	
 }
