@@ -45,7 +45,7 @@ public class UsuarioController {
 		this.repositorioUsuario.alterar(usuario);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário alterado!"));
 
-		return "ApresentarUsuario.xhtml";
+		return "menu.xhtml";
 	}
 	
 	public Usuario recuperarUsuario(int id) {
