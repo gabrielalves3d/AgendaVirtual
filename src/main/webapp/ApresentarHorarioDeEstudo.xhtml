@@ -19,8 +19,7 @@
 		</p:column>
 		<p:column headerText="Horário">
 			<h:outputText value="#{item.horario}"  />
-		</p:column>
-			<p:column headerText="Operações:" style="font-weight: bold">
+		</p:column><p:column headerText="Operações:" style="font-weight: bold">
 		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirHorarioDeEstudo').show()" title="Excluir">
 			<f:setPropertyActionListener value="#{item}" target="#{horarioDeEstudoController.selecionar}" />
 		</p:commandButton>
@@ -31,7 +30,7 @@
 				
 	</p:dataTable>
 	<p:confirmDialog header="Atenção!"
-					message="Realmente deseja excluir este Horario de Estudo?"
+					message="Realmente deseja excluir este Horário de estudo?"
 					showEffect="bounce" id="excluirHorarioDeEstudo" visible="false"
 					widgetVar="painelExcluirHorarioDeEstudo">
 					<p:commandButton value="Sim" icon="ui-icon-check"
