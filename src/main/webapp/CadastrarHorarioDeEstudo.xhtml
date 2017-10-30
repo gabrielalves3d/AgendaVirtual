@@ -22,10 +22,9 @@
 						value="#{horarioDeEstudoController.recuperarTodosDisciplina()}" />
 				</p:selectOneMenu>
 				
-				<h:outputText value="Hora:" />
-				<p:calendar value="#{bHorarioDeEstudo.horario}" pattern="HH:mm" 
-					timeOnly="true" />
-
+				<p:outputLabel for="Hora" value="Hora:" />
+        <p:calendar id="Hora" value="#{bHorarioDeEstudo.horario}" pattern="HH:mm" timeOnly="true"  />
+				
 			</p:panelGrid>
 			<p:commandButton value="Cadastrar" id="Cadastrar"
 				action="#{horarioDeEstudoController.inserir(bHorarioDeEstudo.construirHorarioDeEstudo())}"
