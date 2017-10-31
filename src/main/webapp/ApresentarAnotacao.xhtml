@@ -10,19 +10,41 @@
 	<title>Agenda Virtual</title>
 </h:head>
 <ui:include src="menu.xhtml" />
-<body id="formApresentaAnotacao">
-     <p:accordionPanel value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
-			<p:tab title="Anotação #{item.id}">
-				<p:panelGrid columns="2" cellpadding="5">
-					<h:outputText value="Data:" style="font-weight: bold" />
-					<h:outputText value="#{item.data}" />
+<body>
+   <h:form id="formAnotacao">
+	<p:accordionPanel
+		value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
+		<p:tab title="Anotação #{item.id}">
+			<p:panelGrid columns="2" cellpadding="5">
+				<h:outputText value="Data:" style="font-weight: bold" />
+				<h:outputText value="#{item.data}" />
 
-					<h:outputText value="Texto:" style="font-weight: bold" />
-					<h:outputText value="#{item.texto}" />
+				<h:outputText value="Texto:" style="font-weight: bold" />
+				<h:outputText value="#{item.texto}" />
 
-				</p:panelGrid>
-			</p:tab>
-		</p:accordionPanel>
+				<h:outputText value="Operações:" style="font-weight: bold" />
+				<p:commandButton icon="ui-icon-trash"
+					oncomplete="PF('painelExcluirAnotacao').show()" title="Excluir">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{anotacaoController.selecionar}" />
+				</p:commandButton>
+
+			</p:panelGrid>
+
+			<p:confirmDialog header="Atenção!"
+				message="Realmente deseja excluir esta anotacão?"
+				showEffect="bounce" id="excluirAnotacao" visible="false"
+				widgetVar="painelExcluirAnotacao">
+				<p:commandButton value="Sim" icon="ui-icon-check"
+					action="#{anotacaoController.excluir(anotacaoController.selecionar)}"
+					oncomplete="PF('painelExcluirAnotacao').hide()"
+					update=":formAnotacao" />
+				<p:commandButton value="Não" icon="ui-icon-closethick"
+					onclick="painelExcluirAnotacao.hide();" />
+			</p:confirmDialog>
+		</p:tab>
+	</p:accordionPanel>
+	</h:form>
 
 </body>
 </html>
