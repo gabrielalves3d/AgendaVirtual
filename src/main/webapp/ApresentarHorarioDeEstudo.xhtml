@@ -17,11 +17,12 @@
 		<p:column headerText="Disciplina">
 			<h:outputText value="#{item.disciplinas}"  />
 		</p:column>
-		  <h:outputText value="Hora:" />
+		  <p:column value="Hora:" >
             <h:outputText value="#{item.horario}">
                 <f:convertDateTime pattern="HH:mm" />
             </h:outputText>
-		</p:column><p:column headerText="Operações:" style="font-weight: bold">
+		</p:column>
+		<p:column headerText="Operações:" style="font-weight: bold">
 		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirHorarioDeEstudo').show()" title="Excluir">
 			<f:setPropertyActionListener value="#{item}" target="#{horarioDeEstudoController.selecionar}" />
 		</p:commandButton>
