@@ -43,7 +43,7 @@ RepositorioGenerico <Disciplina, Integer> repositorioDisciplina = null;
 	        this.repositorioDisciplina.alterar(disciplina);
 	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi alterada!"));
 
-	        return "AlterarDisciplina.xhtml";
+	        return "ApresentarDisciplina.xhtml";
 	    }
 
 	    public Disciplina recuperarDisciplina(int id) {

@@ -19,8 +19,8 @@
                 <p:inputText id="DisciplinaNota" value="#{bDisciplina.nota}" required="true" />        
                 
                </p:panelGrid>
-                <p:commandButton value="Alterar" 
-                action="#{disciplinaController.alterar}" update="formAlterarDisciplina" />
+                <p:commandButton value="Alterar"  ajax="false"
+                actionListener="#{disciplinaController.alterar}" update="formAlterarDisciplina" />
             </p:fieldset>
         </h:form>
 </body>
