@@ -75,7 +75,7 @@ public class Disciplina implements Serializable, SampleEntity {
 		this.mediaFinal = mediaFinal;
 	}
 
-	public boolean isSituacao() {
+	public boolean getSituacao() {
 		return situacao;
 	}
 
