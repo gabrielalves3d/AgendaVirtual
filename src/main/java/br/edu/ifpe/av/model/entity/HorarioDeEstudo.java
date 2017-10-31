@@ -1,6 +1,10 @@
 package br.edu.ifpe.av.model.entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class HorarioDeEstudo {
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
@@ -24,15 +28,13 @@ public class HorarioDeEstudo {
 	private String horario;
 	@ManyToMany
 	private List<Disciplina> disciplinas;
-	
-	
+
 	public HorarioDeEstudo(int id, String horario, List<Disciplina> disciplinas) {
 		super();
 		this.id = id;
 		this.horario = horario;
 		this.disciplinas = disciplinas;
 	}
-
 
 	public int getId() {
 		return id;
@@ -43,7 +45,21 @@ public class HorarioDeEstudo {
 	}
 
 	public String getHorario() {
-		return horario;
+		String ret = horario;
+
+		if (horario != null) {
+
+			SimpleDateFormat fomt = new SimpleDateFormat("HH:mm");
+			Date date = null;
+			try {
+				date = fomt.parse(horario);
+				ret = fomt.format(date);
+			} catch (ParseException e) {
+
+			}
+		}
+
+		return ret;
 	}
 
 	public void setHorario(String horario) {
@@ -57,7 +73,8 @@ public class HorarioDeEstudo {
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	public HorarioDeEstudo(){
+
+	public HorarioDeEstudo() {
 		this.disciplinas = new ArrayList<Disciplina>();
 	}
 }
