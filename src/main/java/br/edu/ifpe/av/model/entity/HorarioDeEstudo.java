@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,14 +27,14 @@ public class HorarioDeEstudo {
 	private int id;
 	@Column
 	private String horario;
-	@ManyToMany
-	private List<Disciplina> disciplinas;
+	@OneToOne
+	private Disciplina disciplina;
 
-	public HorarioDeEstudo(int id, String horario, List<Disciplina> disciplinas) {
+	public HorarioDeEstudo(int id, String horario, Disciplina disciplina) {
 		super();
 		this.id = id;
 		this.horario = horario;
-		this.disciplinas = disciplinas;
+		this.disciplina = disciplina;
 	}
 
 	public int getId() {
@@ -68,15 +69,15 @@ public class HorarioDeEstudo {
 		this.horario = horario;
 	}
 
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public HorarioDeEstudo() {
-		this.disciplinas = new ArrayList<Disciplina>();
+		
 	}
 }

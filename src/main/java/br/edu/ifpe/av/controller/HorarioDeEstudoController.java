@@ -48,8 +48,9 @@ public class HorarioDeEstudoController implements Serializable{
     }
     
      public String inserir(HorarioDeEstudo horarioDeEstudo) {
-    	horarioDeEstudo.getDisciplinas().add(disciplinaSelecionado);
-        this.repositorioHorarioDeEstudo.inserir(horarioDeEstudo);
+    	//horarioDeEstudo.getDisciplina().add(disciplinaSelecionado);
+    	 horarioDeEstudo.setDisciplina(disciplinaSelecionado);
+ 		this.repositorioHorarioDeEstudo.inserir(horarioDeEstudo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Horario de Estudo foi inserido!"));
 
         return "ApresentarHorarioDeEstudo.xhtml";

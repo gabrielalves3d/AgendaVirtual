@@ -43,7 +43,6 @@ public class BuilderHorarioDeEstudo {
 	public Disciplina getNome() {
 		return nome;
 	}
-
 	public void setNome(Disciplina nome) {
 		this.nome = nome;
 	}
@@ -53,7 +52,7 @@ public class BuilderHorarioDeEstudo {
 	}
 	 
 	public HorarioDeEstudo construirHorarioDeEstudo(){
-		return new HorarioDeEstudo(id, horario.toString(), new ArrayList<Disciplina>());
+		return new HorarioDeEstudo(id, horario.toString(), nome);
 		
 	}
 }
