@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Agenda Virtual</title>
+</head>
+<body>
+<ui:include src="menu.xhtml" />
+ <h:form id="formAlterarAgendamento">
+  <p:fieldset legend="Alterar Agendamento">
+			<p:panelGrid columns="2">
+				<h:outputText value="Disciplina:" />
+				<p:selectOneMenu id="agendamentoDisciplina"
+					value="#{agendamentoController.disciplinaSelecionado}"
+					style="width: 100%" converter="generic">
+					<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
+					<f:selectItems
+						value="#{agendamentoController.recuperarTodosDisciplina()}" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Atividade: " />
+				<p:inputText value="#{bAgendamento.atividade}" />
+				<p:outputLabel for="agendamentoData" value="Data:" />
+				<p:calendar id="agendamentoData" value="#{bAgendamento.dataHora}" />
+				<p:outputLabel value="Hora:" />
+				<p:calendar value="#{bAgendamento.dataHora}" pattern="HH:mm" timeOnly="true" />
+				<h:outputText value="Descrição:" />
+				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
+			</p:panelGrid>
+			</p:fieldset>
+  
+ 
+ </h:form>
+</body>
+</html>

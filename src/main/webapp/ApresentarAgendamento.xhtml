@@ -32,13 +32,15 @@
 
 					<h:outputText value="Descrição:" style="font-weight: bold" />
 					<h:outputText value="#{item.descricao}" />
-      
-        <h:outputText value="Operações:" style="font-weight: bold" />
-		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirAgendamento').show()" title="Excluir">
-			<f:setPropertyActionListener value="#{item}" target="#{agendamentoController.selecionar}" />
-		</p:commandButton>
 					
 		   </p:panelGrid>
+		   <p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirAgendamento').show()" title="Excluir">
+			<f:setPropertyActionListener value="#{item}" target="#{agendamentoController.selecionar}" />
+		   </p:commandButton>
+		   <p:commandButton icon="ui-icon-pencil" title="Alterar" action="AlterarAgendamento.xhtml">
+			<f:setPropertyActionListener value="#{item}" target="#{agendamentoController.selecionar}" />
+		   </p:commandButton>
+		      
 
 				<p:confirmDialog header="Atenção!"
 					message="Realmente deseja excluir este agendamento?"
