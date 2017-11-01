@@ -50,8 +50,7 @@ public class HorarioDeEstudo {
 		//Thu Jan 01 08:00:00 GMT-03:00 1970
 		// "EEE MMM dd HH:mm:ss zzz yyyy"
 		if (horario != null) {
-
-			SimpleDateFormat fomt = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+			SimpleDateFormat fomt = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz-03:00 yyyy");
 			Date date = null;
 			try {
 				date = fomt.parse(horario);
