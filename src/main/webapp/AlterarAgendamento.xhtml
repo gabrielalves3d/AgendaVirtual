@@ -32,6 +32,9 @@
 				<h:outputText value="Descrição:" />
 				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
 			</p:panelGrid>
+			<p:commandButton value="Alterar"
+				action="#{agendamentoController.alterar(agendamentoController.selecionar)}"
+				update=":formAlterarAgendamento" />
 			</p:fieldset>
   
  
