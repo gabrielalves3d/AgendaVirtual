@@ -20,7 +20,8 @@
                 
                </p:panelGrid>
                 <p:commandButton value="Alterar" 
-                actionListener="#{disciplinaController.alterar}" update="formAlterarDisciplina" />
+                actionListener="#{disciplinaController.alterar(bDisciplina.construirDisciplina())}"
+                 update="formAlterarDisciplina" oncomplete="alterar.show()"/>
             </p:fieldset>
         </h:form>
 </body>
