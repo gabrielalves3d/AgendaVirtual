@@ -1,5 +1,7 @@
 package br.edu.ifpe.av.builders;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.persistence.Column;
@@ -16,14 +18,14 @@ public class BuilderDisciplina  {
 	
 	private String nome;
 	
-	private double nota;
+	private List <Double> nota;
 	
 	private double mediaFinal;
 	
 	private boolean situacao;
 
 
-	public BuilderDisciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
+	public BuilderDisciplina(int id, String nome, List<Double> nota, double mediaFinal, boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -50,11 +52,11 @@ public class BuilderDisciplina  {
 		this.nome = nome;
 	}
 
-	public double getNota() {
+	public List<Double> getNota() {
 		return nota;
 	}
 
-	public void setNota(double nota) {
+	public void setNota(List<Double> nota) {
 		this.nota = nota;
 	}
 

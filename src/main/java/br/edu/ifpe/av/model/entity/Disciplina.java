@@ -1,8 +1,10 @@
 package br.edu.ifpe.av.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,15 +22,15 @@ public class Disciplina implements Serializable, SampleEntity {
 	private int id;
 	@Column
 	private String nome;
-	@Column
-	private double nota;
+	@Embedded
+	private List <Double> nota;
 	@Column
 	private double mediaFinal;
 	@Column
 	private boolean situacao;
 
 
-	public Disciplina(int id, String nome, double nota, double mediaFinal, boolean situacao) {
+	public Disciplina(int id, String nome, List nota, double mediaFinal, boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -59,15 +61,22 @@ public class Disciplina implements Serializable, SampleEntity {
 		this.nome = nome;
 	}
 
-	public double getNota() {
+	public List getNota() {
 		return nota;
 	}
 
-	public void setNota(double nota) {
+	public void setNota(List<Double> nota) {
 		this.nota = nota;
 	}
 
 	public double getMediaFinal() {
+		for (double i = 0; i <= nota.size(); i++) {
+			nota.add(i);
+		}
+		double soma = 0;
+		for(double k: nota)
+			soma = soma + k;
+		mediaFinal = soma/4;
 		return mediaFinal;
 	}
 
@@ -99,5 +108,7 @@ public class Disciplina implements Serializable, SampleEntity {
         hash = 29 * hash + this.id;
         return hash;
     }
+
+	
 
 }

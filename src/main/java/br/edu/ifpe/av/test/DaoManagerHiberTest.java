@@ -21,10 +21,16 @@ public class DaoManagerHiberTest {
 	
 	List<Disciplina> dis = new ArrayList<Disciplina>();
 	Disciplina d = new Disciplina();
+	List <Double> nota;
 	@Test
 	public void inserirDisciplinaTest() {
 	d.setNome("Mat");
-	d.setNota(9.5);
+	double nota1 = 7;
+	double nota2 = 8;
+	double nota3 = 9;
+	double nota4 = 6;
+	nota.add(nota1 + nota2 + nota3 + nota4);
+	d.setNota(nota);
 	d.setSituacao(true);
 	d.setMediaFinal(6.0);
 	
