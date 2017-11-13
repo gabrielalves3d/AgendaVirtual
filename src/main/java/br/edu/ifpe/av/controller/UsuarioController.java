@@ -38,7 +38,7 @@ public class UsuarioController {
 		} catch(Exception x) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(x.getMessage()));
 		}
-		return "menu.xhtml";
+		return "CadastrarDisciplina.xhtml";
 	}
 	
 	public String alterar(Usuario usuario) {
