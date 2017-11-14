@@ -70,13 +70,12 @@ public class Disciplina implements Serializable, SampleEntity {
 	}
 
 	public double getMediaFinal() {
-		for (double i = 0; i <= nota.size(); i++) {
-			nota.add(i);
-		}
+		/**
 		double soma = 0;
-		for(double k: nota)
-			soma = soma + k;
-		mediaFinal = soma/4;
+		for (double i = 0; i <= nota.size(); i++) {
+			soma += nota.size();
+		}
+		mediaFinal = soma/4;*/
 		return mediaFinal;
 	}
 
