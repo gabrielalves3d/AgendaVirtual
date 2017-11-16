@@ -22,6 +22,7 @@ public class Disciplina implements Serializable, SampleEntity {
 	private int id;
 	@Column
 	private String nome;
+	@Column
 	@Embedded
 	private List <Double> nota;
 	@Column
@@ -30,7 +31,7 @@ public class Disciplina implements Serializable, SampleEntity {
 	private boolean situacao;
 
 
-	public Disciplina(int id, String nome, List nota, double mediaFinal, boolean situacao) {
+	public Disciplina(int id, String nome, List<Double> nota, double mediaFinal, boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -60,11 +61,11 @@ public class Disciplina implements Serializable, SampleEntity {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public List getNota() {
+    
+	public List<Double> getNota() {
 		return nota;
 	}
-
+    
 	public void setNota(List<Double> nota) {
 		this.nota = nota;
 	}

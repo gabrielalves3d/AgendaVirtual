@@ -19,7 +19,14 @@
 			<h:outputText value="#{item.nome}" />
 		</p:column>
 		<p:column headerText="Nota">
-			<h:outputText value="#{item.nota}" />
+		<p:dataTable var="nota" value="#{bDisciplina.nota}">
+		<p:column>
+			<h:outputText type="number" value="#{nota.disciplinaNota1}" />
+			<h:outputText type="number" value="#{nota.disciplinaNota2}" />
+			<h:outputText type="number" value="#{nota.disciplinaNota3}" />
+			<h:outputText type="number" value="#{nota.disciplinaNota4}" />
+		</p:column>
+		</p:dataTable>
 		</p:column>
 		<p:column headerText="MediaFinal">
 			<h:outputText value="#{item.mediaFinal}" />
@@ -28,25 +35,28 @@
 			<h:outputText value="#{item.situacao}" />
 		</p:column>
 
-			<p:column headerText="Operações:" style="font-weight: bold">
-		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirDisciplina').show()" title="Excluir">
-			<f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}" />
-		</p:commandButton>
-		  <p:commandButton icon="ui-icon-pencil" title="Alterar" action="AlterarDisciplina.xhtml">
-			<f:setPropertyActionListener value="#{item}" target="#{disciplinaController.selecionar}" />
-		</p:commandButton>
-				</p:column>
-				
+		<p:column headerText="Operações:" style="font-weight: bold">
+			<p:commandButton icon="ui-icon-trash"
+				oncomplete="PF('painelExcluirDisciplina').show()" title="Excluir">
+				<f:setPropertyActionListener value="#{item}"
+					target="#{disciplinaController.selecionar}" />
+			</p:commandButton>
+			<p:commandButton icon="ui-icon-pencil" title="Alterar"
+				action="AlterarDisciplina.xhtml">
+				<f:setPropertyActionListener value="#{item}"
+					target="#{disciplinaController.selecionar}" />
+			</p:commandButton>
+		</p:column>
 	</p:dataTable>
 	<p:confirmDialog header="Atenção!"
-					message="Realmente deseja excluir esta disciplina?"
-					showEffect="bounce" id="excluirDisciplina" visible="false"
-					widgetVar="painelExcluirDisciplina">
-					<p:commandButton value="Sim" icon="ui-icon-check"
-						action="#{disciplinaController.excluir(disciplinaController.selecionar)}"
-						oncomplete="PF('painelExcluirDisciplina').hide()"
-						update=":formApresentaDisciplina" />
-					<p:commandButton value="Não" icon="ui-icon-closethick"
-						onclick="painelExcluirDisciplina.hide();" />
-				</p:confirmDialog>
+		message="Realmente deseja excluir esta disciplina?"
+		showEffect="bounce" id="excluirDisciplina" visible="false"
+		widgetVar="painelExcluirDisciplina">
+		<p:commandButton value="Sim" icon="ui-icon-check"
+			action="#{disciplinaController.excluir(disciplinaController.selecionar)}"
+			oncomplete="PF('painelExcluirDisciplina').hide()"
+			update=":formApresentaDisciplina" />
+		<p:commandButton value="Não" icon="ui-icon-closethick"
+			onclick="painelExcluirDisciplina.hide();" />
+	</p:confirmDialog>
 </h:form> </body> </html>
