@@ -18,7 +18,8 @@ public class BuilderAgendamento {
 	
 	private int id;
 	private String atividade;
-	private Date dataHora;
+	private String data;
+	private String hora;
 	private String descricao;
 	private Disciplina nome;
 	private Usuario usuario;
@@ -42,11 +43,18 @@ public class BuilderAgendamento {
 	public void setAtividade(String atividade) {
 		this.atividade = atividade;
 	}
-	public Date getDataHora() {
-		return dataHora;
+	public String getData() {
+		return data;
 	}
-	public void setDataHora(Date dataHora) {
-		this.dataHora = dataHora;
+	public void setData(String data) {
+		this.data = data;
+	}
+	
+	public String getHora() {
+		return hora;
+	}
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -65,17 +73,18 @@ public class BuilderAgendamento {
 	public BuilderAgendamento(){
 	}
 	
-	public BuilderAgendamento(int id, String atividade, Date dataHora, String descricao, Disciplina nome, Usuario usuario){
+	public BuilderAgendamento(int id, String atividade, String data, String hora, String descricao, Disciplina nome, Usuario usuario){
 		this.id = id;
 		this.atividade = atividade;
-		this.dataHora = dataHora;
+		this.data = data;
+		this.hora = hora;
 		this.descricao = descricao;
 		this.nome = nome;
 		this.usuario = usuario;
 	}
 	
 	public Agendamento construirAgendamento(){
-		return new Agendamento(id, atividade, dataHora, descricao, nome, usuario); 
+		return new Agendamento(id, atividade, data, hora, descricao, nome, usuario); 
 	}
 	
 

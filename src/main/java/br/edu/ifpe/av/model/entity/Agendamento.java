@@ -23,7 +23,9 @@ public class Agendamento {
 	@Column
 	private String atividade;
 	@Column
-	private Date dataHora;
+	private String data;
+	@Column
+	private String hora;
 	@Column
 	private String Descricao;
 	@OneToOne
@@ -32,11 +34,12 @@ public class Agendamento {
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 	
-	public Agendamento(int id, String atividade, Date dataHora, String descricao, Disciplina disciplina, Usuario usuario) {
+	public Agendamento(int id, String atividade, String data, String hora, String descricao, Disciplina disciplina, Usuario usuario) {
 		super();
 		this.id = id;
 		this.atividade = atividade;
-		this.dataHora = dataHora;
+		this.data = data;
+		this.hora= hora;
 		this.Descricao = descricao;
 		this.disciplina = disciplina;
 		this.usuario = usuario;
@@ -65,13 +68,24 @@ public class Agendamento {
 		this.atividade = atividade;
 	}
 
-	public Date getDataHora() {
-		return dataHora;
+	public String getData() {
+		return data;
 	}
 
-	public void setDataHora(Date dataHora) {
-		this.dataHora = dataHora;
+	public void setData(String data) {
+		this.data = data;
 	}
+	
+
+	public String getHora() {
+		return hora;
+	}
+
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
 
 	public String getDescricao() {
 		return Descricao;

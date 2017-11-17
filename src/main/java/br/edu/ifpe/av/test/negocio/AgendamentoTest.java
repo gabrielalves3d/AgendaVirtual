@@ -16,29 +16,34 @@ public class AgendamentoTest {
 	
         Disciplina d = new Disciplina();
         Usuario usr = new Usuario();
-        Date dataHora = new Date("18/02/1999");
+       
         
         @Test
     	public void getIdTest() {
-    		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"csdcder", d , usr);
+    		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","csdcder", d , usr);
     	    int resultado = ag.getId();
     	    Assert.assertEquals(1, resultado);
     	}
 	@Test
 	public void getAtividadeTest() {
-		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"csdcder", d , usr);
+		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","csdcder", d , usr);
 	    String resultado = ag.getAtividade();
 	    Assert.assertEquals("Trabalho", resultado);
 	}
 	@Test
 	public void getDataTest() {
-		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"csdcder", d , usr);
-	    Date resultado = ag.getDataHora();
-	    Assert.assertEquals(dataHora, resultado);
+		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","csdcder", d , usr);
+	    String resultado = ag.getData();
+	    Assert.assertEquals("18/02/1999", resultado);
+	}@Test
+	public void getHoraTest() {
+		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","csdcder", d , usr);
+	    String resultado = ag.getHora();
+	    Assert.assertEquals("12:00", resultado);
 	}
 	@Test
 	public void getDescricaoTest() {
-		Agendamento ag = new Agendamento(1,"Trabalho",dataHora,"Atividade avaliativa", d , usr);
+		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","Atividade avaliativa", d , usr);
 	    String resultado = ag.getDescricao();
 	    Assert.assertEquals("Atividade avaliativa", resultado);
 	}
@@ -57,8 +62,14 @@ public class AgendamentoTest {
 	@Test
 	public void setDataTest() {
 		Agendamento ag = new Agendamento();
-		ag.setDataHora(dataHora);
-		Assert.assertEquals(dataHora, ag.getDataHora());
+		ag.setData("18/02/1999");
+		Assert.assertEquals("18/02/1999", ag.getData());
+	}
+	@Test
+	public void setHoraTest() {
+		Agendamento ag = new Agendamento();
+		ag.setHora("12:00");
+		Assert.assertEquals("12:00", ag.getHora());
 	}
 	@Test
 	public void setDescricaoTest() {

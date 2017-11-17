@@ -14,7 +14,7 @@ public class BuilderAnotacao {
 
 	private int id;
 	private String texto;
-	private Date data;
+	private String data;
 	private Usuario usuario;
 
 	public int getId() {
@@ -33,11 +33,11 @@ public class BuilderAnotacao {
 		this.texto = texto;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -52,7 +52,7 @@ public class BuilderAnotacao {
 	public BuilderAnotacao() {
 	}
 
-	public BuilderAnotacao(int id, String texto, Date data, Usuario usuario) {
+	public BuilderAnotacao(int id, String texto, String data, Usuario usuario) {
 		super();
 		this.id = id;
 		this.texto = texto;

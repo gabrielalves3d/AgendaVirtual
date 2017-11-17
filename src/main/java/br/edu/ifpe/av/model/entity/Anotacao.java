@@ -20,7 +20,7 @@ public class Anotacao {
 	@Column
 	private String texto;
 	@Column
-	private Date data;
+	private String data;
 	@ManyToOne
 	@JoinColumn(name="anotacao_id", updatable=false)
 	private Usuario usuario;
@@ -29,7 +29,7 @@ public class Anotacao {
 		
 	}
 	
-	public Anotacao(int id, String texto, Date data, Usuario usuario) {
+	public Anotacao(int id, String texto, String data, Usuario usuario) {
 		super();
 		this.id = id;
 		this.texto = texto;
@@ -54,11 +54,11 @@ public class Anotacao {
 		this.texto = texto;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 

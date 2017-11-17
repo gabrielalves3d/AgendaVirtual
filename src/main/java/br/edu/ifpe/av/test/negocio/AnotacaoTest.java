@@ -12,7 +12,7 @@ import org.junit.Assert;
 
 public class AnotacaoTest {
 	
-	Date data = new Date("18/02/1999");
+	String data ="18/02/1999";
 	Usuario usr = new Usuario();
 
 	@Test
@@ -29,7 +29,7 @@ public class AnotacaoTest {
 	@Test
 	public void getDataTest() {
 		Anotacao anotacao = new Anotacao(1,"Fazer atividade",data, usr);
-		Date resultado = anotacao.getData();
+		String resultado = anotacao.getData();
 		Assert.assertEquals(data, resultado);
 	}
 	@Test
