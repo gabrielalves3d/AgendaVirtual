@@ -14,7 +14,9 @@
 
 <h:body>
 	<ui:include src="menu.xhtml" />
+	<p:messages />
 	<h:form id="formAgendamento">
+		<p:growl id="msgCadastrarAgendamento" />
 		<p:fieldset legend="Cadastrar Agendamento">
 			<p:panelGrid columns="2">
 				<h:outputText value="Disciplina:" />
@@ -38,11 +40,25 @@
 					cols="33" />
 			</p:panelGrid>
 
-			<p:commandButton value="Cadastrar" id="Cadastrar"
-				actionListener="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
-				update="formAgendamento" />
+			<p:commandButton value="Cadastrar"  oncomplete="PF('cadastrarAgendamentoDialog').show()" />
 		</p:fieldset>
+				
+			<p:dialog id="confirmarCadastrarAgendamento" resizable="false"
+				visible="false" modal="true" showEffect="clip" hideEffect="explode"
+				widgetVar="cadastrarAgendamentoDialog">
+				<f:facet name="header">Atenção!</f:facet>
+				<h:outputText value="Você realmente deseja cadastrar este agendamento?" />
+				
+				<f:facet name="footer">
+					<p:commandButton value="Sim" icon="ui-icon-check"
+						action="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
+						oncomplete="PF('cadastrarAgendamentoDialog').hide()"
+						update="formAgendamento" />
+					<p:commandButton value="Não" icon="ui-icon-closethick"
+						oncomplete="PF('cadastrarAgendamentoDialog').hide()" />
 
+				</f:facet>
+			</p:dialog>
 	</h:form>
 
 </h:body>
