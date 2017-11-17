@@ -6,9 +6,9 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
+<head>
 <title>Agenda Virtual</title>
-</h:head>
+</head>
 <h:body>
 	<ui:include src="menu.xhtml" />
 	<p:growl id="mensagem" life="4000" showDetail="true" />
@@ -25,10 +25,10 @@
 					<h:outputText value="#{item.atividade}" />
 
 					<h:outputText value="Data:" style="font-weight: bold" />
-					<h:outputText value="#{item.dataHora}" />
+					<h:outputText value="#{item.data}" />
 
 					<h:outputText value="Hora:" style="font-weight: bold" />
-					<h:outputText value="#{item.dataHora}" />
+					<h:outputText value="#{item.hora}" />
 
 					<h:outputText value="Descrição:" style="font-weight: bold" />
 					<h:outputText value="#{item.descricao}" />

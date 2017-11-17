@@ -18,26 +18,33 @@
 	<h:form id="formAgendamento">
 		<p:growl id="msgCadastrarAgendamento" />
 		<p:fieldset legend="Cadastrar Agendamento">
-			<p:panelGrid columns="2">
-				<h:outputText value="Disciplina:" />
+			<p:panelGrid columns="3">
+			
+				<h:outputText value="Disciplina *:" />
 				<p:selectOneMenu id="agendamentoDisciplina"
 					value="#{agendamentoController.disciplinaSelecionado}"
-					style="width: 100%" converter="generic">
+					style="width: 100%" converter="generic" required="true" requiredMessage="A disciplina é obrigatória!"/>
+                    <p:message for="agendamentoDisciplina"/>
 					<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
 					<f:selectItems
 						value="#{agendamentoController.recuperarTodosDisciplina()}" />
 				</p:selectOneMenu>
 
-				<h:outputText value="Atividade: " />
-				<p:inputText value="#{bAgendamento.atividade}" />
+				<h:outputText value="Atividade *: " />
+				<p:inputText id="agendamentoAtividade" value="#{bAgendamento.atividade}" required="true" requiredMessage="A atividade é obrigatória!"/>
+                <p:message for="agendamentoAtividade"/>
+                
 				<p:outputLabel for="agendamentoData" value="Data:" />
-				<p:calendar id="agendamentoData" value="#{bAgendamento.dataHora}" />
-				<p:outputLabel value="Hora:" />
-				<p:calendar value="#{bAgendamento.dataHora}" pattern="HH:mm"
-					timeOnly="true" />
+				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" required="true" required="true" requiredMessage="A data é obrigatória!"/>
+                <p:message for="agendamentoData"/>
+                
+				<p:outputLabel value="Hora *:" />
+				<p:calendar id="agendamentoHora" value="#{bAgendamento.hora}" pattern="HH:mm"
+					timeOnly="true" required="true" required="true" requiredMessage="A hora é obrigatória!"/>
+                <p:message for="agendamentoHora"/>
+                
 				<h:outputText value="Descrição:" />
-				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6"
-					cols="33" />
+				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
 			</p:panelGrid>
 
 			<p:commandButton value="Cadastrar"  oncomplete="PF('cadastrarAgendamentoDialog').show()" />
