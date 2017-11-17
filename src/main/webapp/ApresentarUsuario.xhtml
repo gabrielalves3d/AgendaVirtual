@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Agenda Virtual</title>
+</h:head>
+<body>
+	<ui:include src="menu.xhtml" />
+	<p:growl id="mensagem" life="4000" showDetail="true" />
+
+	<h:form id="formApresentaUsuario">
+		<p:accordionPanel value="#{usuarioController.recuperarTodosUsuario()}"
+			var="item">
+			<p:tab title="Usuario #{item.id}">
+				<p:panelGrid columns="2" cellpadding="2">
+					<h:outputText value="Nome:" />
+					<h:outputText value="#{item.nome}" />
+
+					<h:outputText value="E-mail:" />
+					<h:outputText value="#{item.email}" />
+				</p:panelGrid>
+
+				<p:commandButton icon="ui-icon-trash"
+					oncomplete="PF('painelExcluirUsuario').show()" title="Excluir">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{usuarioController.selecionar}" />
+				</p:commandButton>
+				<p:commandButton icon="ui-icon-pencil" title="Alterar"
+					action="AlterarUsuario.xhtml">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{usuarioController.selecionar}" />
+				</p:commandButton>
+				
+			<p:confirmDialog header="Atenção!"
+					message="Realmente deseja excluir este usuário?"
+					showEffect="bounce" id="excluirUsuario" visible="false"
+					widgetVar="painelExcluirUsuario">
+					<p:commandButton value="Sim" icon="ui-icon-check"
+						action="#{usuarioController.excluir(usuarioController.selecionar)}"
+						oncomplete="PF('painelExcluirUsuario').hide()"
+						update=":formApresentaUsuario" />
+					<p:commandButton value="Não" icon="ui-icon-closethick"
+						onclick="painelExcluirUsuario.hide();" />
+			</p:confirmDialog>
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+</body>
+</html>
