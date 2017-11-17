@@ -22,7 +22,6 @@ public class Disciplina implements Serializable, SampleEntity {
 	private int id;
 	@Column
 	private String nome;
-	@Column
 	@Embedded
 	private List <Double> nota;
 	@Column
