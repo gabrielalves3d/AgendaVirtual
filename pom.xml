@@ -70,6 +70,12 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.3</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>6.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
@@ -120,20 +126,20 @@
 			<version>1.9.5</version>
 		</dependency>
 		<dependency>
-	<groupId>org.primefaces.themes</groupId>
-	<artifactId>south-street</artifactId>
-	<version>1.0.10</version>
-	</dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>south-street</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 	</dependencies>
 	<repositories>
-    <repository>
-        <id>prime-repo</id>
-        <name>PrimeFaces Maven Repository</name>
-        <url>http://repository.primefaces.org</url>
-        <layout>default</layout>
-    </repository>
-</repositories>
-	
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
 	<build>
 		<pluginManagement>
 			<plugins>
