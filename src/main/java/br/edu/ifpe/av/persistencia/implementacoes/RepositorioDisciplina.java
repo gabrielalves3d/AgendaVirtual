@@ -25,7 +25,6 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 		        dao.delete(u);
 		    }
 		    
-		    @SuppressWarnings("unchecked")
 			public List<Disciplina> recuperarTodos(){
 		        return dao.recover("from Disciplina");
 		    }
