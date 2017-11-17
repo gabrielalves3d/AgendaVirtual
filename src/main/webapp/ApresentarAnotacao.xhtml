@@ -9,8 +9,9 @@
 <h:head>
 	<title>Agenda Virtual</title>
 </h:head>
+
+<h:body>
 <ui:include src="menu.xhtml" />
-<body>
 	<h:form id="formAnotacao">
 		<p:accordionPanel
 			value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
@@ -46,5 +47,5 @@
 		</p:accordionPanel>
 	</h:form>
 
-</body>
+</h:body>
 </html>
