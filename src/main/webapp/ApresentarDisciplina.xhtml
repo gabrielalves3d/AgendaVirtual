@@ -19,14 +19,7 @@
 			<h:outputText value="#{item.nome}" />
 		</p:column>
 		<p:column headerText="Nota">
-		<p:dataTable var="nota" value="#{bDisciplina.nota}">
-		<p:column>
-			<h:outputText type="number" value="#{nota.disciplinaNota1}" />
-			<h:outputText type="number" value="#{nota.disciplinaNota2}" />
-			<h:outputText type="number" value="#{nota.disciplinaNota3}" />
-			<h:outputText type="number" value="#{nota.disciplinaNota4}" />
-		</p:column>
-		</p:dataTable>
+			<h:outputText value="#{item.nota}" />
 		</p:column>
 		<p:column headerText="MediaFinal">
 			<h:outputText value="#{item.mediaFinal}" />

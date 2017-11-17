@@ -2,6 +2,9 @@ package br.edu.ifpe.av.persistencia.implementacoes;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 import br.edu.ifpe.av.model.entity.DaoManagerHiber;
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.persistencia.generico.RepositorioGenerico;
@@ -22,7 +25,8 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 		        dao.delete(u);
 		    }
 		    
-		    public List<Disciplina> recuperarTodos(){
+		    @SuppressWarnings("unchecked")
+			public List<Disciplina> recuperarTodos(){
 		        return dao.recover("from Disciplina");
 		    }
 

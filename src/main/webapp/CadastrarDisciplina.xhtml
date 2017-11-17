@@ -17,24 +17,28 @@ Virtual</title> </head> <h:body>
 
 				<h:outputText value="1ª unidade:" />
 				<p:inputText  id="DisciplinaNota1"
-						value="#{bDisciplina.disciplinaNota1}" required="true" />
+						value="#{bDisciplina.disciplinaNota1}" required="true" >
+				<f:convertNumber pattern="0.00"/>		
+			    </p:inputText>
 				
-
 				<h:outputText value="2ª unidade:" />
 				<p:inputText  id="DisciplinaNota2"
-						value="#{bDisciplina.disciplinaNota2}" required="true" />
+						value="#{bDisciplina.disciplinaNota2}" required="true">
+			    <f:convertNumber pattern="0.00"/>
+			    </p:inputText>
 				
 
 				<h:outputText value="3ª unidade:" />
 				<p:inputText  id="DisciplinaNota3"
-						value="#{bDisciplina.disciplinaNota3}" required="true" />
-				
+						value="#{bDisciplina.disciplinaNota3}" required="true" >
+				<f:convertNumber pattern="0.00"/>
+				</p:inputText>
 
 				<h:outputText value="4ª unidade:" />
 				<p:inputText  id="DisciplinaNota4"
-						value="#{bDisciplina.disciplinaNota4}" required="true" />
-				
-
+						value="#{bDisciplina.disciplinaNota4}" required="true" >
+				<f:convertNumber pattern="0.00"/>
+				</p:inputText>
 
 			</p:panelGrid>
 
