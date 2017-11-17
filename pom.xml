@@ -114,13 +114,26 @@
 			<artifactId>selenium-firefox-driver</artifactId>
 			<version>3.4.0</version>
 		</dependency>
-          <dependency>
-             <groupId>org.mockito</groupId>
-                 <artifactId>mockito-all</artifactId>
-              <version>1.9.5</version>
-              </dependency>
-		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+		<dependency>
+	<groupId>org.primefaces.themes</groupId>
+	<artifactId>south-street</artifactId>
+	<version>1.0.10</version>
+	</dependency>
 	</dependencies>
+	<repositories>
+    <repository>
+        <id>prime-repo</id>
+        <name>PrimeFaces Maven Repository</name>
+        <url>http://repository.primefaces.org</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+	
 	<build>
 		<pluginManagement>
 			<plugins>
