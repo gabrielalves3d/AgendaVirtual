@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Anotacao;
@@ -15,10 +17,21 @@ import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.av.model.entity.Usuario;
 
+
 public class DaoManagerHiberTest {
 
 	Usuario usr = new Usuario();
 
+	@Test
+	public void inserirUsuarioTest() {
+		usr.setEmail("tst@mail.com");
+		usr.setNome("Larissa");
+
+		DaoManagerHiber.getInstance().persist(usr);
+		this.usr = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
+		assertNotNull(this.usr);
+	}
+	
 	List<Disciplina> dis = new ArrayList<Disciplina>();
 	Disciplina d = new Disciplina();
 
@@ -40,8 +53,8 @@ public class DaoManagerHiberTest {
 		d.setMediaFinal(6.0);
 
 		DaoManagerHiber.getInstance().persist(d);
-		d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
-		assertNotEquals(new Integer(0), d.getId());
+		this.d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
+		assertNotNull(this.d);
 		
 	}
 
@@ -57,6 +70,7 @@ public class DaoManagerHiberTest {
 		a.setDisciplina(d);
 		ags.add(a);
 		usr.setAgendamento(ags);
+		DaoManagerHiber.getInstance().update(usr);
 	}
 
 	List<Anotacao> nt = new ArrayList<Anotacao>();
@@ -68,6 +82,7 @@ public class DaoManagerHiberTest {
 		ant.setData("18/02/1999");
 		nt.add(ant);
 		usr.setAnotacao(nt);
+		DaoManagerHiber.getInstance().update(usr);
 	}
 
 	HorarioDeEstudo academico = new HorarioDeEstudo();
@@ -76,13 +91,6 @@ public class DaoManagerHiberTest {
 	public void inserirHorarioDeEstudoTest() {
 		academico.setHorario("12:00");
 		usr.setHorarioDeEstudo(academico);
-	}
-
-	@Test
-	public void inserirUsuarioTest() {
-		usr.setEmail("tst@mail.com");
-		usr.setNome("Larissa");
-
-		DaoManagerHiber.getInstance().persist(usr);
+		DaoManagerHiber.getInstance().update(usr);
 	}
 }

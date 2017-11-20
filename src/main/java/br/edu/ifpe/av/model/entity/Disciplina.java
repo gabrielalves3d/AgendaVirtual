@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Disciplina implements Serializable, SampleEntity {
 	private int id;
 	@Column
 	private String nome;
-	@Embedded
+	@ElementCollection
 	private List <Double> nota;
 	@Column
 	private double mediaFinal;
