@@ -69,7 +69,10 @@ public class Agendamento {
 	}
 
 	public String getData() {
-		return data;
+		
+		String res = data.substring(4,8) + "" + data.substring(22,25);
+	    return res;
+
 	}
 
 	public void setData(String data) {
@@ -78,7 +81,7 @@ public class Agendamento {
 	
 
 	public String getHora() {
-		return hora;
+		return hora.substring(11, 16);
 	}
 
 

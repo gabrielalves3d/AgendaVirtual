@@ -6,12 +6,6 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
-
-<head>
-<title>Agenda Virtual</title>
-</head>
-
 <h:body>
 	<ui:include src="menu.xhtml" />
 	<p:messages />
@@ -23,49 +17,34 @@
 				<h:outputText value="Disciplina *:" />
 				<p:selectOneMenu id="agendamentoDisciplina"
 					value="#{agendamentoController.disciplinaSelecionado}"
-					style="width: 100%" converter="generic" required="true" requiredMessage="A disciplina é obrigatória!"/>
-                    <p:message for="agendamentoDisciplina"/>
+					style="width: 100%" converter="generic" required="true" requiredMessage="A disciplina é obrigatória!">
 					<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
 					<f:selectItems
 						value="#{agendamentoController.recuperarTodosDisciplina()}" />
-				</p:selectOneMenu>
+				</p:selectOneMenu>				
+                <p:message for="agendamentoDisciplina"/>
 
 				<h:outputText value="Atividade *: " />
 				<p:inputText id="agendamentoAtividade" value="#{bAgendamento.atividade}" required="true" requiredMessage="A atividade é obrigatória!"/>
                 <p:message for="agendamentoAtividade"/>
                 
 				<p:outputLabel for="agendamentoData" value="Data:" />
-				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" required="true" required="true" requiredMessage="A data é obrigatória!"/>
+				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" required="true" requiredMessage="A data é obrigatória!"/>
                 <p:message for="agendamentoData"/>
                 
 				<p:outputLabel value="Hora *:" />
 				<p:calendar id="agendamentoHora" value="#{bAgendamento.hora}" pattern="HH:mm"
-					timeOnly="true" required="true" required="true" requiredMessage="A hora é obrigatória!"/>
+					timeOnly="true" required="true" requiredMessage="A hora é obrigatória!"/>
                 <p:message for="agendamentoHora"/>
                 
 				<h:outputText value="Descrição:" />
 				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
 			</p:panelGrid>
 
-			<p:commandButton value="Cadastrar"  oncomplete="PF('cadastrarAgendamentoDialog').show()" />
+			<p:commandButton value="Cadastrar" action="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
+				update="formAgendamento" />
 		</p:fieldset>
 				
-			<p:dialog id="confirmarCadastrarAgendamento" resizable="false"
-				visible="false" modal="true" showEffect="clip" hideEffect="explode"
-				widgetVar="cadastrarAgendamentoDialog">
-				<f:facet name="header">Atenção!</f:facet>
-				<h:outputText value="Você realmente deseja cadastrar este agendamento?" />
-				
-				<f:facet name="footer">
-					<p:commandButton value="Sim" icon="ui-icon-check"
-						action="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
-						oncomplete="PF('cadastrarAgendamentoDialog').hide()"
-						update="formAgendamento" />
-					<p:commandButton value="Não" icon="ui-icon-closethick"
-						oncomplete="PF('cadastrarAgendamentoDialog').hide()" />
-
-				</f:facet>
-			</p:dialog>
 	</h:form>
 
 </h:body>
