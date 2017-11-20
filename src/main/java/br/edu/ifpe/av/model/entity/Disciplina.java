@@ -71,12 +71,12 @@ public class Disciplina implements Serializable, SampleEntity {
 	}
 
 	public double getMediaFinal() {
-		/**
-		double soma = 0;
-		for (double i = 0; i <= nota.size(); i++) {
-			soma += nota.size();
+		
+		double soma = 0.0;
+		for (int i = 0; i < nota.size(); i++) {
+			soma += nota.get(i);
 		}
-		mediaFinal = soma/4;*/
+		mediaFinal = soma/4.0;
 		return mediaFinal;
 	}
 
@@ -85,7 +85,15 @@ public class Disciplina implements Serializable, SampleEntity {
 	}
 
 	public boolean getSituacao() {
-		return situacao;
+		double soma = 0.0;
+		for (int i = 0; i < nota.size(); i++) {
+			soma += nota.get(i);
+		}
+		if(soma>=24) {
+			return true;
+		}else {
+		return false;
+		}
 	}
 
 	public void setSituacao(boolean situacao) {
