@@ -18,71 +18,71 @@ import br.edu.ifpe.av.model.entity.Usuario;
 public class DaoManagerHiberTest {
 
 	Usuario usr = new Usuario();
-	
+
 	List<Disciplina> dis = new ArrayList<Disciplina>();
 	Disciplina d = new Disciplina();
-	
-	
+
 	@Test
 	public void inserirDisciplinaTest() {
-	d.setNome("Mat");
-	List notas = new ArrayList();
-	double nota1 = 7;
-	double nota2 = 8;
-	double nota3 = 9;
-	double nota4 = 6;
-	notas.add(nota1 + nota2 + nota3 + nota4);
-	d.setNota(notas);
-	d.setSituacao(true);
-	d.setMediaFinal(6.0);
-	
-	DaoManagerHiber.getInstance().persist(d);
-	d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
-	dis.add(d);
+		Disciplina d = new Disciplina();
+		d.setNome("Mat");
+		List notas = new ArrayList();
+		double nota1 = 7;
+		double nota2 = 8;
+		double nota3 = 9;
+		double nota4 = 6;
+		notas.add(nota1);
+		notas.add(nota2);
+		notas.add(nota3);
+		notas.add(nota4);
+		d.setNota(notas);
+		d.setSituacao(true);
+		d.setMediaFinal(6.0);
+
+		DaoManagerHiber.getInstance().persist(d);
+		d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
+		assertNotEquals(new Integer(0), d.getId());
+		
 	}
-	
 
 	List<Agendamento> ags = new ArrayList<Agendamento>();
 	Agendamento a = new Agendamento();
-	
+
 	@Test
 	public void inserirAgendamentoTest() {
-	a.setAtividade("Tst");
-	a.setDescricao("dsc");
-	a.setData("18/02/1999");
-	a.setHora("12:00");
-	a.setDisciplina(d);
-	ags.add(a);
-	usr.setAgendamento(ags);
+		a.setAtividade("Tst");
+		a.setDescricao("dsc");
+		a.setData("18/02/1999");
+		a.setHora("12:00");
+		a.setDisciplina(d);
+		ags.add(a);
+		usr.setAgendamento(ags);
 	}
-	
 
 	List<Anotacao> nt = new ArrayList<Anotacao>();
 	Anotacao ant = new Anotacao();
+
 	@Test
 	public void inserirAnotacaoTest() {
-	ant.setTexto("I love you");
-	ant.setData("18/02/1999");
-	nt.add(ant);
-	usr.setAnotacao(nt);
+		ant.setTexto("I love you");
+		ant.setData("18/02/1999");
+		nt.add(ant);
+		usr.setAnotacao(nt);
 	}
-	
+
 	HorarioDeEstudo academico = new HorarioDeEstudo();
+
 	@Test
-	public void inserirHorarioDeEstudoTest(){
-	academico.setHorario("12:00");
-	usr.setHorarioDeEstudo(academico);
+	public void inserirHorarioDeEstudoTest() {
+		academico.setHorario("12:00");
+		usr.setHorarioDeEstudo(academico);
 	}
-	
-	
-	@Test 
+
+	@Test
 	public void inserirUsuarioTest() {
 		usr.setEmail("tst@mail.com");
 		usr.setNome("Larissa");
-	
-	DaoManagerHiber.getInstance().persist(usr);
+
+		DaoManagerHiber.getInstance().persist(usr);
+	}
 }
-}
-
-
-
