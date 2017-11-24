@@ -22,7 +22,7 @@
 				<p:inputText id="UsuarioEmail" value="#{bUsuario.email}" required="true" />	
 			</p:panelGrid>
 			<p:commandButton value="Alterar"
-				action="#{usuarioController.alterar}" update="formAlterarUsuario" />
+				action="#{usuarioController.alterar(usuarioController.selecionar)}" update=":formAlterarUsuario" />
 		</p:fieldset>
 	</h:form>
 </body>
