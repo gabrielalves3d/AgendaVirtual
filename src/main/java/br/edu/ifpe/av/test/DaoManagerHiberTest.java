@@ -17,26 +17,22 @@ import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
 import br.edu.ifpe.av.model.entity.Usuario;
 
-
 public class DaoManagerHiberTest {
-
-	Usuario usr = new Usuario();
 
 	@Test
 	public void inserirUsuarioTest() {
+		Usuario usr = new Usuario();
 		usr.setEmail("tst@mail.com");
 		usr.setNome("Larissa");
 
 		DaoManagerHiber.getInstance().persist(usr);
-		this.usr = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
-		assertNotNull(this.usr);
+		usr = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
+		assertNotNull(usr);
 	}
-	
-	List<Disciplina> dis = new ArrayList<Disciplina>();
-	Disciplina d = new Disciplina();
 
 	@Test
 	public void inserirDisciplinaTest() {
+		List<Disciplina> dis = new ArrayList<Disciplina>();
 		Disciplina d = new Disciplina();
 		d.setNome("Mat");
 		List notas = new ArrayList();
@@ -49,48 +45,74 @@ public class DaoManagerHiberTest {
 		notas.add(nota3);
 		notas.add(nota4);
 		d.setNota(notas);
-		d.setSituacao(true);
+		d.setSituacao("Aprovado");
 		d.setMediaFinal(6.0);
 
 		DaoManagerHiber.getInstance().persist(d);
-		this.d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
-		assertNotNull(this.d);
-		
-	}
+		d = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
+		assertNotNull(d);
 
-	List<Agendamento> ags = new ArrayList<Agendamento>();
-	Agendamento a = new Agendamento();
+	}
 
 	@Test
 	public void inserirAgendamentoTest() {
+		List<Agendamento> ags = new ArrayList<Agendamento>();
+		Agendamento a = new Agendamento();
+		Usuario usuario = new Usuario();
+		usuario.setEmail("tst@mail.com");
+		usuario.setNome("Larissa");
+		DaoManagerHiber.getInstance().persist(usuario);
+		usuario = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
+		List nota = new ArrayList();
+		nota.add(5.0);
+		Disciplina disciplina = new Disciplina(1, "Mat", nota, 6.0, "Aprovado");
+		DaoManagerHiber.getInstance().persist(disciplina);
+		disciplina = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
 		a.setAtividade("Tst");
 		a.setDescricao("dsc");
 		a.setData("18/02/1999");
 		a.setHora("12:00");
-		a.setDisciplina(d);
+		a.setDisciplina(disciplina);
 		ags.add(a);
-		usr.setAgendamento(ags);
-		DaoManagerHiber.getInstance().update(usr);
+		usuario.setAgendamento(ags);
+		DaoManagerHiber.getInstance().update(usuario);
+		assertNotNull(a);
 	}
-
-	List<Anotacao> nt = new ArrayList<Anotacao>();
-	Anotacao ant = new Anotacao();
 
 	@Test
 	public void inserirAnotacaoTest() {
+		List<Anotacao> nt = new ArrayList<Anotacao>();
+		Anotacao ant = new Anotacao();
+		Usuario usuario = new Usuario();
+		usuario.setEmail("tst@mail.com");
+		usuario.setNome("Larissa");
+		DaoManagerHiber.getInstance().persist(usuario);
+		usuario = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
 		ant.setTexto("I love you");
 		ant.setData("18/02/1999");
 		nt.add(ant);
-		usr.setAnotacao(nt);
-		DaoManagerHiber.getInstance().update(usr);
+		usuario.setAnotacao(nt);
+		DaoManagerHiber.getInstance().update(usuario);
+		assertNotNull(ant);
 	}
-
-	HorarioDeEstudo academico = new HorarioDeEstudo();
 
 	@Test
 	public void inserirHorarioDeEstudoTest() {
-		academico.setHorario("12:00");
-		usr.setHorarioDeEstudo(academico);
-		DaoManagerHiber.getInstance().update(usr);
+		HorarioDeEstudo he = new HorarioDeEstudo();
+		Usuario usuario = new Usuario();
+		usuario.setEmail("tst@mail.com");
+		usuario.setNome("Larissa");
+		DaoManagerHiber.getInstance().persist(usuario);
+		usuario = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
+		List nota = new ArrayList();
+		nota.add(5.0);
+		Disciplina disciplina = new Disciplina(6, "Mat", nota, 6.0, "Aprovado");
+		DaoManagerHiber.getInstance().persist(disciplina);
+		disciplina = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
+		he.setDisciplina(disciplina);
+		he.setHorario("12:00");
+		usuario.setHorarioDeEstudo(he);
+		DaoManagerHiber.getInstance().update(usuario);
+		assertNotNull(he);
 	}
 }

@@ -27,11 +27,11 @@ public class BuilderDisciplina  {
 	
 	private double mediaFinal;
 	
-	private boolean situacao;
+	private String situacao;
 
 
 	public BuilderDisciplina(int id, String nome, List<Double> nota, double DisciplinaNota1,double DisciplinaNota2,
-			double DisciplinaNota3,double DisciplinaNota4, double mediaFinal, boolean situacao) {
+			double DisciplinaNota3,double DisciplinaNota4, double mediaFinal, String situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -78,11 +78,11 @@ public class BuilderDisciplina  {
 		this.mediaFinal = mediaFinal;
 	}
 
-	public boolean getSituacao() {
+	public String getSituacao() {
 		return situacao;
 	}
 
-	public void setSituacao(boolean situacao) {
+	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
 	public double getDisciplinaNota1() {

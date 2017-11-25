@@ -28,10 +28,10 @@ public class Disciplina implements Serializable, SampleEntity {
 	@Column
 	private double mediaFinal;
 	@Column
-	private boolean situacao;
+	private String situacao;
 
 
-	public Disciplina(int id, String nome, List<Double> nota, double mediaFinal, boolean situacao) {
+	public Disciplina(int id, String nome, List<Double> nota, double mediaFinal, String situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -84,19 +84,19 @@ public class Disciplina implements Serializable, SampleEntity {
 		this.mediaFinal = mediaFinal;
 	}
 
-	public boolean getSituacao() {
+	public String getSituacao() {
 		double soma = 0.0;
 		for (int i = 0; i < nota.size(); i++) {
 			soma += nota.get(i);
 		}
 		if(soma>=24) {
-			return true;
+			return "Aprovado";
 		}else {
-		return false;
+		return "Reprovado";
 		}
 	}
 
-	public void setSituacao(boolean situacao) {
+	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
 	
