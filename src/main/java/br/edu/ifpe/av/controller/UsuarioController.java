@@ -52,8 +52,11 @@ public class UsuarioController {
 		return this.repositorioUsuario.recuperar(id);
 	}
 	
-	public void excluir(Usuario usuario) {
+	public String excluir(Usuario usuario) {
 		this.repositorioUsuario.excluir(usuario);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados excluídos com sucesso!"));
+        return "ApresentarUsuario.xhtml";
+
 	}
 	
 	public List<Usuario> recuperarTodosUsuario() {
