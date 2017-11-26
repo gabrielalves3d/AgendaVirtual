@@ -24,6 +24,8 @@ public class Usuario {
 	private String nome;
 	@Column
 	private String email;
+	@Column
+	private String senha;
 	@OneToOne (cascade=CascadeType.ALL)
 	@JoinColumn(name="horario_estudo_id", updatable=false)
 	private HorarioDeEstudo horarioDeEstudo;
@@ -33,12 +35,13 @@ public class Usuario {
 	private List<Agendamento> agendamento;
 
 
-	public Usuario(int id, String nome, String email, HorarioDeEstudo horarioDeEstudo,
+	public Usuario(int id, String nome, String email, String senha, HorarioDeEstudo horarioDeEstudo,
 			List<Anotacao> anotacao, List<Agendamento> agendamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.senha = senha;
 		this.horarioDeEstudo = horarioDeEstudo;
 		this.anotacao = anotacao;
 		this.agendamento = agendamento;
@@ -66,6 +69,14 @@ public class Usuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public HorarioDeEstudo getHorarioDeEstudo() {
