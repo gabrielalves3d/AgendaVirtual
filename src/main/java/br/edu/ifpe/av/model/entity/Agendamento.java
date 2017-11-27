@@ -69,9 +69,10 @@ public class Agendamento {
 	}
 
 	public String getData() {
+		//Wed Nov 22 00:00:00 GMT-03:00 2017//
 		
-		String res = data.substring(4,8) + "" + data.substring(22,25);
-	    return res;
+        String dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
+	    return dataResultado;
 
 	}
 

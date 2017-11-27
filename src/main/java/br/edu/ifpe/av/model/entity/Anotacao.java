@@ -55,7 +55,8 @@ public class Anotacao {
 	}
 
 	public String getData() {
-		return data;
+		String dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
+	    return dataResultado;
 	}
 
 	public void setData(String data) {
