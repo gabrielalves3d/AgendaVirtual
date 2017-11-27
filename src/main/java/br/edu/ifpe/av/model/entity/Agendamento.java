@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 @Entity
 @Table
 public class Agendamento {
@@ -33,7 +35,7 @@ public class Agendamento {
 	@ManyToOne
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
-	
+
 	public Agendamento(int id, String atividade, String data, String hora, String descricao, Disciplina disciplina, Usuario usuario) {
 		super();
 		this.id = id;
@@ -45,7 +47,7 @@ public class Agendamento {
 		this.usuario = usuario;
 	}
 
-	
+
 	public Agendamento() {
 	}
 
@@ -70,16 +72,29 @@ public class Agendamento {
 
 	public String getData() {
 		//Wed Nov 22 00:00:00 GMT-03:00 2017//
-		
-        String dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
-	    return dataResultado;
+
+		String dataResultado = data;
+				
+		if (validarData(data)) {
+		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,33);
+		}
+		return dataResultado;
 
 	}
+
+	public Boolean validarData(String dataResultado){
+
+		if (dataResultado == null ||dataResultado.isEmpty()) {
+			return false;
+		}
+         return true;
+	}
+
 
 	public void setData(String data) {
 		this.data = data;
 	}
-	
+
 
 	public String getHora() {
 		return hora.substring(11, 16);
@@ -114,10 +129,10 @@ public class Agendamento {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

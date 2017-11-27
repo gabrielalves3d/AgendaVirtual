@@ -55,8 +55,23 @@ public class Anotacao {
 	}
 
 	public String getData() {
-		String dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
-	    return dataResultado;
+		//Wed Nov 22 00:00:00 GMT-03:00 2017//
+
+		String dataResultado = data;
+				
+		if (validarData(data)) {
+		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,33);
+		}
+		return dataResultado;
+
+	}
+
+	public Boolean validarData(String dataResultado){
+
+		if (dataResultado == null ||dataResultado.isEmpty()) {
+			return false;
+		}
+         return true;
 	}
 
 	public void setData(String data) {

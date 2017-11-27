@@ -10,44 +10,65 @@
 <title>Agenda Virtual</title>
 </head>
 <body>
-<ui:include src="menu.xhtml" />
-<p:messages />
- <h:form id="formAlterarAgendamento">
- <p:growl id="msgCadastrarAgendamento" />
-  <p:fieldset legend="Alterar Agendamento">
+	<ui:include src="menu.xhtml" />
+	<p:messages />
+	<h:form id="formAlterarAgendamento">
+		<p:growl id="msgAlterarAgendamento" />
+		<p:fieldset legend="Alterar Agendamento">
 			<p:panelGrid columns="3">
-			
+
 				<h:outputText value="Disciplina *:" />
 				<p:selectOneMenu id="agendamentoDisciplina"
 					value="#{agendamentoController.disciplinaSelecionado}"
-					style="width: 100%" converter="generic" required="true" requiredMessage="A disciplina é obrigatória!">
+					style="width: 100%" converter="generic" required="true"
+					requiredMessage="A disciplina é obrigatória!">
 					<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
 					<f:selectItems
 						value="#{agendamentoController.recuperarTodosDisciplina()}" />
 				</p:selectOneMenu>
-				<p:message for="agendamentoDisciplina"/>
+				<p:message for="agendamentoDisciplina" />
 
 				<h:outputText value="Atividade *: " />
-				<p:inputText value="#{bAgendamento.atividade}" required="true" requiredMessage="A atividade é obrigatória!" />
-				 <p:message for="agendamentoAtividade"/>
-				
-				<p:outputLabel for="agendamentoData" value="Data *:" required="true" requiredMessage="A data é obrigatória!" />
+				<p:inputText value="#{bAgendamento.atividade}" required="true"
+					requiredMessage="A atividade é obrigatória!" />
+				<p:message for="agendamentoAtividade" />
+
+				<p:outputLabel for="agendamentoData" value="Data *:" required="true"
+					requiredMessage="A data é obrigatória!" />
 				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" />
-				<p:message for="agendamentoData"/>
-				
+				<p:message for="agendamentoData" />
+
 				<p:outputLabel value="Hora *:" />
-				<p:calendar value="#{bAgendamento.hora}" pattern="HH:mm" timeOnly="true"  required="true" requiredMessage="A hora é obrigatória!" />
-				 <p:message for="agendamentoHora"/>
-				
+				<p:calendar value="#{bAgendamento.hora}" pattern="HH:mm"
+					timeOnly="true" required="true"
+					requiredMessage="A hora é obrigatória!" />
+				<p:message for="agendamentoHora" />
+
 				<h:outputText value="Descrição:" />
-				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
+				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6"
+					cols="33" />
 			</p:panelGrid>
 			<p:commandButton value="Alterar"
-				action="#{agendamentoController.alterar(agendamentoController.selecionar)}"
-				update=":formAlterarAgendamento" />
-			</p:fieldset>
-  
- 
- </h:form>
+				oncomplete="PF('alterarAgendamentoDialog').show()" />
+		</p:fieldset>
+
+		<p:dialog id="dialogAgendamento" resizable="false" visible="false"
+			modal="true" showEffect="clip" hideEffect="explode"
+			widgetVar="alterarAgendamentoDialog">
+			<f:facet name="header">Atenção!</f:facet>
+			<h:outputText value="Você realmente deseja alterar este agendamento?" />
+			<f:facet name="footer">
+
+				<p:commandButton value="Sim" icon="ui-icon-check"
+					action="#{agendamentoController.alterar(bAgendamento.construirAgendamento())}"
+					oncomplete="PF('alterarAgendamentoDialog').hide()"
+					update="formAlterarAgendamento:dialogAgendamento" />
+				<p:commandButton value="Não" icon="ui-icon-closethick"
+					oncomplete="PF('alterarAgendamentoDialog').hide()" />
+			</f:facet>
+		</p:dialog>
+
+
+	</h:form>
 </body>
 </html>
