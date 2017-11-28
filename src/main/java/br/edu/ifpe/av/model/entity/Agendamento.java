@@ -74,9 +74,13 @@ public class Agendamento {
 		//Wed Nov 22 00:00:00 GMT-03:00 2017//
 
 		String dataResultado = data;
-				
+		try {		
 		if (validarData(data)) {
-		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,33);
+		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
+		}
+		} catch (Exception e) {
+			System.out.println(data);
+			e.printStackTrace();
 		}
 		return dataResultado;
 
@@ -84,7 +88,7 @@ public class Agendamento {
 
 	public Boolean validarData(String dataResultado){
 
-		if (dataResultado == null ||dataResultado.isEmpty()) {
+		if (dataResultado == null || dataResultado.isEmpty() || (data.length() < 34)) {
 			return false;
 		}
          return true;
@@ -97,7 +101,24 @@ public class Agendamento {
 
 
 	public String getHora() {
-		return hora.substring(11, 16);
+		//return hora.substring(11, 16);//
+		String horaResultado = hora;
+		try{
+			if (validarHora(hora)) {
+				horaResultado = hora.substring(11, 16);
+			}
+		}catch (Exception e) {
+			System.out.println(hora);
+			e.printStackTrace();
+		}
+		return horaResultado;
+	}
+	
+	public Boolean validarHora(String horaResultado){
+		if(horaResultado == null || horaResultado.isEmpty() || (hora.length()<17)){
+			return false;
+		}
+		 return true;
 	}
 
 

@@ -58,9 +58,13 @@ public class Anotacao {
 		//Wed Nov 22 00:00:00 GMT-03:00 2017//
 
 		String dataResultado = data;
-				
+		try {		
 		if (validarData(data)) {
-		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,33);
+		    dataResultado = data.substring(3,10) + "" + " "+ data.substring(30,34);
+		}
+		} catch (Exception e) {
+			System.out.println(data);
+			e.printStackTrace();
 		}
 		return dataResultado;
 
@@ -68,11 +72,12 @@ public class Anotacao {
 
 	public Boolean validarData(String dataResultado){
 
-		if (dataResultado == null ||dataResultado.isEmpty()) {
+		if (dataResultado == null || dataResultado.isEmpty() || (data.length() < 34)) {
 			return false;
 		}
          return true;
 	}
+
 
 	public void setData(String data) {
 		this.data = data;
