@@ -24,28 +24,14 @@
 					<h:outputText value="#{item.email}" />
 				</p:panelGrid>
 
-				<p:commandButton icon="ui-icon-trash"
-					oncomplete="PF('painelExcluirUsuario').show()" title="Excluir">
-					<f:setPropertyActionListener value="#{item}"
-						target="#{usuarioController.selecionar}" />
-				</p:commandButton>
+				
 				<p:commandButton icon="ui-icon-pencil" title="Alterar"
 					action="AlterarUsuario.xhtml">
 					<f:setPropertyActionListener value="#{item}"
 						target="#{usuarioController.selecionar}" />
 				</p:commandButton>
 				
-			<p:confirmDialog header="Atenção!"
-					message="Realmente deseja excluir este usuário?"
-					showEffect="bounce" id="excluirUsuario" visible="false"
-					widgetVar="painelExcluirUsuario">
-					<p:commandButton value="Sim" icon="ui-icon-check"
-						action="#{usuarioController.excluir(usuarioController.selecionar)}"
-						oncomplete="PF('painelExcluirUsuario').hide()"
-						update=":formApresentaUsuario" />
-					<p:commandButton value="Não" icon="ui-icon-closethick"
-						onclick="painelExcluirUsuario.hide();" />
-			</p:confirmDialog>
+			
 			</p:tab>
 		</p:accordionPanel>
 	</h:form>
