@@ -29,7 +29,15 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 		        return dao.recover("from Disciplina");
 		    }
 
-		    
+			public Disciplina recuperarNome(String nome) {
+			        try{
+			            return (Disciplina) dao.recover("'from Disciplina where nome='" +nome+"'");
+			        }catch
+			                (IndexOutOfBoundsException e){
+			            return null;
+			            
+			        }
+			    }
 		    public Disciplina recuperar(Integer g) {
 		        try{
 		            return (Disciplina) dao.recover("from Disciplina where id=" +g);
@@ -39,6 +47,7 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 		            
 		        }
 		    }
+		   
 
 
 		}

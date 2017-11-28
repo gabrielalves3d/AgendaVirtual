@@ -25,7 +25,7 @@
                 
                </p:panelGrid>
                 <p:commandButton value="Alterar" 
-                action="#{horarioDeEstudoController.alterar}" update="formAlterarHorarioDeEstudo" />
+                action="#{horarioDeEstudoController.alterar(horarioDeEstudoController.selecionar)}" update=":formAlterarHorarioDeEstudo" />
             </p:fieldset>
         </h:form>
 </body>

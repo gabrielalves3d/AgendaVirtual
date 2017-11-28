@@ -9,6 +9,7 @@ public interface RepositorioGenerico <T, G> {
     public void alterar(T t);
     public T recuperar(G g);
     public List<T> recuperarTodos();
+
     
     
     

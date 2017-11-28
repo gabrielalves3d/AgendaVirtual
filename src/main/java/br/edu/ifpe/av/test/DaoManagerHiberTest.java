@@ -34,7 +34,7 @@ public class DaoManagerHiberTest {
 	public void inserirDisciplinaTest() {
 		List<Disciplina> dis = new ArrayList<Disciplina>();
 		Disciplina d = new Disciplina();
-		d.setNome("Mat");
+		d.setNome("História");
 		List notas = new ArrayList();
 		double nota1 = 7;
 		double nota2 = 8;
@@ -65,7 +65,7 @@ public class DaoManagerHiberTest {
 		usuario = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
 		List nota = new ArrayList();
 		nota.add(5.0);
-		Disciplina disciplina = new Disciplina(1, "Mat", nota, 6.0, "Aprovado");
+		Disciplina disciplina = new Disciplina(1, "Artes", nota, 6.0, "Aprovado");
 		DaoManagerHiber.getInstance().persist(disciplina);
 		disciplina = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
 		a.setAtividade("Tst");
@@ -106,7 +106,7 @@ public class DaoManagerHiberTest {
 		usuario = (Usuario) (DaoManagerHiber.getInstance().recover("from Usuario").get(0));
 		List nota = new ArrayList();
 		nota.add(5.0);
-		Disciplina disciplina = new Disciplina(6, "Mat", nota, 6.0, "Aprovado");
+		Disciplina disciplina = new Disciplina(6, "Matemática", nota, 6.0, "Aprovado");
 		DaoManagerHiber.getInstance().persist(disciplina);
 		disciplina = (Disciplina) (DaoManagerHiber.getInstance().recover("from Disciplina").get(0));
 		he.setDisciplina(disciplina);

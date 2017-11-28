@@ -21,7 +21,7 @@ public class Disciplina implements Serializable, SampleEntity {
 	@Id
 	@GeneratedValue 
 	private int id;
-	@Column
+	@Column (unique=true)
 	private String nome;
 	@ElementCollection
 	private List <Double> nota;
