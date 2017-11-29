@@ -17,12 +17,12 @@
 		<p:fieldset legend="Alterar Usuario">
 			<p:panelGrid columns="2">
 				<h:outputText value="Nome:" />
-				<p:inputText id="UsuarioNome" value="#{bUsuario.nome}" required="true" />
+				<p:inputText id="UsuarioNome" value="#{usuarioController.selecionar.nome}" required="true" />
 				<h:outputText value="E-mail:" />
-				<p:inputText id="UsuarioEmail" value="#{bUsuario.email}" required="true" />	
+				<p:inputText id="UsuarioEmail" value="#{usuarioController.selecionar.email}" required="true" />	
 			</p:panelGrid>
 			<p:commandButton value="Alterar"
-				action="#{usuarioController.alterar(usuarioController.selecionar)}" update=":formAlterarUsuario" />
+				action="#{usuarioController.alterar(usuarioController.selecionar)}" />
 		</p:fieldset>
 	</h:form>
 </body>
