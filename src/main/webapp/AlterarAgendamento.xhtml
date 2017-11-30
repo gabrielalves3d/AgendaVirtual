@@ -28,24 +28,24 @@
 				</p:selectOneMenu>
 				<p:message for="agendamentoDisciplina" />
 
-				<h:outputText value="Atividade *: " />
-				<p:inputText value="#{bAgendamento.atividade}" required="true"
+				<h:outputText  value="Atividade *: " />
+				<p:inputText id="agendamentoAtividade" value="#{agendamentoController.selecionar.atividade}" required="true"
 					requiredMessage="A atividade é obrigatória!" />
 				<p:message for="agendamentoAtividade" />
 
 				<p:outputLabel for="agendamentoData" value="Data *:" required="true"
 					requiredMessage="A data é obrigatória!" />
-				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" />
+				<p:calendar id="agendamentoData" value="#{agendamentoController.selecionar.data}" />
 				<p:message for="agendamentoData" />
 
-				<p:outputLabel value="Hora *:" />
-				<p:calendar value="#{bAgendamento.hora}" pattern="HH:mm"
+				<p:outputLabel  value="Hora *:" />
+				<p:calendar id="agendamentoHora" value="#{agendamentoController.selecionar.hora}" pattern="HH:mm"
 					timeOnly="true" required="true"
 					requiredMessage="A hora é obrigatória!" />
 				<p:message for="agendamentoHora" />
 
 				<h:outputText value="Descrição:" />
-				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6"
+				<p:inputTextarea value="#{agendamentoController.selecionar.descricao}" rows="6"
 					cols="33" />
 			</p:panelGrid>
 			<p:commandButton value="Alterar"
@@ -60,9 +60,8 @@
 			<f:facet name="footer">
 
 				<p:commandButton value="Sim" icon="ui-icon-check"
-					action="#{agendamentoController.alterar(bAgendamento.construirAgendamento())}"
-					oncomplete="PF('alterarAgendamentoDialog').hide()"
-					update="formAlterarAgendamento:dialogAgendamento" />
+					action="#{agendamentoController.alterar(agendamentoController.selecionar)}"
+					oncomplete="PF('alterarAgendamentoDialog').hide()" update="formAlterarAgendamento"/>
 				<p:commandButton value="Não" icon="ui-icon-closethick"
 					oncomplete="PF('alterarAgendamentoDialog').hide()" />
 			</f:facet>

@@ -86,7 +86,7 @@ public class Agendamento {
 
 	}
 
-	public Boolean validarData(String dataResultado){
+	public boolean validarData(String dataResultado){
 
 		if (dataResultado == null || dataResultado.isEmpty() || (data.length() < 34)) {
 			return false;
