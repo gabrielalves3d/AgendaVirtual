@@ -12,20 +12,28 @@
 	<h:form>
 		<p:growl id="formUsuario" showDetail="true" sticky="true" />
 
-		<p:panel header="Cadastrar Usuário">
+		<p:panel header="Cadastrar Usuario">
 			<p:panelGrid columns="2" cellpadding="5">
+			
 				<p:outputLabel value="Nome: " />
 				<p:inputText value="#{bUsuario.nome}" required="true" />
-				<p:outputLabel value="E-mail: " />
-				<p:inputText value="#{bUsuario.email}" required="true" />
 
+				<p:outputLabel value="E-mail: " />
+				<p:inputText id="email" value="#{bUsuario.email}" required="true"
+					requiredMessage="Por favor insira seu e-mail."
+					validatorMessage="Formato de e-mail invalido">
+
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
+				<p:message for="email" />
 
 			</p:panelGrid>
 
-
 			<p:commandButton value="Cadastrar" id="Cadastrar"
 				action="#{usuarioController.inserir(bUsuario.construirUsuario())}"
-				update="formUsuario" />
+				update="formUsuario"/>
+				
 		</p:panel>
 	</h:form>
 </h:body>

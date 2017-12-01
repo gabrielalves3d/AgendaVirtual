@@ -83,8 +83,7 @@ public class BuilderUsuario {
 	public Usuario construirUsuario() {
 		return new Usuario(id, nome, email, senha, horarioDeEstudo, anotacao, agendamento);
 	}
-
-
+	
 }
 
 
