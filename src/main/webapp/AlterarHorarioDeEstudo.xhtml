@@ -13,20 +13,20 @@
 		<p:panelGrid columns="2">
 			<h:outputText value="Disciplina:" />
 			<p:selectOneMenu id="horarioDeEstudoDisciplina"
-				value="#{horarioDeEstudoController.disciplinaSelecionado}"
+				value="#{horarioDeEstudoController.selecionar.disciplina}"
 				style="width: 100%" converter="generic">
 				<f:selectItem itemLabel="Selecione a disciplina" itemValue="" />
 				<f:selectItems
-					value="#{horarioDeEstudoController.recuperarTodosDisciplina()}" required="true" />
-					</p:selectOneMenu>
-					 <h:outputText value="Horário:"/>
-                <p:calendar value="#{bHorarioDeEstudo.horario}" pattern="HH:mm" 
-					timeOnly="true" required="true" />         
-                
-               </p:panelGrid>
-                <p:commandButton value="Alterar" 
-                action="#{horarioDeEstudoController.alterar(horarioDeEstudoController.selecionar)}" update=":formAlterarHorarioDeEstudo" />
-            </p:fieldset>
-        </h:form>
-</body>
-</html>
+					value="#{horarioDeEstudoController.recuperarTodosDisciplina()}"
+					required="true" />
+			</p:selectOneMenu>
+			<p:outputLabel for="Hora" value="Hora:" />
+			<p:calendar id="Hora" value="#{bHorarioDeEstudo.horario}"
+				pattern="HH:mm" timeOnly="true" />
+
+		</p:panelGrid>
+		<p:commandButton value="Alterar"
+			action="#{horarioDeEstudoController.alterar(horarioDeEstudoController.selecionar)}"
+			update=":formAlterarHorarioDeEstudo" />
+	</p:fieldset>
+</h:form> </body> </html>
