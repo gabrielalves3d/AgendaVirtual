@@ -46,9 +46,22 @@ public class HorarioDeEstudo {
 	}
 
 	public String getHorario() {
-		//Thu Jan 01 08:00:00 GMT-03:00 1970
-		
-		return horario.substring(11, 16);
+		String horarioResultado = horario;
+		try{
+			if (validarHorario(horario)) {
+				horarioResultado = horario.substring(11, 16);
+			}
+		}catch (Exception e) {
+			System.out.println(horario);
+			e.printStackTrace();
+		}
+		return horarioResultado;
+	}
+	public boolean validarHorario(String horarioResultado){
+		if(horarioResultado == null || horarioResultado.isEmpty() || (horario.length()<17)){
+			return false;
+		}
+		 return true;
 	}
 
 	public void setHorario(String horario) {
