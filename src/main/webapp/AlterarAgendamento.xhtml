@@ -35,7 +35,7 @@
 
 				<p:outputLabel for="agendamentoData" value="Data *:" required="true"
 					requiredMessage="A data é obrigatória!" />
-				<p:calendar id="agendamentoData" value="#{agendamentoController.selecionar.data}" />
+				<p:calendar id="agendamentoData" value="#{agendamentoController.selecionar.data}" mode="popup" pattern="dd/MM/yyyy" mindate="today" />
 				<p:message for="agendamentoData" />
 
 				<p:outputLabel  value="Hora *:" />
