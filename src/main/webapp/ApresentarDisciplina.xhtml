@@ -14,7 +14,7 @@
 	<p:growl id="message" life="7000" />
 	<p:dataTable id="tabela" var="item"
 		value="#{disciplinaController.recuperarTodosDisciplina()}"
-		paginator="true" rows="6" selectionMode="single" rowKey="#{item.id}">
+		paginator="true" rows="8" selectionMode="single" rowKey="#{item.id}">
 		<f:facet name="header">Disciplinas</f:facet>
 		<p:column headerText="Nome">
 			<h:outputText value="#{item.nome}" />

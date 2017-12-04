@@ -10,7 +10,7 @@
 
 </h:head> <body> <ui:include src="menu.xhtml" />
  <h:form id="formApresentaHorarioDeEstudo">
-
+<p:messages />
 	<p:fieldset id="tabela" legend="Horário de Estudo">
 		<p:dataGrid id="tabelaH" var="item"
 			value="#{horarioDeEstudoController.recuperarTodosHorarioDeEstudo()}" columns="3">
