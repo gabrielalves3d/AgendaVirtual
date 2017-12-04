@@ -15,7 +15,7 @@
 		<p:fieldset legend="Alterar Anotação">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Data: " />
-				<p:calendar value="#{anotacaoController.selecionar.data}" />
+				<p:inputText value="#{anotacaoController.selecionar.data}" mode="popup" pattern="dd/MM/yyyy" mindate="today" />
 				<h:outputText value="Texto:" />
 				<p:inputTextarea value="#{anotacaoController.selecionar.texto}" rows="6" cols="33" />
 			</p:panelGrid>
@@ -31,8 +31,7 @@
 
 				<p:commandButton value="Sim" icon="ui-icon-check"
 					action="#{anotacaoController.alterar(anotacaoController.selecionar)}"
-					oncomplete="PF('alterarAnotacaoDialog').hide()"
-					update="formAlterarAnotacao" />
+					oncomplete="PF('alterarAnotacaoDialog').hide()" />
 				<p:commandButton value="Não" icon="ui-icon-closethick"
 					oncomplete="PF('alterarAnotacaoDialog').hide()" />
 			</f:facet>

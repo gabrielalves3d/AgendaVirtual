@@ -20,7 +20,7 @@ public class AgendamentoController implements Serializable{
 	RepositorioGenerico<Agendamento, Integer> repositorioAgendamento = null;
 	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
 
-	private Agendamento selecionar;
+	private Agendamento selecionar = new Agendamento();
 	private Disciplina disciplinaSelecionado = new Disciplina();
 	
 	private DisciplinaController disciplinaController = new DisciplinaController();

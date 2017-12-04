@@ -35,11 +35,11 @@
 
 				<p:outputLabel for="agendamentoData" value="Data *:" required="true"
 					requiredMessage="A data é obrigatória!" />
-				<p:calendar id="agendamentoData" value="#{agendamentoController.selecionar.data}" mode="popup" pattern="dd/MM/yyyy" mindate="today" />
+				<p:inputText id="agendamentoData" value="#{agendamentoController.selecionar.data}" mode="popup" mask="99/99/9999" mindate="today" />
 				<p:message for="agendamentoData" />
 
 				<p:outputLabel  value="Hora *:" />
-				<p:calendar id="agendamentoHora" value="#{agendamentoController.selecionar.hora}" pattern="HH:mm"
+				<p:inputText id="agendamentoHora" value="#{agendamentoController.selecionar.hora}" pattern="HH:mm"
 					timeOnly="true" required="true"
 					requiredMessage="A hora é obrigatória!" />
 				<p:message for="agendamentoHora" />
@@ -61,7 +61,7 @@
 
 				<p:commandButton value="Sim" icon="ui-icon-check"
 					action="#{agendamentoController.alterar(agendamentoController.selecionar)}"
-					oncomplete="PF('alterarAgendamentoDialog').hide()" update="formAlterarAgendamento"/>
+					oncomplete="PF('alterarAgendamentoDialog').hide()" />
 				<p:commandButton value="Não" icon="ui-icon-closethick"
 					oncomplete="PF('alterarAgendamentoDialog').hide()" />
 			</f:facet>
