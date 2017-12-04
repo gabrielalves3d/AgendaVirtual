@@ -6,10 +6,11 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"> <head> <title>Agenda
-Virtual</title> </head> <h:body>
+	xmlns:f="http://xmlns.jcp.org/jsf/core">  <title>Agenda
+Virtual</title>  <h:body>
 	<ui:include src="menu.xhtml" />
 	<h:form id="formCadastrarDisciplina">
+		<p:messages />
 		<p:fieldset legend="Cadastrar Disciplina">
 			<p:panelGrid columns="2">
 				<h:outputText value="Nome:" />
@@ -17,27 +18,27 @@ Virtual</title> </head> <h:body>
 					required="true" />
 
 				<h:outputText value="1ª unidade:" />
-				<pe:inputNumber  id="DisciplinaNota1"
-						value="#{bDisciplina.disciplinaNota1}" />		
-			    
-				
+				<pe:inputNumber id="DisciplinaNota1"
+					value="#{bDisciplina.disciplinaNota1}" />
+
+
 				<h:outputText value="2ª unidade:" />
-				<pe:inputNumber  id="DisciplinaNota2"
-						value="#{bDisciplina.disciplinaNota2}" />
-				
+				<pe:inputNumber id="DisciplinaNota2"
+					value="#{bDisciplina.disciplinaNota2}" />
+
 				<h:outputText value="3ª unidade:" />
 				<pe:inputNumber id="DisciplinaNota3"
-						value="#{bDisciplina.disciplinaNota3}" />
+					value="#{bDisciplina.disciplinaNota3}" />
 
 				<h:outputText value="4ª unidade:" />
-				<pe:inputNumber  id="DisciplinaNota4"
-						value="#{bDisciplina.disciplinaNota4}" />
+				<pe:inputNumber id="DisciplinaNota4"
+					value="#{bDisciplina.disciplinaNota4}" />
 
 			</p:panelGrid>
 
 			<p:commandButton value="Cadastrar"
 				action="#{disciplinaController.inserir(bDisciplina.construirDisciplina())}"
-				update=":formCadastrarDisciplina" />
+				update="formCadastrarDisciplina" />
 		</p:fieldset>
 	</h:form>
 

@@ -33,21 +33,18 @@ public class DisciplinaController {
 				FabricaRepositorio.BD);
 	}
 
-	public String inserir(Disciplina disciplina, String nome) {
-	    	 
-	    	 if(((RepositorioDisciplina)this.repositorioDisciplina).recuperarNome(nome) == null){
-	    		 this.repositorioDisciplina.inserir(disciplina);
-	    		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi inserida!"));
-	    		 
-	    	 
-	    	 }else {
-	    		 throw new IllegalArgumentException("Essa disciplina já foi adicionada.");
-	    	 }
-	    	 
-	    	 
-	    	 return "ApresentarDisciplina.xhtml";
-			        
-	     }
+	public String inserir(Disciplina disciplina) {
+
+		if (((RepositorioDisciplina) this.repositorioDisciplina).recuperarNome(disciplina.getNome()) == null) {
+			this.repositorioDisciplina.inserir(disciplina);
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi inserida!"));
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina já existe!"));
+		}
+		return "/ApresentarDisciplina.xhtml?faces-redirect=true";
+
+	}
 
 	public String alterar(Disciplina disciplina) {
 		this.repositorioDisciplina.alterar(disciplina);

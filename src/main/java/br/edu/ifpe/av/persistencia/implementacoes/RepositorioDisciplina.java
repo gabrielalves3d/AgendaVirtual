@@ -31,7 +31,7 @@ public class RepositorioDisciplina implements RepositorioGenerico<Disciplina, In
 
 			public Disciplina recuperarNome(String nome) {
 			        try{
-			            return (Disciplina) dao.recover("'from Disciplina where nome='" +nome+"'");
+			            return (Disciplina) dao.recover("from Disciplina where nome='" +nome+"'").get(0);
 			        }catch
 			                (IndexOutOfBoundsException e){
 			            return null;
