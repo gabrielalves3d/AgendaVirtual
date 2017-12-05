@@ -3,6 +3,7 @@ package br.edu.ifpe.av.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
@@ -16,6 +17,7 @@ import br.edu.ifpe.av.conversores.entidade.SampleEntity;
 
 @Entity
 @Table
+@ManagedBean
 public class Disciplina implements Serializable, SampleEntity {
 	
 	@Id
@@ -117,6 +119,35 @@ public class Disciplina implements Serializable, SampleEntity {
         return hash;
     }
 
+	public Double getNota1() {
+		return this.nota.get(0);
+	}
 	
-
+	public void setNota1(Double nota1) {
+		this.nota.set(0, nota1);
+	}
+	
+	public Double getNota2() {
+		return this.nota.get(1);
+	}
+	
+	public void setNota2(Double nota2) {
+		this.nota.set(1, nota2);
+	}
+	
+	public Double getNota3() {
+		return this.nota.get(2);
+	}
+	
+	public void setNota3(Double nota3) {
+		this.nota.set(2, nota3);
+	}
+	
+	public Double getNota4() {
+		return this.nota.get(3);
+	}
+	
+	public void setNota4(Double nota4) {
+		this.nota.set(3, nota4);
+	}
 }
