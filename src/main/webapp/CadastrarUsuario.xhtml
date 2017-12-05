@@ -26,8 +26,10 @@
 					<f:validateRegex
 						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 				</p:inputText>
-				<p:message for="email" />
-
+				
+				<h:outputText value="Senha: " />
+				<p:password value="#{bUsuario.senha}" required="true"
+						requiredMessage="Você não digitou uma senha."/>
 			</p:panelGrid>
 
 			<p:commandButton value="Cadastrar" id="Cadastrar"
