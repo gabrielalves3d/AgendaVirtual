@@ -12,20 +12,23 @@
 </h:head>
 <h:body>
 
-	<h1 align="center" style="color: black; font-size: 160%">
-	Bem Vindo(a) a Agenda Virtual!</h1>
-		
+	<h1 align="center" style="color: black; font-size: 160%">Bem
+		Vindo(a) a Agenda Virtual!</h1>
+
 	<h:form>
-		<p:growl id="formLogin" showDetail="true" sticky="true"/>
-		
+		<p:growl id="formLogin" showDetail="true" sticky="true" />
+
 		<p:menubar>
-			<p:menuitem value="Cadastrar-se" url="CadastrarUsuario.xhtml"/>
+			<p:menuitem value="Cadastrar-se" url="CadastrarUsuario.xhtml" />
 		</p:menubar>
 
 		<div align="center">
 			<p:panel>
-				<p:panelGrid columns="2" cellpadding="5" style="vertical-align: top">
-
+				<p:panelGrid columns="1" cellpadding="5">
+					<h3 align="center"
+						style="font-weight: 500; font-family: sans-serif;">Entre na
+						sua conta</h3>
+						
 					<p:outputLabel value="E-mail: " />
 					<p:inputText id="email" value="#{bUsuario.email}" required="true"
 						requiredMessage="Por favor insira seu e-mail."
@@ -34,18 +37,16 @@
 						<f:validateRegex
 							pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 					</p:inputText>
-					
+
 					<h:outputText value="Senha: " />
 					<p:password value="#{bUsuario.senha}" required="true"
 						requiredMessage="Você não digitou uma senha." />
-
 				</p:panelGrid>
-
 
 				<p:commandButton value="Entrar" id="Entrar"
 					action="#{usuarioController.inserir(bUsuario.construirUsuario())}"
-					update="formLogin"/>
-					
+					update="formLogin" style="width: 19%" />
+
 			</p:panel>
 		</div>
 
