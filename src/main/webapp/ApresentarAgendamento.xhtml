@@ -13,7 +13,7 @@
 		<p:accordionPanel
 			value="#{agendamentoController.recuperarTodosAgendamento()}"
 			var="item">
-			<p:tab title="Agendamento #{item.id}">
+			<p:tab title="Agendamento">
 				<p:panelGrid columns="2" cellpadding="5">
 					<h:outputText value="Disciplina:" style="font-weight: bold" />
 					<h:outputText value="#{item.disciplina}" />

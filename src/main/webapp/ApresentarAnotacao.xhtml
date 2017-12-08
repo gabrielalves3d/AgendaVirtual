@@ -15,7 +15,7 @@
 	<h:form id="formAnotacao">
 		<p:accordionPanel
 			value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
-			<p:tab title="Anotação #{item.id}">
+			<p:tab title="Anotação">
 				<p:panelGrid columns="2" cellpadding="5">
 					<h:outputText value="Data:" style="font-weight: bold" />
 					<h:outputText value="#{item.data}" />
