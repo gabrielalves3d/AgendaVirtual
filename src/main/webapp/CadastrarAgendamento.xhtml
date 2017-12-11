@@ -8,9 +8,8 @@
 
 <h:body>
 	<ui:include src="menu.xhtml" />
-	<p:messages />
 	<h:form id="formAgendamento">
-		<p:growl id="formAgendamento" showDetail="true" sticky="true" />
+	<p:messages />
 		<p:fieldset legend="Cadastrar Agendamento">
 			<p:panelGrid columns="3">
 			
@@ -29,7 +28,7 @@
                 <p:message for="agendamentoAtividade"/>
                 
 				<p:outputLabel for="agendamentoData" value="Data:" />
-				<p:calendar id="agendamentoData" value="#{bAgendamento.data}" mode="popup" pattern="dd/MM/yyyy" mindate="today" required="true" requiredMessage="A data é obrigatória!"/>
+				<p:inputMask id="agendamentoData" value="#{bAgendamento.data}" mask="99/99/9999" required="true" requiredMessage="A data é obrigatória!"/>
                 <p:message for="agendamentoData"/>
                 
 				<p:outputLabel value="Hora *:" />
@@ -41,7 +40,7 @@
 				<p:inputTextarea value="#{bAgendamento.descricao}" rows="6" cols="33" />
 			</p:panelGrid>
 
-			<p:commandButton value="Cadastrar" actionListener="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
+			<p:commandButton value="Cadastrar" action="#{agendamentoController.inserir(bAgendamento.construirAgendamento())}"
 				update="formAgendamento" />
 		</p:fieldset>
 				

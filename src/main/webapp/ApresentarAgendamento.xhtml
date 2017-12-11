@@ -5,15 +5,21 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+	<title>Agenda Virtual</title>
+
+</h:head>
 
 <h:body>
 	<ui:include src="menu.xhtml" />
-	<p:growl id="mensagem" life="4000" showDetail="true" />
+     <p:messages />
 	<h:form id="formAgendamento">
-		<p:accordionPanel
-			value="#{agendamentoController.recuperarTodosAgendamento()}"
-			var="item">
-			<p:tab title="Agendamento">
+	   <p:fieldset id="tabela" legend="Agendamento">
+		<p:dataGrid id="agendamentoApresentar" var="item"
+			value="#{agendamentoController.recuperarTodosAgendamento()}" columns="3">
+			<div align="center">
+			<p:panel id="panel">
 				<p:panelGrid columns="2" cellpadding="5">
 					<h:outputText value="Disciplina:" style="font-weight: bold" />
 					<h:outputText value="#{item.disciplina}" />
@@ -41,17 +47,19 @@
 
 				<p:confirmDialog header="Atenção!"
 					message="Realmente deseja excluir este agendamento?"
-					showEffect="bounce" id="excluirAgendamento" visible="false"
+					 id="excluirAgendamento" visible="false"
 					widgetVar="painelExcluirAgendamento">
 					<p:commandButton value="Sim" icon="ui-icon-check"
 						action="#{agendamentoController.excluir(agendamentoController.selecionar)}"
 						oncomplete="PF('painelExcluirAgendamento').hide()"
-						update=":formAgendamento" />
+						update="@all" />
 					<p:commandButton value="Não" icon="ui-icon-closethick"
 						onclick="painelExcluirAgendamento.hide();" />
 				</p:confirmDialog>
-			</p:tab>
-		</p:accordionPanel>
+		</p:panel>
+		</div>
+		</p:dataGrid>
+		</p:fieldset>
 
 
 	</h:form>

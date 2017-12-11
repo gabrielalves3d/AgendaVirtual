@@ -11,40 +11,49 @@
 </h:head>
 
 <h:body>
-<ui:include src="menu.xhtml" />
+	<ui:include src="menu.xhtml" />
+	<p:messages />
 	<h:form id="formAnotacao">
-		<p:accordionPanel
-			value="#{anotacaoController.recuperarTodosAnotacao()}" var="item">
-			<p:tab title="Anotação">
-				<p:panelGrid columns="2" cellpadding="5">
-					<h:outputText value="Data:" style="font-weight: bold" />
-					<h:outputText value="#{item.data}" />
+		<p:fieldset id="tabela" legend="Anotação">
+			<p:dataGrid id="anotacaoApresentar" var="item"
+				value="#{anotacaoController.recuperarTodosAnotacao()}" columns="3">
+				<div align="center">
+					<p:panel id="panel" >
+						<p:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Data:" style="font-weight: bold" />
+							<h:outputText value="#{item.data}" />
 
-					<h:outputText value="Texto:" style="font-weight: bold" />
-					<h:outputText value="#{item.texto}" />
+							<h:outputText value="Texto:" style="font-weight: bold" />
+							<h:outputText value="#{item.texto}" />
 
-				</p:panelGrid>
+						</p:panelGrid>
 
-		<p:commandButton icon="ui-icon-trash" oncomplete="PF('painelExcluirAnotacao').show()" title="Excluir">
-			<f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}" />
-		</p:commandButton>
-		<p:commandButton icon="ui-icon-pencil" title="Alterar" action="AlterarAnotacao.xhtml">
-		   <f:setPropertyActionListener value="#{item}" target="#{anotacaoController.selecionar}" />
-		</p:commandButton>
-		
-				<p:confirmDialog header="Atenção!"
-					message="Realmente deseja excluir esta anotacão?"
-					showEffect="bounce" id="excluirAnotacao" visible="false"
-					widgetVar="painelExcluirAnotacao">
-					<p:commandButton value="Sim" icon="ui-icon-check"
-						action="#{anotacaoController.excluir(anotacaoController.selecionar)}"
-						oncomplete="PF('painelExcluirAnotacao').hide()"
-						update=":formAnotacao" />
-					<p:commandButton value="Não" icon="ui-icon-closethick"
-						onclick="painelExcluirAnotacao.hide();" />
-				</p:confirmDialog>
-			</p:tab>
-		</p:accordionPanel>
+						<p:commandButton icon="ui-icon-trash"
+							oncomplete="PF('painelExcluirAnotacao').show()" title="Excluir">
+							<f:setPropertyActionListener value="#{item}"
+								target="#{anotacaoController.selecionar}" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil" title="Alterar"
+							action="AlterarAnotacao.xhtml">
+							<f:setPropertyActionListener value="#{item}"
+								target="#{anotacaoController.selecionar}" />
+						</p:commandButton>
+
+						<p:confirmDialog header="Atenção!"
+							message="Realmente deseja excluir esta anotacão?"
+							id="excluirAnotacao" visible="false"
+							widgetVar="painelExcluirAnotacao">
+							<p:commandButton value="Sim" icon="ui-icon-check"
+								action="#{anotacaoController.excluir(anotacaoController.selecionar)}"
+								oncomplete="PF('painelExcluirAnotacao').hide()" update="@all" />
+							<p:commandButton value="Não" icon="ui-icon-closethick"
+								onclick="painelExcluirAnotacao.hide();" />
+						</p:confirmDialog>
+					</p:panel>
+				</div>
+
+			</p:dataGrid>
+		</p:fieldset>
 	</h:form>
 
 </h:body>

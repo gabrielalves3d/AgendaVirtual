@@ -10,31 +10,17 @@
 <body>
 	<ui:include src="menu.xhtml" />
 	<h:form id="formAlterarAnotacao">
-		<p:growl id="msgAlterarAnotacao" />
 		<p:fieldset legend="Alterar Anotação">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Data: " />
-				<p:inputText value="#{anotacaoController.selecionar.data}" mode="popup" pattern="dd/MM/yyyy" mindate="today" />
+				<p:inputMask value="#{anotacaoController.selecionar.data}" mask="99/99/9999"/>
 				<h:outputText value="Texto:" />
 				<p:inputTextarea value="#{anotacaoController.selecionar.texto}" rows="6" cols="33" />
 			</p:panelGrid>
-			<p:commandButton value="Alterar"
-				oncomplete="PF('alterarAnotacaoDialog').show()"/>
+			<p:commandButton value="Alterar" action="#{agendamentoController.alterar(agendamentoController.selecionar)}"
+			update="formAlterarAnotacao"/>
 		</p:fieldset>
-		<p:dialog id="dialogAnotacao" resizable="false" visible="false"
-			modal="true" showEffect="clip" hideEffect="explode"
-			widgetVar="alterarAnotacaoDialog">
-			<f:facet name="header">Atenção!</f:facet>
-			<h:outputText value="Você realmente deseja alterar este anotação?" />
-			<f:facet name="footer">
-
-				<p:commandButton value="Sim" icon="ui-icon-check"
-					action="#{anotacaoController.alterar(anotacaoController.selecionar)}"
-					oncomplete="PF('alterarAnotacaoDialog').hide()" />
-				<p:commandButton value="Não" icon="ui-icon-closethick"
-					oncomplete="PF('alterarAnotacaoDialog').hide()" />
-			</f:facet>
-		</p:dialog>
+		
 	</h:form>
 
 </body>

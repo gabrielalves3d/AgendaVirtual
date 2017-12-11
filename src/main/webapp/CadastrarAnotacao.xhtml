@@ -13,11 +13,10 @@
 	<ui:include src="menu.xhtml"/>
 	<p:messages/>
 	<h:form id="formAnotacao">
-	  <p:growl id="formAnotacao" showDetail="true" sticky="true" />
 	   <p:fieldset legend="Cadastrar Anotação">
 		<p:panelGrid columns="2">
 			<p:outputLabel value="Data: "/>
-            <p:calendar value="#{bAnotacao.data}" />
+            <p:inputMask value="#{bAnotacao.data}" mask="99/99/9999" />
             <h:outputText value="Texto:"/>
             <p:inputTextarea value="#{bAnotacao.texto}" rows="6" cols="33" />
 		</p:panelGrid>
