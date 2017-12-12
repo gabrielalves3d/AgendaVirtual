@@ -91,11 +91,9 @@ public class Usuario {
 	public void setAnotacao(List<Anotacao> anotacao) {
 		this.anotacao = anotacao;
 	}
-
 	public Agendamento getAgendamento() {
 		return (Agendamento) agendamento;
 	}
-
 	public void setAgendamento(List<Agendamento> agendamento) {
 		this.agendamento = agendamento;
 	}

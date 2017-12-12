@@ -44,7 +44,7 @@
 				</p:panelGrid>
 
 				<p:commandButton value="Entrar" id="Entrar"
-					action="#{usuarioController.inserir(bUsuario.construirUsuario())}"
+					action="#{usuarioController.realizarLogin(bUsuario.getEmail(),bUsuario.getSenha())}"
 					update="formLogin" style="width: 19%" />
 
 			</p:panel>

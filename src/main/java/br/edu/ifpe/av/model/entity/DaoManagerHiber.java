@@ -17,10 +17,9 @@ import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 /**
  *
- * @author mayara
+ * @author mayara, Larissa
  */
 public class DaoManagerHiber {
-
 	private static DaoManagerHiber myself = null;
 
 	private SessionFactory sessionFactory;
@@ -148,5 +147,20 @@ public class DaoManagerHiber {
 	public static void main(String args[]) {
 		DaoManagerHiber.getInstance();
 	}
-
+	
+	public boolean recuperarUsuarioLogin(String email, String senha){
+		try {
+			System.out.println("email "+email);
+			System.out.println("senha "+senha);
+			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+			Session session=sessionFactory.openSession();
+			session.beginTransaction();
+			Query query=session.createQuery("from Usuario where email=:email and senha=:senha");
+			query.setString("email",email);
+			query.setString("senha",senha);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
 }
