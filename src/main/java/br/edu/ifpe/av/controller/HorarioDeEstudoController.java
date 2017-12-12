@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.HorarioDeEstudo;
+import br.edu.ifpe.av.model.entity.Usuario;
 import br.edu.ifpe.av.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 
@@ -21,10 +22,18 @@ public class HorarioDeEstudoController implements Serializable{
 	
 	RepositorioGenerico <HorarioDeEstudo, Integer> repositorioHorarioDeEstudo = null;
 	RepositorioGenerico<Disciplina, Integer> repositorioDisciplina = null;
-	
-    private HorarioDeEstudo selecionar;
+	private Usuario usuarioSelecionado = new Usuario();
+	private HorarioDeEstudo selecionar;
     private Disciplina disciplinaSelecionado = new Disciplina();
     private DisciplinaController disciplinaController = new DisciplinaController();
+  
+    public Usuario getUsuarioSelecionado() {
+		return usuarioSelecionado;
+	}
+
+	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+		this.usuarioSelecionado = usuarioSelecionado;
+	}
     
     public Disciplina getDisciplinaSelecionado() {
 		return disciplinaSelecionado;
@@ -48,7 +57,7 @@ public class HorarioDeEstudoController implements Serializable{
     }
     
      public String inserir(HorarioDeEstudo horarioDeEstudo) {
-    	//horarioDeEstudo.getDisciplina().add(disciplinaSelecionado);
+    	 horarioDeEstudo.setUsuario(usuarioSelecionado);
     	 horarioDeEstudo.setDisciplina(disciplinaSelecionado);
  		this.repositorioHorarioDeEstudo.inserir(horarioDeEstudo);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Horario de Estudo foi inserido!"));
@@ -80,6 +89,7 @@ public class HorarioDeEstudoController implements Serializable{
     public List<Disciplina> recuperarTodosDisciplina() {
         return disciplinaController.repositorioDisciplina.recuperarTodos();
     }
+    
     
 }
 

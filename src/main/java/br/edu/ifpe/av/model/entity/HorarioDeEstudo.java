@@ -29,6 +29,16 @@ public class HorarioDeEstudo {
 	private String horario;
 	@OneToOne
 	private Disciplina disciplina;
+	@OneToOne
+	private Usuario usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public HorarioDeEstudo(int id, String horario, Disciplina disciplina) {
 		super();
