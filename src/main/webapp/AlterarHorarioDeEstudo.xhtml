@@ -21,8 +21,10 @@
 					required="true" />
 			</p:selectOneMenu>
 			<p:outputLabel for="Hora" value="Hora:" />
-			<p:calendar id="Hora" value="#{bHorarioDeEstudo.horario}"
-				pattern="HH:mm" timeOnly="true" />
+			<p:calendar id="Hora" value="#{horarioDeEstudoController.selecionar.horario}"
+				pattern="HH:mm" timeOnly="true" >
+				<f:convertDateTime type="time" pattern="HH:mm"  />
+			</p:calendar>
 
 		</p:panelGrid>
 		<p:commandButton value="Alterar"
