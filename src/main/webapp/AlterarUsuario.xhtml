@@ -20,6 +20,7 @@
 				<p:inputText id="UsuarioNome" value="#{usuarioController.selecionar.nome}" required="true" />
 				<h:outputText value="E-mail:" />
 				<p:inputText id="UsuarioEmail" value="#{usuarioController.selecionar.email}" required="true" />	
+				
 			</p:panelGrid>
 			<p:commandButton value="Alterar"
 				action="#{usuarioController.alterar(usuarioController.selecionar)}" />
