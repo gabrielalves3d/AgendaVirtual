@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Disciplina;
+import br.edu.ifpe.av.model.entity.Usuario;
 import br.edu.ifpe.av.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 
@@ -22,6 +23,8 @@ public class AgendamentoController implements Serializable{
 
 	private Agendamento selecionar = new Agendamento();
 	private Disciplina disciplinaSelecionado = new Disciplina();
+	private Usuario usuarioSelecionado = new Usuario();
+	
 	
 	private DisciplinaController disciplinaController = new DisciplinaController();
 
@@ -31,6 +34,15 @@ public class AgendamentoController implements Serializable{
 
 	public void setDisciplinaSelecionado(Disciplina disciplinaSelecionado) {
 		this.disciplinaSelecionado = disciplinaSelecionado;
+	}
+	
+
+	public Usuario getUsuarioSelecionado() {
+		return usuarioSelecionado;
+	}
+
+	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+		this.usuarioSelecionado = usuarioSelecionado;
 	}
 
 	public Agendamento getSelecionar() {
@@ -48,6 +60,7 @@ public class AgendamentoController implements Serializable{
 
 	public String inserir(Agendamento agendamento) {
 		agendamento.setDisciplina(disciplinaSelecionado);
+		agendamento.setUsuario(usuarioSelecionado);
 		
 		this.repositorioAgendamento.inserir(agendamento);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agendamento foi inserido!"));

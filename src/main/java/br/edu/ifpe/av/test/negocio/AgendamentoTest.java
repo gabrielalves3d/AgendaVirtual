@@ -91,5 +91,12 @@ public class AgendamentoTest {
 		ag.setDisciplina(disciplina);
 		Assert.assertEquals(disciplina, ag.getDisciplina());
 	}
+	@Test
+	public void validarDataNull(){
+		Agendamento ag = new Agendamento(1,"Trabalho","18/02/1999","12:00","csdcder", d , usr);
+		boolean resultado = ag.validarData(ag.getData());
+		Assert.assertTrue(resultado);
+		
+	}
 }
 	

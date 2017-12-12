@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.ifpe.av.model.entity.Anotacao;
+import br.edu.ifpe.av.model.entity.Usuario;
 import br.edu.ifpe.av.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
 
@@ -18,6 +19,8 @@ public class AnotacaoController {
 	RepositorioGenerico<Anotacao, Integer> repositorioAnotacao = null;
 
 	private Anotacao selecionar;
+	private Usuario usuarioSelecionado = new Usuario();
+	
 
 	public Anotacao getSelecionar() {
 		return selecionar;
@@ -26,6 +29,15 @@ public class AnotacaoController {
 	public void setSelecionar(Anotacao selecionar) {
 		this.selecionar = selecionar;
 	}
+	 
+
+	public Usuario getUsuarioSelecionado() {
+		return usuarioSelecionado;
+	}
+
+	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+		this.usuarioSelecionado = usuarioSelecionado;
+	}
 
 	public AnotacaoController() {
 		this.repositorioAnotacao = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Anotacao,
@@ -33,6 +45,7 @@ public class AnotacaoController {
 	}
 
 	public String inserir(Anotacao anotacao) {
+		anotacao.setUsuario(usuarioSelecionado);
 		
 		try {
 		this.repositorioAnotacao.inserir(anotacao);
