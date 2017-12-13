@@ -4,10 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.SchedulerFactory;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
+
+import br.edu.ifpe.av.controller.util.AgendamentoJob;
 import br.edu.ifpe.av.model.entity.Agendamento;
 import br.edu.ifpe.av.model.entity.Disciplina;
 import br.edu.ifpe.av.model.entity.Usuario;
@@ -23,7 +35,7 @@ public class AgendamentoController implements Serializable{
 
 	private Agendamento selecionar = new Agendamento();
 	private Disciplina disciplinaSelecionado = new Disciplina();
-	private Usuario usuarioSelecionado = new Usuario();
+	//private Usuario usuarioSelecionado = new Usuario();
 	
 	
 	private DisciplinaController disciplinaController = new DisciplinaController();
@@ -37,13 +49,13 @@ public class AgendamentoController implements Serializable{
 	}
 	
 
-	public Usuario getUsuarioSelecionado() {
+	/*public Usuario getUsuarioSelecionado() {
 		return usuarioSelecionado;
 	}
 
 	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
 		this.usuarioSelecionado = usuarioSelecionado;
-	}
+	}*/
 
 	public Agendamento getSelecionar() {
 		return selecionar;
@@ -57,10 +69,31 @@ public class AgendamentoController implements Serializable{
 		this.repositorioAgendamento = FabricaRepositorio.fabricarRepositorio(FabricaRepositorio.Agendamento,
 				FabricaRepositorio.BD);
 	}
+	
+	@PostConstruct
+	public Scheduler init() {
+		//System.out.println("Inicializou o Agendamento Controller!!");
+		Scheduler sched = null;
+
+		try {
+			SchedulerFactory sf = new StdSchedulerFactory();
+			sched = sf.getScheduler(); 
+			JobDetail job = JobBuilder.newJob(AgendamentoJob.class).withIdentity("job1", "group1").build();
+			CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
+					.withSchedule(CronScheduleBuilder.cronSchedule("0 0/1 0 * * ?" )).build();
+			sched.scheduleJob(job, trigger);
+			
+			sched.start();
+		} catch (SchedulerException e) {
+			e.printStackTrace();
+		}
+		return sched;
+	}
+	
 
 	public String inserir(Agendamento agendamento) {
 		agendamento.setDisciplina(disciplinaSelecionado);
-		agendamento.setUsuario(usuarioSelecionado);
+		//agendamento.setUsuario(usuarioSelecionado);
 		
 		this.repositorioAgendamento.inserir(agendamento);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agendamento foi inserido!"));
