@@ -12,7 +12,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class EnviarEmail {
-
+	
+	
 	public void postMail(String recipient, String subject, String message, String from) {
 		boolean debug = false;
 
@@ -57,6 +58,11 @@ public class EnviarEmail {
 			return new PasswordAuthentication(username, password);
 		}
 	}
+	public static void main(String[] args) {
+		EnviarEmail enviar = new EnviarEmail();
+		enviar.postMail("ppo.agendavirtual@gmail.com", "Alerta - Agendamento", "Verfique seus agendamentos no sistema", "ramosavanessa@gmail.com");
+	}
+
 
 }
 

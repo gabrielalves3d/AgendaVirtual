@@ -75,7 +75,7 @@ public class UsuarioController {
 
 		if(email!=null && senha!=null){
 			dao.recuperarUsuarioLogin(email, senha);
-            return "/menu.xhtml";
+            return "/CadastrarDisciplina.xhtml";
 		}
 		return "/index.xhtml";
 	}
