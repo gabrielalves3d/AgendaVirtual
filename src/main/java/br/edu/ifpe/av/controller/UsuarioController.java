@@ -45,14 +45,14 @@ public class UsuarioController {
 		} catch(Exception x) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(x.getMessage()));
 		}
-		return "CadastrarDisciplina.xhtml";
+		return "restrito/CadastrarDisciplina.xhtml";
 	}
 
 	public String alterar(Usuario usuario) {
 		this.repositorioUsuario.alterar(usuario);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário alterado!"));
 
-		return "ApresentarUsuario.xhtml";
+		return "restrito/ApresentarUsuario.xhtml";
 	}
 
 	public Usuario recuperarUsuario(int id) {
@@ -62,7 +62,7 @@ public class UsuarioController {
 	public String excluir(Usuario usuario) {
 		this.repositorioUsuario.excluir(usuario);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados excluídos com sucesso!"));
-		return "ApresentarUsuario.xhtml";
+		return "restrito/ApresentarUsuario.xhtml";
 
 	}
 
@@ -75,7 +75,7 @@ public class UsuarioController {
 
 		if(email!=null && senha!=null){
 			dao.recuperarUsuarioLogin(email, senha);
-            return "/CadastrarDisciplina.xhtml";
+            return "restrito/CadastrarDisciplina.xhtml";
 		}
 		return "/index.xhtml";
 	}
