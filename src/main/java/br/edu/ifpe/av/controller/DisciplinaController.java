@@ -42,7 +42,8 @@ public class DisciplinaController {
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina já existe!"));
 		}
-		return "/ApresentarDisciplina.xhtml?faces-redirect=true";
+		return "ApresentarDisciplina.xhtml";
+		//return "/ApresentarDisciplina.xhtml?faces-redirect=true";
 
 	}
 
