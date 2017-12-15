@@ -11,7 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class PTDEmail {
+public class EnviarEmail {
 
 	public void postMail(String recipient, String subject, String message, String from) {
 		boolean debug = false;
