@@ -42,7 +42,7 @@ public class DisciplinaController {
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina já existe!"));
 		}
-		return "ApresentarDisciplina.xhtml";
+		return "retrito/ApresentarDisciplina.xhtml";
 		//return "/ApresentarDisciplina.xhtml?faces-redirect=true";
 
 	}
@@ -51,7 +51,7 @@ public class DisciplinaController {
 		this.repositorioDisciplina.alterar(disciplina);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi alterada!"));
 
-		return "ApresentarDisciplina.xhtml";
+		return "restrito/ApresentarDisciplina.xhtml";
 	}
 
 	public Disciplina recuperarDisciplina(int id) {
@@ -62,7 +62,7 @@ public class DisciplinaController {
 		this.repositorioDisciplina.excluir(disciplina);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("A disciplina foi excluída!"));
 
-		return "ApresentarDisciplina.xhtml";
+		return "restrito/ApresentarDisciplina.xhtml";
 	}
 
 	public List<Disciplina> recuperarTodosDisciplina() {
