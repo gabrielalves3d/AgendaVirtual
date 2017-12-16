@@ -18,10 +18,9 @@
 	<h:form>
 		<p:growl id="formLogin" showDetail="true" sticky="true" />
 
-		<p:menubar>
-			<p:menuitem value="Cadastrar-se" url="CadastrarUsuario.xhtml" />
-		</p:menubar>
-
+			<p:panel><h4 style="font-weight: 500; font-family: sans-serif;">Ainda não
+				possui uma conta?</h4><h:outputLink value="CadastrarUsuario.xhtml">Cadastre-se</h:outputLink>
+			</p:panel>
 		<div align="center">
 			<p:panel>
 				<p:panelGrid columns="1" cellpadding="5">
@@ -59,7 +58,7 @@
 					<h:outputLink value="ajuda.xhtml"
 						style="margin-right: 70px;
 					 	font-size: small;">Ajuda</h:outputLink>
-					 	
+
 					<small style="font-size: x-small;">©2017 AGENDA VIRTUAL</small>
 				</center>
 			</p:panel>
