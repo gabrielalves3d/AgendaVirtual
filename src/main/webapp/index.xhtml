@@ -28,7 +28,7 @@
 					<h3 align="center"
 						style="font-weight: 500; font-family: sans-serif;">Entre na
 						sua conta</h3>
-						
+
 					<p:outputLabel value="E-mail: " />
 					<p:inputText id="email" value="#{bUsuario.email}" required="true"
 						requiredMessage="Por favor insira seu e-mail."
@@ -50,14 +50,20 @@
 			</p:panel>
 		</div>
 		<p:layoutUnit position="south">
-                <p:panel>
-                    <center>
-                        <p:commandLink value="Sobre" style="margin-right: 70px; font-size: small;"/>
-                        <p:commandLink value="Ajuda" style="margin-right: 70px; font-size: small;"/>
-                        <small style="font-size: x-small;">©2017 AGENDA VIRTUAL</small>
-                    </center>
-                </p:panel>
-            </p:layoutUnit>
+			<p:panel>
+				<center>
+					<h:outputLink value="sobre.xhtml"
+						style="margin-right: 70px;
+					 	font-size: small;">Sobre</h:outputLink>
+
+					<h:outputLink value="ajuda.xhtml"
+						style="margin-right: 70px;
+					 	font-size: small;">Ajuda</h:outputLink>
+					 	
+					<small style="font-size: x-small;">©2017 AGENDA VIRTUAL</small>
+				</center>
+			</p:panel>
+		</p:layoutUnit>
 
 	</h:form>
 </h:body>
