@@ -1,28 +1,39 @@
 package br.edu.ifpe.av.controller;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.edu.ifpe.av.model.entity.DaoManagerHiber;
+import br.edu.ifpe.av.model.entity.UsuDao;
 import br.edu.ifpe.av.model.entity.Usuario;
 import br.edu.ifpe.av.persistencia.generico.RepositorioGenerico;
 import br.edu.ifpe.av.persistencia.implementacoes.FabricaRepositorio;
+import br.edu.ifpe.av.persistencia.implementacoes.RepositorioUsuario;
 
 
 /**
-*
-* @author Larissa
-*/
+ *
+ * @author Larissa
+ */
 
 @ManagedBean(name = "usuarioController")
 @SessionScoped
 public class UsuarioController {
 
 	RepositorioGenerico<Usuario, Integer> repositorioUsuario = null;
-
+	private Usuario usuario;
+	UsuDao usuDao;
 	private Usuario selecionar;
+
+	@PostConstruct
+	public void inicializar() {
+		usuario = new Usuario();
+		usuDao =  new RepositorioUsuario();
+	}
 
 	public Usuario getSelecionar() {
 		return selecionar;
@@ -69,15 +80,36 @@ public class UsuarioController {
 	public List<Usuario> recuperarTodosUsuario() {
 		return this.repositorioUsuario.recuperarTodos();
 	}
+	
+	
 
 	DaoManagerHiber dao = DaoManagerHiber.getInstance();
+
+
 	public String realizarLogin(String email, String senha){
 
 		if(email!=null && senha!=null){
-			dao.recuperarUsuarioLogin(email, senha);
-            return "restrito/CadastrarDisciplina.xhtml";
-		}
-		return "/index.xhtml";
-	}
+			if (this.usuDao != null) {
+				Usuario usu = this.usuDao.recuperarEmail(email);
 
+				if(usu != null){
+					if (usu.getEmail().equals(email)&& usu.getSenha().equals(senha) ) {
+
+						dao.recuperarUsuarioLogin(email, senha);
+						return "restrito/CadastrarDisciplina.xhtml";
+					}
+				}
+			}
+		}
+	
+		return "DADOS INCORRETOS";
+	
+		
+
+}
+	 public String sairDoSistema() {
+	        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	        return "/index.xhtml";
+	 }
+	
 }

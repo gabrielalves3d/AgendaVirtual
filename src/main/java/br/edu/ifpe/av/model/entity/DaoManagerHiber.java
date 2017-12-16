@@ -150,14 +150,22 @@ public class DaoManagerHiber {
 	
 	public boolean recuperarUsuarioLogin(String email, String senha){
 		try {
+
 			System.out.println("email "+email);
 			System.out.println("senha "+senha);
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-			Session session=sessionFactory.openSession();
+			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-			Query query=session.createQuery("from Usuario where email=:email and senha=:senha");
+			Query query = session.createQuery("from Usuario where email=:email and senha=:senha");
 			query.setString("email",email);
 			query.setString("senha",senha);
+			List list=query.list();
+			System.out.println("list size "+list.size());
+			if(list.size()==1){
+				return true;
+			}else{
+				return false;
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}

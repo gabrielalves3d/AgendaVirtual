@@ -14,6 +14,8 @@
 			Olá estudante!
 			<p:splitButton type="button" icon="ui-icon-person" url="menu.xhtml">
 			 	<p:menuitem value="Visualizar Conta" url="ApresentarUsuario.xhtml" />
+			 	<p:menuitem value="Sair" action="#{usuarioController.sairDoSistema()}"/>
+			 	
 			</p:splitButton>
 		</h1>
 		<p:menubar>
@@ -32,7 +34,9 @@
 					url="ApresentarHorarioDeEstudo.xhtml"></p:menuitem>
 				<p:menuitem value="Agendamento" url="ApresentarAgendamento.xhtml"></p:menuitem>
 				<p:menuitem value="Anotação" url="ApresentarAnotacao.xhtml"></p:menuitem>
+				
 			</p:submenu>
+			
 		</p:menubar>
 
 	</h:form>
