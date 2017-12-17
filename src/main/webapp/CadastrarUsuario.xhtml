@@ -13,11 +13,9 @@
 		<p:growl id="formUsuario" showDetail="true" sticky="true" />
 
 		<p:panel header="Cadastrar Usuario">
-			<p:panelGrid columns="2" cellpadding="5">
-			
+			<p:panelGrid columns="2" cellpadding="5" >
 				<p:outputLabel value="Nome: " />
 				<p:inputText value="#{bUsuario.nome}" required="true" />
-
 				<p:outputLabel value="E-mail: " />
 				<p:inputText id="email" value="#{bUsuario.email}" required="true"
 					requiredMessage="Por favor insira seu e-mail."
@@ -27,9 +25,16 @@
 						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 				</p:inputText>
 				
-				<h:outputText value="Senha: " />
-				<p:password value="#{bUsuario.senha}" required="true"
-						requiredMessage="Você não digitou uma senha."/>
+				
+				
+				
+				<h:outputLabel value="Senha: " for="pwd"/>
+				<p:password value="#{bUsuario.senha}" required="true" id="pwd"
+						requiredMessage="Voce nao digitou a senha."  match="pwd2" label="Senha 1"/>
+						
+				<h:outputLabel value="Verificar senha: " for="pwd2" />
+				<p:password value="#{bUsuario.senha}" required="true" id="pwd2"
+						requiredMessage="Voce nao digitou a senha." label="Senha 2"/>
 			</p:panelGrid>
 
 			<p:commandButton value="Cadastrar" id="Cadastrar"
