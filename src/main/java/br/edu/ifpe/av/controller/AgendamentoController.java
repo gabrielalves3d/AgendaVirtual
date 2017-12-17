@@ -35,7 +35,7 @@ public class AgendamentoController implements Serializable{
 
 	private Agendamento selecionar = new Agendamento();
 	private Disciplina disciplinaSelecionado = new Disciplina();
-	//private Usuario usuarioSelecionado = new Usuario();
+	private Usuario usuarioSelecionado = new Usuario();
 	
 	
 	private DisciplinaController disciplinaController = new DisciplinaController();
@@ -49,14 +49,13 @@ public class AgendamentoController implements Serializable{
 	}
 	
 
-	/*public Usuario getUsuarioSelecionado() {
+	public Usuario getUsuarioSelecionado() {
 		return usuarioSelecionado;
 	}
 
 	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
 		this.usuarioSelecionado = usuarioSelecionado;
-	}*/
-
+	}
 	public Agendamento getSelecionar() {
 		return selecionar;
 	}
@@ -93,13 +92,13 @@ public class AgendamentoController implements Serializable{
 
 	public String inserir(Agendamento agendamento) {
 		agendamento.setDisciplina(disciplinaSelecionado);
-		//agendamento.setUsuario(usuarioSelecionado);
+		agendamento.setUsuario(usuarioSelecionado);
 		
 		this.repositorioAgendamento.inserir(agendamento);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agendamento foi inserido!"));
 		
 
-		return "ApresentarAgendamento.xhtml";
+		return "restrito/ApresentarAgendamento.xhtml";
 
 	}
 
@@ -107,7 +106,7 @@ public class AgendamentoController implements Serializable{
 		this.repositorioAgendamento.alterar(agendamento);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("O Agendamento foi alterado!"));
 
-		return "ApresentarAgendamento.xhtml";
+		return "restrito/ApresentarAgendamento.xhtml";
 	}
 
 	public Agendamento recuperarAgendamento(int id) {
@@ -127,6 +126,10 @@ public class AgendamentoController implements Serializable{
 	public List<Disciplina> recuperarTodosDisciplina() {
         return disciplinaController.repositorioDisciplina.recuperarTodos();
     }
+	
+	/*public Agendamento recuperarAgendamentoData(String data){
+		return this.repositorioAgendamento.recuperar(data);
+	}*/
 	
 	
  

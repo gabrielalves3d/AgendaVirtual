@@ -1,6 +1,7 @@
 package br.edu.ifpe.av.model.entity;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Agendamento {
 	private String Descricao;
 	@OneToOne
 	private Disciplina disciplina;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="usuario_id", updatable=false)
 	private Usuario usuario;
 
