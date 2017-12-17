@@ -13,18 +13,31 @@
 </h:head>
 <body>
 	<ui:include src="menu.xhtml" />
-	<h:form id="formAlterarUsuario">
-		<p:fieldset legend="Alterar Usuario">
+	<h:form>
+	
+	<p:growl id="formAlterarUsuario" showDetail="true" sticky="true" />
+	
+		<p:panel legend="Alterar Usuario">
+		
 			<p:panelGrid columns="2">
 				<h:outputText value="Nome:" />
 				<p:inputText id="UsuarioNome" value="#{usuarioController.selecionar.nome}" required="true" />
-				<h:outputText value="E-mail:" />
-				<p:inputText id="UsuarioEmail" value="#{usuarioController.selecionar.email}" required="true" />	
+				
+				
+				<h:outputLabel value="E-mail:" />
+				<p:inputText id="UsuarioEmail" value="#{usuarioController.selecionar.email}" required="true" 
+					validatorMessage="Formato de e-mail invalido"
+					requiredMessage="Por favor insira seu e-mail.">
+				<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
 				
 			</p:panelGrid>
+			
 			<p:commandButton value="Alterar"
-				action="#{usuarioController.alterar(usuarioController.selecionar)}" />
-	 	</p:fieldset> 
+				action="#{usuarioController.alterar(usuarioController.selecionar)}" 
+				update="formAlterarUsuario"/>
+	 	</p:panel> 
 	</h:form>
 </body>
 </html>
