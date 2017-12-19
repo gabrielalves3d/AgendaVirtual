@@ -22,7 +22,7 @@ import br.edu.ifpe.av.persistencia.implementacoes.RepositorioUsuario;
 
 @ManagedBean(name = "usuarioController")
 @SessionScoped
-public class UsuarioController {
+public class UsuarioController{
 
 	RepositorioGenerico<Usuario, Integer> repositorioUsuario = null;
 	private Usuario usuario;
@@ -49,14 +49,15 @@ public class UsuarioController {
 	}
 
 	public String inserir(Usuario usuario) {
-
-		try {
+		if (((RepositorioUsuario) this.repositorioUsuario).recuperarEmail(usuario.getEmail()) == null) {
 			this.repositorioUsuario.inserir(usuario);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário inserido!"));
-		} catch(Exception x) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(x.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com suceso!"));
+
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Este e-mail já foi cadastrado!"));
 		}
-		return "restrito/CadastrarDisciplina.xhtml";
+		return "CadastrarDisciplina.xhtml";
+
 	}
 
 	public String alterar(Usuario usuario) {
@@ -67,21 +68,22 @@ public class UsuarioController {
 	}
 
 	public Usuario recuperarUsuario(int id) {
+
 		return this.repositorioUsuario.recuperar(id);
 	}
 
 	public String excluir(Usuario usuario) {
 		this.repositorioUsuario.excluir(usuario);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Dados excluídos com sucesso!"));
-		return "restrito/ApresentarUsuario.xhtml";
+		return "ApresentarUsuario.xhtml";
 
 	}
 
 	public List<Usuario> recuperarTodosUsuario() {
 		return this.repositorioUsuario.recuperarTodos();
 	}
-	
-	
+
+
 
 	DaoManagerHiber dao = DaoManagerHiber.getInstance();
 
@@ -101,15 +103,17 @@ public class UsuarioController {
 				}
 			}
 		}
-	
-		return "DADOS INCORRETOS";
-	
-		
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Dados incorretos!", ""));
+		return "";
 
-}
-	 public String sairDoSistema() {
-	        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-	        return "/index.xhtml";
-	 }
-	
+
+
+	}
+	public String sairDoSistema() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/index.xhtml";
+	}
+
+
 }

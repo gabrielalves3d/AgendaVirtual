@@ -16,7 +16,7 @@
 		Vindo(a) a Agenda Virtual!</h1>
 
 	<h:form>
-		<p:growl id="formLogin" showDetail="true" sticky="true" />
+		<p:growl id="mensagem" showDetail="true" sticky="true" />
 
 			<p:panel><h4 style="font-weight: 500; font-family: sans-serif;">Ainda não
 				possui uma conta?</h4><h:outputLink value="CadastrarUsuario.xhtml">Cadastre-se</h:outputLink>
@@ -44,7 +44,7 @@
 
 				<p:commandButton value="Entrar" id="Entrar"
 					action="#{usuarioController.realizarLogin(bUsuario.getEmail(),bUsuario.getSenha())}"
-					update="formLogin" style="width: 19%" />
+					update="mensagem" style="width: 19%" />
 
 			</p:panel>
 		</div>
